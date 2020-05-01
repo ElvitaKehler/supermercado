@@ -1,0 +1,41 @@
+[33mcommit 4d7efc6a32578e39304b20f19a4e4a770d1c2e09[m
+Author: Sergio Yañez <sergiomyanez02@gmail.com>
+Date:   Fri May 1 16:05:59 2020 -0300
+
+    consulta de producto por rubro terminada
+
+[33mcommit 577fc5f468d772af9fd0979def9fac79c17c717e[m
+Author: ElvitaKehler <mekdy.20@gmail.com>
+Date:   Fri May 1 11:27:19 2020 -0300
+
+    avance en showProductRubros
+
+[33mcommit e63f18b1ce2487ccf4e3087bc447b2a491d5ce71[m
+Author: Sergio Yañez <sergiomyanez02@gmail.com>
+Date:   Fri May 1 03:38:23 2020 -0300
+
+    route controllers models views funcionan pero hay mucho para acomodar, mucho codigo repetido
+
+[33mcommit 279fece1895d49a7a29965917430ffa79b1206d5[m
+Author: Sergio Yañez <sergiomyanez02@gmail.com>
+Date:   Fri May 1 01:02:02 2020 -0300
+
+    router controllers model y views funcionando
+
+[33mcommit c148c5bfa70d53802a883c82f5d172edf0a50d1f[m
+Author: ElvitaKehler <mekdy.20@gmail.com>
+Date:   Thu Apr 30 18:16:29 2020 -0300
+
+    creacion de los archivos view, model y controller
+
+[33mcommit e9109671edf62239c566d731ed47d9ea8b3a3830[m
+Author: ElvitaKehler <mekdy.20@gmail.com>
+Date:   Thu Apr 30 10:25:23 2020 -0300
+
+    se crean carpetas, htaccess y comienzo de router
+
+[33mcommit 331631865f5ace6f9e98454efce3f41db617a53e[m
+Author: ElvitaKehler <63749713+ElvitaKehler@users.noreply.github.com>
+Date:   Thu Apr 30 09:49:30 2020 -0300
+
+    Initial commit

@@ -13,7 +13,9 @@ class ProductView {
             <title>Supermercado LA WEB</title>
         </head>
         <body>
+        <div class="container">
         <h1> Supermercado LA WEB </h1>
+        </div>
         <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary mb-3">
             <a class="navbar-brand" href="listar">Productos</ea>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,18 +38,28 @@ class ProductView {
 
     public function showProduct($productos){
         echo $this->encabezado();
-        echo '<ul class="list-group">';
+       
+        echo '<h2> Productos disponibles </h2>';
+
+        echo "<table class='table table-hover table-striped table-bordered table table-condensed' style='width:900px'>";
+      
+        echo "<tr><th scope='col'>Producto</th><th scope='col'>Rubro</th><th scope='col'>Precio</th></tr> ";
+        
+       
         foreach ($productos as $producto) {
             
-            echo '<li class="list-group-item">';
-            echo ' <b>' . $producto->nombre . "</b> - ";
-            echo ' <b>' .$producto->marca. "</b> - ";
-            echo ' <b>' .$producto->precio. "</b> - ";
-            echo '</li>';
+            echo '<tr>';
+            echo ' <td> <b>' .$producto->nombre . "</b> </td>";
+            echo ' <td> <b>' .$producto->marca. "</b> </td> ";
+            echo ' <td> <b>' .$producto->precio. "</b> </td> ";
+            echo '</tr>';
         }
-        echo '</ul>';
+       
+
+       
        
     }
+
     public function showProductRubros($productos){
         echo $this->encabezado();
         echo '<ul class="list-group">';
