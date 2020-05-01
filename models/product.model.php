@@ -83,24 +83,32 @@ class ProductoPorRubroModel{
         return $productos;
     }
 
-    public function getProductosPorRubros()
-    {
-        $db = $this->createConection();
+    public function getProductosPorRubros($rubro){
+        // var_dump($rubro);die;  EL RUBRO LELGA OK!
+      
+        $db = $this->createConection(); // 1. abro la conexión con MySQL 
 
 
         //Creamos la consulta para obtener una categoria
-        $sentencia = $db->prepare("SELECT * FROM productos WHERE id_rubro=?"); // prepara la consulta
-        $sentencia->execute(); // ejecuta
-        $productos = $sentencia->fetchAll(PDO::FETCH_OBJ); // obtiene la respuesta
+        $sentencia = $db->prepare("SELECT productos.nombre, productos.marca, productos.precio, rubros.nombre
+        FROM productos INNER JOIN rubros ON rubros.id_rubro=productos.id_rubro "); // prepara la consulta
 
-        var_dump($productos);
-        die;
-        foreach ($productos as $producto) {
-            $p['producto'] = $producto->nombre;
-            $p['marca'] = $producto->marca;
-            $p['precio'] = $producto->precio;
+        $sentencia->execute(); // ejecuta --> LLEGA BIEN SIN FILTRAR POR RUBRO
+        $productos = $sentencia->fetchAll(PDO::FETCH_OBJ); // obtiene la respuesta
+       // var_dump($productos);die;
+       
+        /*foreach ($productos as $producto) {
+            if ($producto->id_rubro == $rubro){
+                $p['producto'] = $producto->nombre;
+                $p['marca'] = $producto->marca;
+                $p['precio'] = $producto->precio;
+                $p['rubro'] =$producto->oid_rubr;
+
+            }
+
             
-        }
+            
+        }*/
 
         return $productos;
     } 

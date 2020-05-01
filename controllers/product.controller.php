@@ -71,15 +71,16 @@ class RubroController {
         $this->model = new RubroModel();
         $this->view = new RubroView();
     }
+   
     public function showRubros(){
 
         $rubros=$this->model->getRubros();
         
-
         // actualizo la vista
-        $this->view->showRubros($rubros);
+        $this->view->rubros($rubros);
     }
 }
+
 class ProdPorRubroController {
 
     private $model;
@@ -89,13 +90,12 @@ class ProdPorRubroController {
         $this->model = new ProductoPorRubroModel();
         $this->view = new ProductoPorRubroView();
     }
-    public function showProductosPorRubros(){
+    public function showProductosPorRubro($rubro){
 
-        $productos=$this->model->getProductosPorRubros();
+        $productos=$this->model->getProductosPorRubros($rubro);
         
-
         // actualizo la vista
-        $this->view->showProductosPorRubros($productos);
+        $this->view->showProductRubros($productos);
     }
 }
 
