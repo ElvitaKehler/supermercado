@@ -30,8 +30,7 @@
         break;
         case 'productos_por_rubros': // /lista productos por rubro /n  ->   showRubros()
             // instanciando un objeto de la clase RubroController
-            $controller = new ProdPorRubroController();
-            
+            $controller = new ProductController();            
             $controller->showProductosPorRubro($parametros[1]);
         break;
 
