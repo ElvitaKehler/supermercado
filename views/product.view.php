@@ -13,7 +13,7 @@ class ProductView {
             <title>Supermercado LA WEB</title>
         </head>
         <body>
-        <div class="container">
+        <div  class="panel panel-primary">
         <h1> Supermercado LA WEB </h1>
         </div>
         <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary mb-3">
@@ -43,7 +43,7 @@ class ProductView {
 
         echo "<table class='table table-hover table-striped table-bordered table table-condensed' style='width:900px'>";
       
-        echo "<tr><th scope='col'>Producto</th><th scope='col'>Rubro</th><th scope='col'>Precio</th></tr> ";
+        echo "<tr style='color:blue'><th scope='col'>Producto</th><th scope='col'>Rubro</th><th scope='col'>Precio</th></tr> ";
         
        
         foreach ($productos as $producto) {
@@ -61,20 +61,26 @@ class ProductView {
     }
 
     public function showProductRubros($productos){
-        echo $this->encabezado();
-        echo '<ul class="list-group">';
-        foreach ($productos as $producto) {            
-         
-            echo '<li class="list-group-item">';            
-            echo ' <b>' . $producto->nombre . "</b> - ";
-            echo ' <b>' .$producto->marca. "</b> - ";
-            echo ' <b>' .$producto->precio. "</b> - ";
-          //  echo ' <b>' .$producto->id_rubro. "</b> - ";
+      
+      echo $this->encabezado();
+      
+      $titulo=$productos[0]->rubro;
 
-        //    echo ' <a class="btn btn-info" href="ver/'.$idTarea.'">Ver</a>';
-            echo '</li>';
+      echo "<h2> Rubro ".$titulo."</h2>";
+            echo "<table class='table table-hover table-striped table-bordered table table-condensed' style='width:900px'>";
+     
+    
+      echo "<tr style='color:blue'><th scope='col'>Producto</th><th scope='col'>Marca</th><th scope='col'>Precio</th></tr> ";  
+      foreach ($productos as $producto) {            
+         
+            echo '<tr>';            
+            echo ' <td><b>' . $producto->nombre . "</b></td> ";
+            echo ' <td><b>' .$producto->marca. "</b> </td> ";
+            echo ' <td><b>' .$producto->precio. "</b> </td> ";
+          
+            echo '</tr>';
         }
-        echo '</ul>';
+        echo '</table>';
     }
     
 }
@@ -117,6 +123,7 @@ class RubroView {
 
     public function rubros($rubros){
         echo $this->encabezado();
+        
         echo '<ul class="list-group">';
         foreach ($rubros as $rubro) {
             $idrubro=$rubro->id_rubro;
