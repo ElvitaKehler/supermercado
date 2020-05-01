@@ -12,14 +12,16 @@ class ProductController {
         $this->view = new ProductView();
     }
 
-  /*  public function showTasks() {
+    public function  showProducts(){
         // pido las tareas al MODELO
-        $tareas = $this->model->getAll();
+         $productos=$this->model->getAll();
+        
 
         // actualizo la vista
-        $this->view->showTasks($tareas);
+        $this->view->showProduct($productos);
     }
-
+    
+    /*
     public function viewTask($idTask) {
         $task = $this->model->get($idTask);
 
@@ -57,5 +59,25 @@ class ProductController {
 
         header('Location: ' . BASE_URL . "listar"); 
     }
+    */
 
-}*/
+}
+class RubroController {
+
+    private $model;
+    private $view;
+
+    public function __construct() {
+        $this->model = new RubroModel();
+        $this->view = new RubroView();
+    }
+    public function showRubros(){
+
+        $rubros=$this->model->getRubros();
+        
+
+        // actualizo la vista
+        $this->view->showRubros($rubros);
+    }
+}
+?>
