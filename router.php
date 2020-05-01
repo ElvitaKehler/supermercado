@@ -6,7 +6,7 @@
 
     // define una acción por defecto
     if (empty($_GET['action'])) {
-        $_GET['action'] = 'listarProductos';
+        $_GET['action'] = 'lista de productos';
     } 
 
     // toma la acción que viene del usuario y parsea los parámetros
@@ -16,17 +16,23 @@
 
     // decide que camino tomar según TABLA DE RUTEO
     switch ($parametros[0]) {
-        case 'listarProductos': // /listar   ->   showProd()
+        case 'lista de productos': // /lista los productos   ->   showProd()
             // instanciando un objeto de la clase ProdController
             $controller = new ProductController();
             $controller->showProducts();
         break;
 
-        case 'listarRubros': // /listar   ->   showRubros()
+        case 'lista_de_rubros': // /lista los rubros   ->   showRubros()
             // instanciando un objeto de la clase RubroController
             $controller = new RubroController();
             $controller->showRubros();
         break;
+        case 'productos_por_rubros': // /lista productos por rubro   ->   showRubros()
+            // instanciando un objeto de la clase RubroController
+            $controller = new ProdPorRubroController();
+            $controller->showProductosPorRubro();
+        break;
+
 
          default: 
             echo "404 not found";

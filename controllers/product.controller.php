@@ -80,4 +80,23 @@ class RubroController {
         $this->view->showRubros($rubros);
     }
 }
+class ProdPorRubroController {
+
+    private $model;
+    private $view;
+
+    public function __construct() {
+        $this->model = new ProductoPorRubroModel();
+        $this->view = new ProductoPorRubroView();
+    }
+    public function showProductosPorRubros(){
+
+        $productos=$this->model->getProductosPorRubros();
+        
+
+        // actualizo la vista
+        $this->view->showProductosPorRubros($productos);
+    }
+}
+
 ?>
