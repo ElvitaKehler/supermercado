@@ -159,7 +159,7 @@ class RubroView {
            
             
             echo '<li class="list-group-item">';
-            echo "<a href='productos_por_rubros/$idrubro' class='btn btn-link '>Productos del rubro  $rubro->nombre</a>";
+            echo "<a href='productos_por_rubros/$idrubro' class='btn btn-link '>".strtoupper($rubro->nombre)."</a>";
         
             echo"</li>";
         }
