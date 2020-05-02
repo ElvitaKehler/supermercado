@@ -43,7 +43,7 @@ class ProductView {
 
         echo "<table class='table table-hover table-striped table-bordered table table-condensed' style='width:900px'>";
       
-        echo "<tr style='color:blue'><th scope='col'>Producto</th><th scope='col'>Rubro</th><th scope='col'>Precio</th></tr> ";
+        echo "<tr style='color:blue'><th scope='col'>Producto</th><th scope='col'>Marca</th><th scope='col'>Precio</th></tr> ";
         
        
         foreach ($productos as $producto) {
@@ -63,10 +63,9 @@ class ProductView {
     public function showProductRubros($productos){
       
       echo $this->encabezado();
-         
+            
       $titulo=$productos[0]->rubro;
-      
-      
+            
 
       echo "<h2> Rubro ".$titulo."</h2>";
             echo "<table class='table table-hover table-striped table-bordered table table-condensed' style='width:900px'>";
