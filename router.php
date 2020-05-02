@@ -38,6 +38,7 @@
            
             $controller = new ProductController();            
             $controller->ViewProducto($parametros[1]);
+            
         break;
 
 

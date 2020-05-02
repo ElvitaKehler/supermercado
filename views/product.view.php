@@ -65,7 +65,7 @@ class ProductView {
       echo $this->encabezado();
          
       $titulo=$productos[0]->rubro;
-      $id =$productos[0]->id_producto;
+      
       
 
       echo "<h2> Rubro ".$titulo."</h2>";
@@ -74,7 +74,7 @@ class ProductView {
     
       echo "<tr style='color:blue'><th scope='col'>Producto</th><th scope='col'>Marca</th><th scope='col'>Precio</th></tr> ";  
       foreach ($productos as $producto) {            
-         
+            $id = $producto->id_producto;
             echo '<tr>';            
             echo ' <td><b>' . $producto->nombre . "</b></td> ";
             echo ' <td><b>' .$producto->marca. "</b> </td> ";
@@ -155,6 +155,7 @@ class RubroView {
         echo '<ul class="list-group">';
         foreach ($rubros as $rubro) {
             $idrubro=$rubro->id_rubro;
+           
             
             echo '<li class="list-group-item">';
             echo "<a href='productos_por_rubros/$idrubro' class='btn btn-link '>Productos del rubro  $rubro->nombre</a>";

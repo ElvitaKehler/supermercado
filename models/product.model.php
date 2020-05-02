@@ -61,9 +61,10 @@ class ProductModel {
         FROM productos INNER JOIN rubros ON rubros.id_rubro=productos.id_rubro WHERE productos.id_producto=? ORDER BY productos.nombre ASC "); // prepara la consulta
 
         $sentencia->execute([$id]); // ejecuta -
-        $productos = $sentencia->fetchAll(PDO::FETCH_OBJ); // obtiene la respuesta
-
-        return $productos;
+        $producto = $sentencia->fetchAll(PDO::FETCH_OBJ); // obtiene la respuesta
+        
+     
+        return $producto;
     } 
 }
 
