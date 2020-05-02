@@ -42,7 +42,7 @@ class ProductModel {
 
 
         //Creamos la consulta para obtener una categoria
-        $sentencia = $db->prepare("SELECT productos.id_producto, productos.nombre, productos.marca, productos.precio, rubros.nombre as rubro
+        $sentencia = $db->prepare("SELECT productos.id_producto, productos.nombre, productos.marca, productos.precio,rubros.id_rubro, rubros.nombre as rubro
         FROM productos INNER JOIN rubros ON rubros.id_rubro=productos.id_rubro WHERE rubros.id_rubro=? ORDER BY productos.nombre ASC "); // prepara la consulta
 
         $sentencia->execute([$rubro]); // ejecuta --> LLEGA BIEN SIN FILTRAR POR RUBRO
@@ -57,7 +57,7 @@ class ProductModel {
 
 
         //Creamos la consulta para obtener una categoria
-        $sentencia = $db->prepare("SELECT productos.nombre, productos.marca, productos.precio, rubros.nombre as rubro
+        $sentencia = $db->prepare("SELECT productos.id_producto, productos.nombre, productos.marca, productos.precio,rubros.id_rubro, rubros.nombre as rubro
         FROM productos INNER JOIN rubros ON rubros.id_rubro=productos.id_rubro WHERE productos.id_producto=? ORDER BY productos.nombre ASC "); // prepara la consulta
 
         $sentencia->execute([$id]); // ejecuta -
