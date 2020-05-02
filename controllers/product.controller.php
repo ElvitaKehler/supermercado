@@ -24,10 +24,21 @@ class ProductController {
     public function showProductosPorRubro($rubro){
 
         $productos=$this->model->getProductosPorRubros($rubro);
+       
         
         // actualizo la vista
         $this->view->showProductRubros($productos);
     }
+    
+    public function ViewProducto($id){
+        
+        $producto=$this->model->getone($id);
+       
+
+        // actualizo la vista
+        $this->view->ViewOne($producto);
+    }
+
     
     
 

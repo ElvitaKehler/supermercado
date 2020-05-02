@@ -63,8 +63,10 @@ class ProductView {
     public function showProductRubros($productos){
       
       echo $this->encabezado();
-      
+         
       $titulo=$productos[0]->rubro;
+      $id =$productos[0]->id_producto;
+      
 
       echo "<h2> Rubro ".$titulo."</h2>";
             echo "<table class='table table-hover table-striped table-bordered table table-condensed' style='width:900px'>";
@@ -77,13 +79,39 @@ class ProductView {
             echo ' <td><b>' . $producto->nombre . "</b></td> ";
             echo ' <td><b>' .$producto->marca. "</b> </td> ";
             echo ' <td><b>' .$producto->precio. "</b> </td> ";
-          
+            echo "<td> <a href='verproducto/$id' class='btn btn-link '>Ver</a>";
             echo '</tr>';
         }
         echo '</table>';
+       
     }
     
+
+
+
+public function ViewOne($id){ 
+      
+    echo $this->encabezado();
+       
+    $nombre=$id[0]->nombre;
+    
+    echo "<h2> Producto ".$nombre."</h2>";
+   
+    echo "<table class='table table-hover table-striped table-bordered table table-condensed' style='width:900px'>";
+     
+    foreach ($id as $prod) {            
+       
+          echo '<tr>';            
+          echo ' <td>Marca: <b>' .$prod->marca. "</b> </td> ";
+          echo ' <td>Precio: <b>' .$prod->precio. "</b> </td> ";
+          echo '</tr>';
+      }
+      echo '</table>';
+      echo "<td> <a href='listrubros' class='btn btn-link '>Volver</a>";
+  }
+  
 }
+
 
 class RubroView {
 
@@ -130,11 +158,11 @@ class RubroView {
             
             echo '<li class="list-group-item">';
             echo "<a href='productos_por_rubros/$idrubro' class='btn btn-link '>Productos del rubro  $rubro->nombre</a>";
-          //  echo ' <b>' . $rubro->nombre . "</b> - ";
-           // echo '</li>';
+        
             echo"</li>";
         }
         echo '</ul>';
+        echo "<a href='listar' class='btn btn-link '>Volver</a>";
        
     }    
 }

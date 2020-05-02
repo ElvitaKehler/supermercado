@@ -28,10 +28,16 @@
             $controller = new RubroController();
             $controller->showRubros();
         break;
-        case 'productos_por_rubros': // /lista productos por rubro /n  ->   showRubros()
+        case 'productos_por_rubros': // /lista productos por rubro /n  ->   showRubrosPOrRubro()
             // instanciando un objeto de la clase RubroController
             $controller = new ProductController();            
             $controller->showProductosPorRubro($parametros[1]);
+        break;
+        case 'verproducto': // /ver el detalle de un producto/n  ->   ViewProduct()
+            // instanciando un objeto de la clase RubroController
+           
+            $controller = new ProductController();            
+            $controller->ViewProducto($parametros[1]);
         break;
 
 
