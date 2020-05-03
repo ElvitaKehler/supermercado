@@ -13,8 +13,10 @@ class ProductView {
             <title>Supermercado LA WEB</title>
         </head>
         <body>
-        <div  class="panel panel-primary">
-        <h1> Supermercado LA WEB </h1>
+        <div  class="panel panel-primary">        
+        <img src="images/image supermercado.jpg" class="rounded float-left" height="50" width="50" >       
+        <img src="images/image supermercado.jpg" class="rounded float-right" height="50" width="50">  
+        <h1 class="text-center"style="color:blue" > Supermercado LA WEB </h1>     
         </div>
         <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary mb-3">
             <a class="navbar-brand" href="listar">Productos</ea>
@@ -127,7 +129,11 @@ class RubroView {
             <title>Supermercado LA WEB</title>
         </head>
         <body>
-        <h1> Supermercado LA WEB </h1>
+        <div >
+        <img src="images/image supermercado.jpg" class="rounded float-left" height="50" width="50" >       
+        <img src="images/image supermercado.jpg" class="rounded float-right" height="50" width="50">  
+        <h1 class="text-center"style="color:blue" > Supermercado LA WEB </h1>    
+        </div>
         <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary mb-3">
             <a class="navbar-brand" href="listar">Productos</ea>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
