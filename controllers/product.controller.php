@@ -21,16 +21,16 @@ class ProductController {
         $this->view->showProduct($productos);
     }
 
-    public function showProductosPorRubro($rubro){
+    public function showProductsByItem($rubro){
 
-        $productos=$this->model->getProductosPorRubros($rubro);
+        $productos=$this->model->getProductsByItem($rubro);
        
         
         // actualizo la vista
         $this->view->showProductRubros($productos);
     }
     
-    public function ViewProducto($id){
+    public function ViewProduct($id){
         
         $producto=$this->model->getone($id);
        

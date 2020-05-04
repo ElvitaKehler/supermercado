@@ -35,7 +35,7 @@ class ProductModel {
     }
 
 
-    public function getProductosPorRubros($rubro){
+    public function getProductsByItem($rubro){
         // var_dump($rubro);die;  EL RUBRO LELGA OK!
       
         $db = $this->createConection(); // 1. abro la conexión con MySQL 
