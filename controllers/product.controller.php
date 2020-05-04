@@ -43,25 +43,3 @@ class ProductController {
     
 
 }
-class RubroController {
-
-    private $model;
-    private $view;
-
-    public function __construct() {
-        $this->model = new RubroModel();
-        $this->view = new RubroView();
-    }
-   
-    public function showRubros(){
-
-        $rubros=$this->model->getRubros();
-        
-        // actualizo la vista
-        $this->view->rubros($rubros);
-    }
-}
-
-
-
-?>

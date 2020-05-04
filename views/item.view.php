@@ -14,8 +14,8 @@ private function encabezado() {
     </head>
     <body>
     <div >
-    <img src="images/imageSupermarket.jpg" class="rounded float-left" height="50" width="50" >       
-    <img src="images/imageSupermarket.jpg" class="rounded float-right" height="50" width="50">  
+    <img src="images/image supermercado.jpg" class="rounded float-left" height="50" width="50" >       
+    <img src="images/image supermercado.jpg" class="rounded float-right" height="50" width="50">  
     <h1 class="text-center"style="color:blue" > Supermercado LA WEB </h1>    
     </div>
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary mb-3">
@@ -54,9 +54,8 @@ public function rubros($rubros){
         echo"</li>";
     }
     echo '</ul>';
-    echo "<a href='listar' class='btn btn-link '>Volver a Productos</a>";
+   // echo "<a href='listar' class='btn btn-link '>Volver a Productos</a>";
    
 }    
 }
 
-?>
