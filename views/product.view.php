@@ -43,9 +43,9 @@ class ProductView {
             </nav>';
     
         return $html;
-    }
+}
 
-    public function showProduct($productos){
+public function showProduct($productos){
         echo $this->encabezado();
        
         echo '<h2> Productos disponibles </h2>';
@@ -68,9 +68,9 @@ class ProductView {
 
        
        
-    }
+}
 
-    public function showProductRubros($productos){
+public function showProductRubros($productos){
       
       echo $this->encabezado();
       if(empty($productos)){
@@ -94,14 +94,10 @@ class ProductView {
             echo '</tr>';
         }
         echo '</table>';
-    }
-        
+        }
        
-    }
-    
-
-
-
+}
+ 
 public function ViewOne($id){ 
    
     echo $this->encabezado();
@@ -121,8 +117,7 @@ public function ViewOne($id){
       }
       echo '</table>';
      
-      
-  }
+}
 
 public function ShowForm(){
     
@@ -130,51 +125,50 @@ public function ShowForm(){
         echo $this->encabezado();
         echo '<div class="container">
     
-<h1>Inserte un Producto</h1>
-<div class="row">
-<div class="col-6">
-<form action="altaprod" method="post" class="my-4">     
-    
-    <div class="form-group">
-        <label>nombre</label>
-            <input name="nombre" type="text" class="form-control">
-    </div>
-    <div class="form-group">
-        <label>marca</label>
-            <input name="marca" type="text" class="form-control">
-    </div>
-    <div class="form-group">
-        <label>precio</label>
-        <input name="precio" type="text" class="form-control">
-    </div>
-    <div class="form-group">
-        <label>id_rubro</label>
-        <input name="id_rubro" type="text" class="form-control">
-    </div>
+        <h1>Inserte un Producto</h1>
+        <div class="row">
+        <div class="col-6">
+        <form action="altaprod" method="post" class="my-4">     
+            
+            <div class="form-group">
+                <label>nombre</label>
+                    <input name="nombre" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>marca</label>
+                    <input name="marca" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>precio</label>
+                <input name="precio" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>id_rubro</label>
+                <input name="id_rubro" type="text" class="form-control">
+            </div>
 
-    <button type="submit" class="btn btn-primary">Guardar</button>
-</form>
-</div>
-<div class="col-6">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+        </div>
+        <div class="col-6">
 
-<h1>Inserte un Rubro</h1>
-<form action="altaItem" method="post" class="my-4">
-    
-    <div class="form-group">
-        <label>nombre</label>
-            <input name="nombreItem" type="text" class="form-control">
-    </div>
-    
+        <h1>Inserte un Rubro</h1>
+        <form action="altaItem" method="post" class="my-4">
+            
+            <div class="form-group">
+                <label>nombre</label>
+                    <input name="nombreItem" type="text" class="form-control">
+            </div>
+            
 
-    <button type="submit" class="btn btn-primary">Guardar</button>
-</form>
-</div>
-';
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+        </div>
+        ';
         echo '</body>';
         echo  '</html>';
     
 }
-
 
 public function showError($msg){
         echo $this->encabezado();
@@ -193,5 +187,6 @@ public function showError($msg){
     </html>
     ';
 }
+
 }
 

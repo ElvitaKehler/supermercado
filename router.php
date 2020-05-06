@@ -33,13 +33,12 @@
             $controller->showItems();
         break;
         case 'productos_por_rubros': // /lista productos por rubro /n  ->   showRubrosPOrRubro()
-            // instanciando un objeto de la clase RubroController
+            
             $controller = new ProductController();            
             $controller->showProductsByItem($parametros[1]);
         break;
         case 'verproducto': // /ver el detalle de un producto/n  ->   ViewProduct()
-            // instanciando un objeto de la clase RubroController
-           
+                      
             $controller = new ProductController();            
             $controller->ViewProduct($parametros[1]);
             
@@ -50,13 +49,13 @@
             $controller->AccessAdmin();     //MUESTRA LOS FORMULARIOS
         break;
 
-        case 'altaprod': 
+        case 'altaprod':    //Alta a nuevo producto
            
             $controller = new ProductController();
             $controller->InsertProduct();
         break;
 
-        case 'altaItem': 
+        case 'altaItem':  //Alta a nuevo rubro
            
             $controller = new ItemController();
             $controller->insertItem();

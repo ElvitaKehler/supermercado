@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Interactua con la tabla tareas
+ * Interactua con la tabla PRODUCTOS DE LA DB_SUPERMERCADO
  */
 class ProductModel {
 
@@ -16,7 +16,7 @@ class ProductModel {
         $pdo=new PDO("mysql:host=$host;dbname=$database;charset=utf8", $userName , $password);
         return $pdo;
 
-     }
+    }
 
 
     /**
@@ -34,7 +34,6 @@ class ProductModel {
         return $productos;
     }
 
-
     public function getProductsByItem($rubro){
         // var_dump($rubro);die;  EL RUBRO LELGA OK!
       
@@ -50,6 +49,7 @@ class ProductModel {
 
         return $productos;
     } 
+
     public function getone($id){
         
       
@@ -66,23 +66,8 @@ class ProductModel {
      
         return $producto;
     } 
-/*public function InsertProduct(){
-         
-        // toma los valores enviados por el usuario
-        $nombre = $_POST['nombre'];
-        $marca = $_POST['marca'];
-        $precio = $_POST['precio'];
-        $id_rubro = $_POST['id_rubro'];   
-        echo 'Nombre '.$nombre;die;        
 
-       // inserta en la DB y redirige
-       $success = $this->model->InsertOneProduct($nombre, $marca, $precio,$id_rubro);
-
-       if($success)
-           header('Location: ' . BASE_URL . "listar");
-}*/
-
-public function InsertOneProduct($nombre, $marca, $precio,$id_rubro){
+    public function InsertOneProduct($nombre, $marca, $precio,$id_rubro){
        
             // 1. abro la conexión con MySQL 
             $db = $this->createConection();
