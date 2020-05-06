@@ -25,5 +25,14 @@ class ItemModel{
 
         return $rubros;
     }
+    public function InsertOneItem($nombre){
+       
+        // 1. abro la conexión con MySQL 
+        $db = $this->createConection();
+
+        // 2. enviamos la consulta
+        $sentencia = $db->prepare("INSERT INTO rubros(nombre) VALUES(?)"); // prepara la consulta
+        return $sentencia->execute([$nombre]); // ejecuta
+    }
 }
 

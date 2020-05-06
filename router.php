@@ -17,6 +17,10 @@
 
     // decide que camino tomar según TABLA DE RUTEO
     switch ($parametros[0]) {
+        case 'insertar':
+            $controller=new ProductController();
+            $controller->InsertProduct();
+        break;
         case 'listar': // /lista los productos   ->   showProd()
             // instanciando un objeto de la clase ProdController
             $controller = new ProductController();
@@ -39,6 +43,16 @@
             $controller = new ProductController();            
             $controller->ViewProduct($parametros[1]);
             
+        break;
+        case 'alta': // /lista los rubros   ->   showRubros()
+            // instanciando un objeto de la clase RubroController
+            $controller = new ProductController();
+            $controller->highProduct();
+        break;
+        case 'altaItem': // /lista los rubros   ->   showRubros()
+            // instanciando un objeto de la clase RubroController
+            $controller = new ItemController();
+            $controller->insertItem();
         break;
 
 

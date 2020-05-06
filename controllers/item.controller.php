@@ -21,6 +21,27 @@ class ItemController {
         // actualizo la vista
         $this->view->rubros($rubros);
     }
+
+    public function insertItem(){
+      
+        // toma los valores enviados por el usuario
+        $nombre = $_POST['nombreItem'];
+                
+
+       // inserta en la DB y redirige
+       $success = $this->model->insertOneItem($nombre);
+
+       if($success)
+           header('Location: ' . BASE_URL . "listar");
+
+      
+
+   }
+   public function highItem()
+   {
+       // actualizo la vista
+       $this->view->ShowForm();
+   }
 }
 
 

@@ -66,4 +66,15 @@ class ProductModel {
      
         return $producto;
     } 
+    public function InsertOneProduct($nombre, $marca, $precio,$id_rubro){
+       
+            // 1. abro la conexión con MySQL 
+            $db = $this->createConection();
+    
+            // 2. enviamos la consulta
+            $sentencia = $db->prepare("INSERT INTO productos(nombre, marca, precio, id_rubro) VALUES(?, ?, ?, ?)"); // prepara la consulta
+            return $sentencia->execute([$nombre, $marca, $precio,$id_rubro]); // ejecuta
+        }
+
+    
 }
