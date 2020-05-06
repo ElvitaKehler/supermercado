@@ -39,12 +39,14 @@ class ProductController {
         $this->view->ViewOne($producto);
     }
     public function InsertProduct(){
+        
       
          // toma los valores enviados por el usuario
          $nombre = $_POST['nombre'];
          $marca = $_POST['marca'];
          $precio = $_POST['precio'];
-         $id_rubro = $_POST['id_rubro'];           
+         $id_rubro = $_POST['id_rubro'];  
+                        
 
         // inserta en la DB y redirige
         $success = $this->model->InsertOneProduct($nombre, $marca, $precio,$id_rubro);
@@ -55,9 +57,32 @@ class ProductController {
        
  
     }
-    public function highProduct()
+    public function InsertItem(){
+        
+            
+        // toma los valores enviados por el usuario
+        $nombre = $_POST['nombre'];
+        $marca = $_POST['marca'];
+        $precio = $_POST['precio'];
+        $id_rubro = $_POST['id_rubro'];  
+                       
+
+       // inserta en la DB y redirige
+       $success = $this->model->InsertOneProduct($nombre, $marca, $precio,$id_rubro);
+
+       if($success)
+           header('Location: ' . BASE_URL . "listar");
+
+      
+
+   }
+    public function AccessAdmin()
     {
-        // actualizo la vista
-        $this->view->ShowForm();
+        
+     // actualizo la vista
+      $this->view->ShowForm();
+      
+  
+      
     }
 }

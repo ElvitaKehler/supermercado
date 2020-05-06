@@ -33,7 +33,7 @@ class ProductView {
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 </li>
-                <a class="navbar-brand" href="alta">Administrador</a>
+                <a class="navbar-brand" href="admin">Administrador</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -124,15 +124,16 @@ public function ViewOne($id){
       
   }
 
-    public function ShowForm()
-    {
+public function ShowForm(){
+    
+        
         echo $this->encabezado();
         echo '<div class="container">
     
 <h1>Inserte un Producto</h1>
 <div class="row">
 <div class="col-6">
-<form action="alta" method="post" class="my-4">
+<form action="altaprod" method="post" class="my-4">     
     
     <div class="form-group">
         <label>nombre</label>
@@ -155,6 +156,7 @@ public function ViewOne($id){
 </form>
 </div>
 <div class="col-6">
+
 <h1>Inserte un Rubro</h1>
 <form action="altaItem" method="post" class="my-4">
     
@@ -170,9 +172,11 @@ public function ViewOne($id){
 ';
         echo '</body>';
         echo  '</html>';
-    }
-    public function showError($msg)
-    {
+    
+}
+
+
+public function showError($msg){
         echo $this->encabezado();
 
         echo "<div class='text-center'>
@@ -188,6 +192,6 @@ public function ViewOne($id){
         </body>
     </html>
     ';
-    }
+}
 }
 

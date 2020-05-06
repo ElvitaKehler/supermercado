@@ -44,13 +44,20 @@
             $controller->ViewProduct($parametros[1]);
             
         break;
-        case 'alta': // /lista los rubros   ->   showRubros()
-            // instanciando un objeto de la clase RubroController
+        case 'admin':   //ACCESO PARA EL ADMINISTRADOR
+
             $controller = new ProductController();
-            $controller->highProduct();
+            $controller->AccessAdmin();     //MUESTRA LOS FORMULARIOS
         break;
-        case 'altaItem': // /lista los rubros   ->   showRubros()
-            // instanciando un objeto de la clase RubroController
+
+        case 'altaprod': 
+           
+            $controller = new ProductController();
+            $controller->InsertProduct();
+        break;
+
+        case 'altaItem': 
+           
             $controller = new ItemController();
             $controller->insertItem();
         break;
