@@ -32,7 +32,7 @@ private function encabezado() {
                 <span class="navbar-toggler-icon"></span>
             </button>
             </li>
-            <a class="navbar-brand" href="alta">Administrador</a>
+            <a class="navbar-brand" href="admin">Administrador</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

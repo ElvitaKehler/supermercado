@@ -3,7 +3,7 @@ require_once('libs/Smarty.class.php');
 
 class ProductView {
 
-    private function encabezado() {
+    /*private function encabezado() {
         $html = '<!DOCTYPE html>
         <html lang="en">
         <head>
@@ -44,7 +44,7 @@ class ProductView {
             </nav>';
     
         return $html;
-}
+}*/
 
 public function showProduct($productos){
         
@@ -57,31 +57,13 @@ public function showProduct($productos){
 }
 
 public function showProductRubros($productos){
-      
-      echo $this->encabezado();
-      if(empty($productos)){
-          echo'No hay productos de este rubro';
-      }      
-      else {$titulo=$productos[0]->rubro;
-            
 
-      echo "<h2> Rubro ".$titulo."</h2>";
-            echo "<table class='table table-hover table-striped table-bordered table table-condensed' style='width:900px'>";
-     
+    $smarty = new Smarty();
+    $smarty->assign("base_url", BASE_URL);
+    $smarty->assign("listaProductos", $productos);
+
+    $smarty->display('showProductRubros.tpl');
     
-      echo "<tr style='color:blue'><th scope='col'>Producto</th><th scope='col'>Marca</th><th scope='col'>Precio</th></tr> ";  
-      foreach ($productos as $producto) {            
-            $id = $producto->id_producto;
-            echo '<tr>';            
-            echo ' <td><b>' . $producto->nombre . "</b></td> ";
-            echo ' <td><b>' .$producto->marca. "</b> </td> ";
-            echo ' <td><b>' .$producto->precio. "</b> </td> ";
-            echo "<td> <a href='verproducto/$id' class='btn btn-link '>Ver</a>";
-            echo '</tr>';
-        }
-        echo '</table>';
-        }
-       
 }
  
 public function ViewOne($id){ 
