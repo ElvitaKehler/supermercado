@@ -1,2 +1,2 @@
-# Ignorar ...para que pueda modificarlo
-/templates_c
+# Ignorar archivos que se agregarn allí
+templates_c/
