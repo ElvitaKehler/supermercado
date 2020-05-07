@@ -74,5 +74,10 @@ class ProductController {
        if($success)
            header('Location: ' . BASE_URL . "listrubros");
    }
+
+   public function showError($msg){
+    $this->view->showError($msg);
+
+   }
    
 }

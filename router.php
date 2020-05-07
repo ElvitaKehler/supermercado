@@ -63,6 +63,8 @@
 
 
          default: 
-            echo "404 not found";
+         $controller = new ProductController();
+         $controller->showError("404 not found");
+            
         break;
     }
