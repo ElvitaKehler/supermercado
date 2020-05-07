@@ -1,9 +1,7 @@
 {include 'header.tpl'}
 
-   
-
    <h1> Rubro :{$identif[0]->rubro}</h1>
-    <h2>Producto: {$identif[0]->nombre}</h2>
+    <h2>Producto: git add {$identif[0]->nombre}</h2>
    
     <table class='table table-hover table-striped table-bordered table table-condensed' style='width:900px'>
      
