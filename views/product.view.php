@@ -67,23 +67,13 @@ public function showProductRubros($productos){
 }
  
 public function ViewOne($id){ 
+  
+    $smarty = new Smarty();
+    $smarty->assign("base_url", BASE_URL);
+    $smarty->assign("identif", $id);
+
+    $smarty->display('ViewOne.tpl');
    
-    echo $this->encabezado();
-     $rubro =$id[0]->rubro; 
-    $nombre=$id[0]->nombre;
-    echo "<h1> Rubro: ".$rubro."</h1>";
-    echo "<h2>".$nombre."</h2>";
-   
-    echo "<table class='table table-hover table-striped table-bordered table table-condensed' style='width:900px'>";
-     
-    foreach ($id as $prod) {            
-       
-          echo '<tr>';            
-          echo ' <td>Marca: <b>' .$prod->marca. "</b> </td> ";
-          echo ' <td>Precio: <b>' .$prod->precio. "</b> </td> ";
-          echo '</tr>';
-      }
-      echo '</table>';
      
 }
 
