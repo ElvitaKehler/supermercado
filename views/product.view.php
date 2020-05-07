@@ -1,4 +1,5 @@
 <?php
+require_once('libs/Smarty.class.php');
 
 class ProductView {
 
@@ -46,28 +47,13 @@ class ProductView {
 }
 
 public function showProduct($productos){
-        echo $this->encabezado();
-       
-        echo '<h2> Productos disponibles </h2>';
-
-        echo "<table class='table table-hover table-striped table-bordered table table-condensed' style='width:900px'>";
-      
-        echo "<tr style='color:blue'><th scope='col'>Producto</th><th scope='col'>Marca</th><th scope='col'>Precio</th></tr> ";
         
-       
-        foreach ($productos as $producto) {
-            $id = $producto->id_producto;
-            echo '<tr>';
-            echo ' <td> <b>' .$producto->nombre . "</b> </td>";
-            echo ' <td> <b>' .$producto->marca. "</b> </td> ";
-            echo ' <td> <b>' .$producto->precio. "</b> </td> ";
-            echo "<td> <a href='verproducto/$id' class='btn btn-link '>Ver</a>";
-            echo '</tr>';
-        }
-     //   echo "<td> <a href='listrubros' class='btn btn-link '>Volver a Rubros</a>";
-
-       
-       
+    $smarty = new Smarty();
+    $smarty->assign("base_url", BASE_URL);
+    $smarty->assign("listaProductos", $productos);
+   
+    $smarty->display('showProduct.tpl');
+    
 }
 
 public function showProductRubros($productos){
