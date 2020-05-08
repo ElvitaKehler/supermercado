@@ -19,7 +19,7 @@ class ItemController {
         $rubros=$this->model->getItems();
         
         // actualizo la vista
-        $this->view->rubros($rubros);
+        $this->view->items($rubros);
     }
 
     public function insertItem(){
