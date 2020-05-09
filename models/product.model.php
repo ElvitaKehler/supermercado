@@ -35,7 +35,7 @@ class ProductModel {
     }
 
     public function getProductsByItem($rubro){
-        // var_dump($rubro);die;  EL RUBRO LELGA OK!
+        
       
         $db = $this->createConection(); // 1. abro la conexión con MySQL 
 
@@ -46,7 +46,7 @@ class ProductModel {
 
         $sentencia->execute([$rubro]); // ejecuta --> LLEGA BIEN SIN FILTRAR POR RUBRO
         $productos = $sentencia->fetchAll(PDO::FETCH_OBJ); // obtiene la respuesta
-
+        
         return $productos;
     } 
 

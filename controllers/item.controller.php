@@ -17,7 +17,7 @@ class ItemController {
     public function showItems(){
 
         $rubros=$this->model->getItems();
-        
+       
         // actualizo la vista
         $this->view->items($rubros);
     }

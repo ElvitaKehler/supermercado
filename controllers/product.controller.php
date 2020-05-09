@@ -22,10 +22,10 @@ class ProductController {
     }
 
     public function showProductsByItem($rubro){
-
+        
         $productos=$this->model->getProductsByItem($rubro);
        
-        
+       // var_dump($productos);die;
         // actualizo la vista
         $this->view->showProductRubros($productos);
     }

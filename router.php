@@ -9,6 +9,7 @@
     if (empty($_GET['action'])) {
         $_GET['action'] = 'listar';
     } 
+     
 
     // toma la acción que viene del usuario y parsea los parámetros
     $accion = $_GET['action']; 
@@ -33,9 +34,11 @@
             $controller->showItems();
         break;
         case 'productos_por_rubros': // /lista productos por rubro /n  ->   showRubrosPOrRubro()
+            // instanciando un objeto de la clase RubroController
             
             $controller = new ProductController();            
             $controller->showProductsByItem($parametros[1]);
+           
         break;
         case 'verproducto': // /ver el detalle de un producto/n  ->   ViewProduct()
                       
