@@ -39,11 +39,7 @@ class ProductController {
         $this->view->ViewOne($producto);
     }
 
-    public function AccessAdmin(){
-        
-        $this->view->ShowForm(); //MUESTRA LOS FORMULARIOS DE ALTA
-      
-    }
+  
     public function InsertProduct(){
         
         // toma los valores enviados por el usuario

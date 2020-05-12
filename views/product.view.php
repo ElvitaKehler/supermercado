@@ -36,14 +36,7 @@ class ProductView {
         
     }
 
-    public function ShowForm(){
-        $smarty = new Smarty();
-        $smarty->assign("base_url", BASE_URL);
-        
-        $smarty->display('ShowForm.tpl');
-        
-    }
-
+ 
     public function showError($msg){
         $smarty = new Smarty();
         $smarty->assign("base_url", BASE_URL);

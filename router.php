@@ -67,7 +67,7 @@
 
         case 'verificar':  
            
-            echo 'usuario logueado'; die;
+            echo 'usuario logueado';
         break;
 
 
