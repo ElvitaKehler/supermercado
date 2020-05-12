@@ -1,6 +1,7 @@
 <?php
     require_once 'controllers/product.controller.php';
     require_once 'controllers/item.controller.php';
+    require_once 'controllers/auth.controller.php';
 
     // definimos la base url de forma dinamica
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -48,8 +49,8 @@
         break;
         case 'admin':   //ACCESO PARA EL ADMINISTRADOR
 
-            $controller = new ProductController();
-            $controller->AccessAdmin();     //MUESTRA LOS FORMULARIOS
+            $controller = new AuthController();
+            $controller->showLoguin();     //MUESTRA EL FORMULARIO DE LOGUEO
         break;
 
         case 'altaprod':    //Alta a nuevo producto
@@ -62,6 +63,11 @@
            
             $controller = new ItemController();
             $controller->insertItem();
+        break;
+
+        case 'verificar':  
+           
+            echo 'usuario logueado'; die;
         break;
 
 
