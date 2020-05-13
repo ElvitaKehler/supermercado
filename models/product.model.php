@@ -76,6 +76,15 @@ class ProductModel {
             $sentencia = $db->prepare("INSERT INTO productos(nombre, marca, precio, id_rubro) VALUES(?, ?, ?, ?)"); // prepara la consulta
             return $sentencia->execute([$nombre, $marca, $precio,$id_rubro]); // ejecuta
     }
+    public function borrarProducto($idproducto){
+        // 1. abro la conexión con MySQL 
+        $db = $this->createConection();
+
+        // 2. enviamos la consulta
+        $sentencia = $db->prepare("DELETE FROM productos WHERE id_producto = ?"); // prepara la consulta
+        $sentencia->execute([$idproducto]); // ejecuta 
+        return $sentencia;
+   }
 
     
 }

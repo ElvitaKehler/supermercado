@@ -70,6 +70,11 @@ class ProductController {
        if($success)
            header('Location: ' . BASE_URL . "listrubros");
    }
+   public function deleteProduct($idproducto){
+    $success = $this->model->borrarProducto($idproducto);
+    if($success)
+    header('Location: ' . BASE_URL . "listar");
+}
 
    public function showError($msg){
     $this->view->showError($msg);

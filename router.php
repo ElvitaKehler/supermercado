@@ -70,6 +70,18 @@
             echo 'usuario logueado';
         break;
 
+        case 'borrar_rubro':  //Baja a rubro
+           
+            $controller = new ItemController();
+            $controller->deleteItem($parametros[1]);
+        break;
+
+        case 'borrar_producto':  //Baja a producto
+           
+            $controller = new ProductController();
+            $controller->deleteProduct($parametros[1]);
+        break;
+
 
          default: 
          $controller = new ProductController();

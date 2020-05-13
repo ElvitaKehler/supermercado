@@ -42,6 +42,15 @@ class ItemController {
        // actualizo la vista
        $this->view->ShowForm();
    }
+
+   public function deleteItem($rubro){
+    
+    $this->model->borrarItem($rubro);
+    $rubros=$this->model->getItems();
+
+    $this->view->items($rubros);
+
+   }
 }
 
 

@@ -34,5 +34,16 @@ class ItemModel{
         $sentencia = $db->prepare("INSERT INTO rubros(nombre) VALUES(?)"); // prepara la consulta
         return $sentencia->execute([$nombre]); // ejecuta
     }
+
+    public function borrarITem($idrubro){
+        // 1. abro la conexión con MySQL 
+        $db = $this->createConection();
+
+        // 2. enviamos la consulta
+        $sentencia = $db->prepare("DELETE FROM rubros  WHERE id_rubro = ?"); // prepara la consulta
+        $sentencia->execute([$idrubro]); // ejecuta 
+        return $sentencia;
+        
+  }
 }
 
