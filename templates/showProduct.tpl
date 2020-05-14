@@ -12,9 +12,11 @@
              <td> <b> {$producto->nombre} </b> </td>
             <td> <b> {$producto->marca}</b> </td>
                 <td> <b>{$producto->precio}</b> </td>
-                <td> <a href='verproducto/{$producto->id_producto} class='btn btn-link>Ver</a>
-                <td> <a href='borrar_producto/{$producto->id_producto} class='btn btn-link>Borrar </a>
-                <td> <a href='editar_producto/{$producto->id_producto} class='btn btn-link>Editar </a>
-            </tr>
+                <td> <a href="verproducto/{$producto->id_producto}" class="btn btn-link">Ver</a></td>
+                {if $esadmin==1} 
+                    <td> <a href="borrar_producto/{$producto->id_producto}" class="btn btn-link">Borrar </a></td>
+                    <td> <a href="editar_producto/{$producto->id_producto}" class="btn btn-link">Editar </a></td>
+                {/if}
+                </tr>
         {/foreach}
         

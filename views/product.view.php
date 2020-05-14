@@ -5,11 +5,12 @@ class ProductView {
 
     
 
-    public function showProduct($productos){
+    public function showProduct($productos,$esAdmin){
             
         $smarty = new Smarty();
         $smarty->assign("base_url", BASE_URL);
         $smarty->assign("listaProductos", $productos);
+        $smarty->assign("esadmin",$esAdmin);
     
         $smarty->display('showProduct.tpl');
         

@@ -15,17 +15,17 @@ class ProductController {
     public function  showProducts(){
         // pido las tareas al MODELO
          $productos=$this->model->getAll();
-        
+         $esAdmin=true;                         //simulación de true=logueado o false NO Logueado.
 
         // actualizo la vista
-        $this->view->showProduct($productos);
+        $this->view->showProduct($productos,$esAdmin);
     }
 
     public function showProductsByItem($rubro){
         
         $productos=$this->model->getProductsByItem($rubro);
+        
        
-       // var_dump($productos);die;
         // actualizo la vista
         $this->view->showProductRubros($productos);
     }

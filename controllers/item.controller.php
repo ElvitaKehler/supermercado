@@ -17,9 +17,11 @@ class ItemController {
     public function showItems(){
 
         $rubros=$this->model->getItems();
+        $esAdmin=true;                          //simulación de true=logueado o false NO Logueado.
+       
        
         // actualizo la vista
-        $this->view->items($rubros);
+        $this->view->items($rubros,$esAdmin);
     }
 
     public function insertItem(){

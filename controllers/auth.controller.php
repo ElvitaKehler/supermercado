@@ -27,6 +27,7 @@ class AuthController{
         $verificado=$this->model->VerUserRegistrado($usuario,$pass);
         if (!empty($verificado)){
             echo 'se da acceso al administrador';
+            
         }else{
             echo 'Usuario y/o contraseña no registrada';
             echo 'Se da acceso público';

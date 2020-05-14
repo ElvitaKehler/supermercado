@@ -9,8 +9,10 @@
         {foreach $listarubros item= rubro} 
             
            <tr>
-             <td><a href='productos_por_rubros/{$rubro->id_rubro}' class='btn btn-link '>{strtoupper($rubro->nombre)}</a>               
-            <td> <a href='borrar_rubro/{$rubro->id_rubro} class='btn btn-link>Borrar </a>
-            <td> <a href='editar_rubro/{$rubro->id_rubro} class='btn btn-link>Editar </a>
+             <td><a href='productos_por_rubros/{$rubro->id_rubro}' class='btn btn-link '>{strtoupper($rubro->nombre)}</a>  
+             {if $esadmin==1}             
+                  <td> <a href='borrar_rubro/{$rubro->id_rubro} class='btn btn-link>Borrar </a></td>
+                  <td> <a href='editar_rubro/{$rubro->id_rubro} class='btn btn-link>Editar </a></td>
+              {/if}
             </tr>
         {/foreach}
