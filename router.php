@@ -65,9 +65,11 @@
             $controller->insertItem();
         break;
 
-        case 'verificar':  
+        case 'verificar': 
+            $controller = new AuthController();
+            $controller-> verifyUser();
            
-            echo 'usuario logueado';
+            
         break;
 
         case 'borrar_rubro':  //Baja a rubro

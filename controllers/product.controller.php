@@ -34,7 +34,6 @@ class ProductController {
         
         $producto=$this->model->getone($id);
        
-
         // actualizo la vista
         $this->view->ViewOne($producto);
     }
