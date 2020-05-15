@@ -17,7 +17,7 @@ class ItemController {
     public function showItems(){
 
         $rubros=$this->model->getItems();
-        $esAdmin=false;                          //simulación de true=logueado o false NO Logueado.
+        $esAdmin=true;                          //simulación de true=logueado o false NO Logueado.
        
        
         // actualizo la vista
@@ -27,20 +27,31 @@ class ItemController {
     public function insertItem(){
       
         // toma los valores enviados por el usuario
+        
         $nombre = $_POST['nombreItem'];
-                
-
-       // inserta en la DB y redirige
-       $success = $this->model->insertOneItem($nombre);
-
-       if($success)
-           header('Location: ' . BASE_URL . "listrubros");
-
-      
-
-   }
-   public function highItem()
-   {
+       // var_dump($nombre);die;
+        if(empty($nombre)){
+            echo "<h1><b>Complete el DATO requerido</b></h1>";
+            echo "<a class='navbar-brand' href='formAltaItem'>Volver Alta de un Rubro</a>";
+        } 
+        else{
+                $item = $this->model->getItemNombre($nombre);
+                //    var_dump($item);die;
+                if(!empty($item)) {
+                    echo "<h1><b>El rubro ya está cargado</b></h1>";
+                    echo "<h1><b>Cargue un rubro distinto</b></h1>";  
+                    echo" <a class='navbar-brand' href='formAltaItem'>Volver Alta de un Rubro</a>";           
+                }
+                 else { 
+                           // inserta en la DB y redirige
+                        $success = $this->model->insertOneItem($nombre);
+                        if($success){
+                            header('Location: ' . BASE_URL . "listrubros");
+                        }
+                }
+        }
+    }
+   public function highItem(){
     
        
     $this->view->ShowFormByItem();

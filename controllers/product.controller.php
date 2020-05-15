@@ -16,7 +16,7 @@ class ProductController {
     public function  showProducts(){
         // pido las tareas al MODELO
          $productos=$this->model->getAll();
-         $esAdmin=false;                         //simulación de true=logueado o false NO Logueado.
+         $esAdmin=true;                         //simulación de true=logueado o false NO Logueado.
 
         // actualizo la vista
         $this->view->showProduct($productos,$esAdmin);
@@ -47,12 +47,27 @@ class ProductController {
          $marca = $_POST['marca'];
          $precio = $_POST['precio'];
          $id_rubro = $_POST['id_rubro'];  
-   
-        // inserta en la DB y redirige
-        $success = $this->model->InsertOneProduct($nombre, $marca, $precio,$id_rubro);
+         if(empty($nombre)||empty($marca)||empty($precio)||empty($id_rubro)){
+            echo "<h1><b>Complete los DATOS requeridos</b></h1>";
+            echo "<a class='navbar-brand' href='formAltaProducto'>Volver Alta de un Producto</a>";
+        } 
+        else{
+            $producto=$this->model->getProductoNombre($nombre,$marca);
+           // var_dump($producto);die;
+            if(!empty($producto)) {
+                echo "<h1><b>El producto ya está cargado</b></h1>";
+                echo "<h1><b>Cargue un producto distinto</b></h1>";  
+                echo" <a class='navbar-brand' href='formAltaProducto'>Volver Alta de un Producto</a>";           
+            }
+            else{
+                // inserta en la DB y redirige
+                $success = $this->model->InsertOneProduct($nombre, $marca, $precio,$id_rubro);
 
-        if($success)
-            header('Location: ' . BASE_URL . "listar");
+                if($success)
+                    header('Location: ' . BASE_URL . "listar");
+            }
+        
+        }
     }
 
     public function InsertItem(){

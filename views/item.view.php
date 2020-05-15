@@ -35,8 +35,9 @@ class ItemView
 
         $smarty->display('items.tpl');
     }
-    public function showFormEdit($item){
-      
+
+
+    public function showFormEdit($item){     
        
         $smarty = new Smarty();
         $smarty->assign("base_url", BASE_URL);

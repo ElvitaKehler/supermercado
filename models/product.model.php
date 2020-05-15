@@ -65,6 +65,22 @@ class ProductModel {
         
      
         return $producto;
+    }
+    
+    public function getProductoNombre($nombre,$marca){
+        
+      
+        $db = $this->createConection(); // 1. abro la conexión con MySQL 
+
+
+        //Creamos la consulta para obtener una categoria
+        $sentencia = $db->prepare("SELECT * FROM productos WHERE nombre=? AND marca=? "); // prepara la consulta
+
+        $sentencia->execute([$nombre,$marca]); // ejecuta -
+        $producto = $sentencia->fetchAll(PDO::FETCH_OBJ); // obtiene la respuesta
+        
+     
+        return $producto;
     } 
 
     public function InsertOneProduct($nombre, $marca, $precio,$id_rubro){
