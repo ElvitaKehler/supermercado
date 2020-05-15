@@ -17,8 +17,8 @@
                     <input name="marcaProducto" type="text" value={$producto[0]->marca} class="form-control">
                              <label>Precio</label>
                     <input name="precioProducto" type="text" value={$producto[0]->precio} class="form-control">
-                             <label>Rubro</label>
-                    <input name="rubroProducto" type="text" value={$producto[0]->id_rubro} class="form-control">
+                             
+                    <input name="rubroProducto" type="hidden" value={$producto[0]->id_rubro} class="form-control">
             </div>
             
 
