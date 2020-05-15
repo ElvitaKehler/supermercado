@@ -64,4 +64,17 @@ class ProductView {
 
         $smarty->display('editProduct.tpl');
     }
+    public function ErrorAlCargarProd(){
+        $smarty = new Smarty();
+        $smarty->assign("base_url", BASE_URL);
+
+        $smarty->display('errorCargaProduct.tpl');
+    }
+    public function ProductoRepetido(){
+        $smarty = new Smarty();
+        $smarty->assign("base_url", BASE_URL);
+
+        $smarty->display('errorProductoRepetido.tpl');
+    }
+
 }

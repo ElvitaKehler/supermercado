@@ -48,16 +48,14 @@ class ProductController {
          $precio = $_POST['precio'];
          $id_rubro = $_POST['id_rubro'];  
          if(empty($nombre)||empty($marca)||empty($precio)||empty($id_rubro)){
-            echo "<h1><b>Complete los DATOS requeridos</b></h1>";
-            echo "<a class='navbar-brand' href='formAltaProducto'>Volver Alta de un Producto</a>";
+            $this->view->ErrorAlCargarProd();
+           
         } 
         else{
             $producto=$this->model->getProductoNombre($nombre,$marca);
            // var_dump($producto);die;
             if(!empty($producto)) {
-                echo "<h1><b>El producto ya está cargado</b></h1>";
-                echo "<h1><b>Cargue un producto distinto</b></h1>";  
-                echo" <a class='navbar-brand' href='formAltaProducto'>Volver Alta de un Producto</a>";           
+                $this->view->ProductoRepetido();                        
             }
             else{
                 // inserta en la DB y redirige

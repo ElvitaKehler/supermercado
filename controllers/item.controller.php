@@ -31,16 +31,15 @@ class ItemController {
         $nombre = $_POST['nombreItem'];
        // var_dump($nombre);die;
         if(empty($nombre)){
-            echo "<h1><b>Complete el DATO requerido</b></h1>";
-            echo "<a class='navbar-brand' href='formAltaItem'>Volver Alta de un Rubro</a>";
+            $this->view->ErrorAlCargarItem();
+            
         } 
         else{
                 $item = $this->model->getItemNombre($nombre);
                 //    var_dump($item);die;
                 if(!empty($item)) {
-                    echo "<h1><b>El rubro ya está cargado</b></h1>";
-                    echo "<h1><b>Cargue un rubro distinto</b></h1>";  
-                    echo" <a class='navbar-brand' href='formAltaItem'>Volver Alta de un Rubro</a>";           
+                    $this->view->ErrorItemRepetido();
+                           
                 }
                  else { 
                            // inserta en la DB y redirige
@@ -75,8 +74,16 @@ class ItemController {
 public function itemEditado(){
     $nombre=$_POST['nombreItem'];
     $id=$_POST['iditem'];
- $this->model->modifyItem($id,$nombre);
- $this->showItems();
+    $ItemEdit=$this->model->getItems($nombre);
+    /*if(!empty($ItemEdit)){
+        echo"Error el item ya existe";
+        echo"   ";
+    }
+    else{*/
+        $this->model->modifyItem($id,$nombre);
+        $this->showItems();
+   // }
+ 
 }
 
 }

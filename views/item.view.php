@@ -54,4 +54,23 @@ class ItemView
 
         $smarty->display('ShowFormItems.tpl');
     }
+
+    public function ErrorAlCargarItem(){
+
+        $smarty = new Smarty();
+        $smarty->assign("base_url", BASE_URL);
+        
+
+        $smarty->display('errorCargaItem.tpl');
+    }
+
+    public function ErrorItemRepetido(){
+
+        $smarty = new Smarty();
+        $smarty->assign("base_url", BASE_URL);
+        
+
+        $smarty->display('errorItemRepetido.tpl');
+    }
+    
 }
