@@ -34,15 +34,17 @@ class ItemController {
        $success = $this->model->insertOneItem($nombre);
 
        if($success)
-           header('Location: ' . BASE_URL . "listar");
+           header('Location: ' . BASE_URL . "listrubros");
 
       
 
    }
    public function highItem()
    {
-       // actualizo la vista
-       $this->view->ShowForm();
+    
+       
+    $this->view->ShowFormByItem();
+
    }
 
    public function deleteItem($rubro){

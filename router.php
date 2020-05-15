@@ -53,16 +53,17 @@
             $controller->showLoguin();     //MUESTRA EL FORMULARIO DE LOGUEO
         break;
 
-        case 'admin':   //ACCESO PARA EL ADMINISTRADOR
+        case 'formAltaItem':  
 
-            $controller = new AuthController();
-            $controller->showLoguin();     //MUESTRA EL FORMULARIO DE LOGUEO
+            $controller = new ItemController();
+            $controller->highItem();     //MUESTRA EL FORMULARIO DE LOGUEO
         break;
 
-        case 'admin':   //ACCESO PARA EL ADMINISTRADOR
+        case 'formAltaProducto':  
 
-            $controller = new AuthController();
-            $controller->showLoguin();     //MUESTRA EL FORMULARIO DE LOGUEO
+            $controller = new ProductController();
+            $controller->highProduct();  
+             
         break;
 
 
@@ -107,6 +108,18 @@
            
             $controller = new ItemController();
             $controller->itemEditado();
+        break;
+
+        case 'editar_producto':  //Baja a rubro
+           
+            $controller = new ProductController();
+            $controller->editProduct($parametros[1]);
+        break;
+
+        case 'productoEditado':  //Baja a rubro
+           
+            $controller = new ProductController();
+            $controller->productoEditado();
         break;
 
          default: 

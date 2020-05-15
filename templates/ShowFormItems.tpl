@@ -2,7 +2,7 @@
 
 <div class="container">
     
-      
+    
 
         <h1>Inserte un Rubro</h1>
         <form action="altaItem" method="post" class="my-4">

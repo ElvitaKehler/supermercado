@@ -1,7 +1,7 @@
 {include 'header.tpl'}
  <table class='table table-hover table-striped table-bordered table table-condensed' style='width:900px'>
       
-       <tr style='color:blue'><th scope='col'><h2> Productos disponibles </h2></th><th scope='col'><a class="navbar-brand" href="admin">Alta de un Producto</a>
+       <tr style='color:blue'><th scope='col'><h2> Productos disponibles </h2></th><th scope='col'><a class="navbar-brand" href="formAltaProducto">Alta de un Producto</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

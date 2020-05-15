@@ -1,15 +1,16 @@
 <?php
 require_once 'models/product.model.php';
 require_once 'views/product.view.php';
-
+require_once 'models/item.model.php';
 class ProductController {
 
     private $model;
     private $view;
-
+    private $modelItem;
     public function __construct() {
         $this->model = new ProductModel();
         $this->view = new ProductView();
+        $this->modelItem = new ItemModel();
     }
 
     public function  showProducts(){
@@ -67,7 +68,7 @@ class ProductController {
        $success = $this->model->InsertOneProduct($nombre, $marca, $precio,$id_rubro);
 
        if($success)
-           header('Location: ' . BASE_URL . "listrubros");
+           header('Location: ' . BASE_URL . "listar");
    }
    public function deleteProduct($idproducto){
     $success = $this->model->borrarProducto($idproducto);
@@ -79,5 +80,28 @@ class ProductController {
     $this->view->showError($msg);
 
    }
+   public function highProduct(){
+       $rubros=$this->modelItem->getItems();
+       
+        $this->view->ShowFormByProduct($rubros);
+
+   }
+
+   public function editProduct($idprod){
+    $producto=$this->model->getone($idprod);
    
+    $this->view->showFormEditProduct($producto);
+
+}
+public function productoEditado(){
+        $idProduct=$_POST['idproducto'];
+        $nombre = $_POST['nombreProducto'];
+        $marca = $_POST['marcaProducto'];
+        $precio = $_POST['precioProducto'];
+        $id_rubro = $_POST['rubroProducto'];
+    //    var_dump($idProduct,$nombre,$marca,$precio,$id_rubro);die;  
+ $this->model->modifyProducto($idProduct,$nombre,$marca,$precio,$id_rubro);
+ $this-> showProducts();
+   
+}
 }

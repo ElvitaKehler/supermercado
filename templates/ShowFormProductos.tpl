@@ -20,8 +20,12 @@
                 <input name="precio" type="text" class="form-control">
             </div>
             <div class="form-group">
-                <label>id_rubro</label>
-                <input name="id_rubro" type="text" class="form-control">
+                <label>Rubro</label>
+               <select name="id_rubro" type="text" class="form-control" >
+                {foreach from=$listarubros item=rubro} 
+                    <option value={$rubro->id_rubro}>{$rubro->nombre}</option>
+                {/foreach}
+            </select>
             </div>
 
             <button type="submit" class="btn btn-primary">Guardar</button>

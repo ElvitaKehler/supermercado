@@ -46,4 +46,22 @@ class ProductView {
         $smarty->display('showError.tpl');
     
     }
+
+    public function ShowFormByProduct($id){
+
+        $smarty = new Smarty();
+        $smarty->assign("base_url", BASE_URL);
+        $smarty->assign("listarubros", $id);
+
+        $smarty->display('ShowFormProductos.tpl');
+    }
+    public function showFormEditProduct($producto){
+      
+       
+        $smarty = new Smarty();
+        $smarty->assign("base_url", BASE_URL);
+        $smarty->assign("producto", $producto);
+
+        $smarty->display('editProduct.tpl');
+    }
 }
