@@ -49,10 +49,23 @@ class ItemController {
     
     $this->model->borrarItem($rubro);
     $rubros=$this->model->getItems();
-
-    $this->view->items($rubros);
+    $esAdmin=true;   
+    $this->view->items($rubros,$esAdmin);
 
    }
+   public function editItem($idItem){
+    $item=$this->model->getItem($idItem);
+   
+    $this->view->showFormEdit($item);
+
+}
+public function itemEditado(){
+    $nombre=$_POST['nombreItem'];
+    $id=$_POST['iditem'];
+ $this->model->modifyItem($id,$nombre);
+ $this->showItems();
+}
+
 }
 
 

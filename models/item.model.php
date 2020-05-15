@@ -45,5 +45,29 @@ class ItemModel{
         return $sentencia;
         
   }
+
+  public function getItem($idrubro){
+    // 1. abro la conexión con MySQL 
+    $db = $this->createConection();
+
+    // 2. enviamos la consulta (3 pasos)
+    $sentencia = $db->prepare("SELECT * FROM rubros WHERE id_rubro=?"); // prepara la consulta
+    $sentencia->execute([$idrubro]); // ejecuta
+    $rubro = $sentencia->fetchAll(PDO::FETCH_OBJ); // obtiene la respuesta
+
+    return $rubro;
+}
+public function modifyItem($idrubro,$nombre){
+
+
+   // 1. abro la conexión con MySQL 
+   $db = $this->createConection();
+
+   // 2. enviamos la consulta (3 pasos)
+   $sentencia = $db->prepare("UPDATE rubros SET nombre=? WHERE id_rubro=?"); // prepara la consulta
+   $sentencia->execute([$nombre,$idrubro]); // ejecuta
+  
+
+}
 }
 

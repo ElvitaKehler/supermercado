@@ -19,7 +19,7 @@ class ItemView
         $smarty = new Smarty();
         $smarty->assign("base_url", BASE_URL);
         
-        $smarty->display('ShowForm.tpl');
+        $smarty->display('ShowFormItems.tpl');
         
     }
 
@@ -30,5 +30,24 @@ class ItemView
 
         $smarty->display('showError.tpl');
     
+    }
+
+    public function deleteItem($rubros)    
+    {
+        //var_dump($rubros[0]->id_rubro);die; 
+        $smarty = new Smarty();
+        $smarty->assign("base_url", BASE_URL);
+        $smarty->assign("listarubros", $rubros);
+
+        $smarty->display('items.tpl');
+    }
+    public function showFormEdit($item){
+      
+       
+        $smarty = new Smarty();
+        $smarty->assign("base_url", BASE_URL);
+        $smarty->assign("item", $item);
+
+        $smarty->display('editItem.tpl');
     }
 }
