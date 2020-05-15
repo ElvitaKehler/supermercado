@@ -17,7 +17,7 @@ class ItemController {
     public function showItems(){
 
         $rubros=$this->model->getItems();
-        $esAdmin=true;                          //simulación de true=logueado o false NO Logueado.
+        $esAdmin=false;                          //simulación de true=logueado o false NO Logueado.
        
        
         // actualizo la vista

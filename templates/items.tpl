@@ -1,7 +1,7 @@
 {include 'header.tpl'}
-
+{if $esadmin==1}
 <table class='table table-hover table-striped table-bordered table table-condensed' style='width:900px'>
-      
+       
        <tr style='color:blue'><th scope='col'><h2> Rubro disponibles </h2></th><th scope='col'><a class="navbar-brand" href="formAltaItem">Alta de un Rubro</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -9,7 +9,9 @@
                 </span>
                 </th>
         </tr>
+        
         </table>
+         {/if}
 <table class='table table-hover table-striped table-bordered table table-condensed' style='width:400px'>
       
        <tr style='color:blue'><th scope='col'>RUBRO</th>
