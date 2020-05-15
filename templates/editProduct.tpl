@@ -8,7 +8,7 @@
         <div class="form-group">
 
                 
-                    <input name="idproducto" type="text" value={$producto[0]->id_producto} class="form-control">
+                    <input name="idproducto" type="hidden" value={$producto[0]->id_producto} class="form-control">
 
 
                             <label>nombre</label>
