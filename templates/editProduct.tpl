@@ -26,5 +26,4 @@
         </form>
         </div>
     
-    </body>
-</html>
+{include 'footer.tpl'}   

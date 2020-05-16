@@ -8,4 +8,4 @@
 
 <div class="text-center"><a class="" href="{$base_url}">Volver</a></div>
 </div>          
-        
+{include 'footer.tpl'}          

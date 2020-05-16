@@ -22,7 +22,7 @@
             </table>
       
     {/if} 
-            
+ {include 'footer.tpl'}              
 
       
        

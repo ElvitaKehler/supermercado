@@ -3,8 +3,8 @@
 <div class="container">
     
         <h1>Inserte un Producto</h1>
-        <div class="row">
-        <div class="col-6">
+        
+        
         <form action="altaprod" method="post" class="my-4">     
             
             <div class="form-group">
@@ -30,10 +30,9 @@
 
             <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
-        </div>
-        <div class="col-6">
+ </div>      
+        
 
     
     
-    </body>
-</html>
+{include 'footer.tpl'}   

@@ -13,4 +13,4 @@
         </tr>
 
     {/foreach}
-    </table>
+ {include 'footer.tpl'}   
