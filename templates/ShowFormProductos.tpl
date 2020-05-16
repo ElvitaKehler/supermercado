@@ -2,7 +2,7 @@
 
 <div class="container">
     
-        <h1>Inserte un Producto</h1>
+        <h1 style='color:blue'>Inserte un Producto</h1>
         
         
         <form action="altaprod" method="post" class="my-4">     
