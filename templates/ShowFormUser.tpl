@@ -3,8 +3,7 @@
 <div class="container">
     
         <h1>Logueo de usuarios:</h1>
-        <div class="row">
-        <div class="col-6">
+        
         <form action="verificar" method="post" class="my-4">     
             
             <div class="form-group">

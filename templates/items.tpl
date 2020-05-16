@@ -27,4 +27,4 @@
               {/if}
             </tr>
         {/foreach}
-        {include 'footer.tpl'} 
+{include 'footer.tpl'} 
