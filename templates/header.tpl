@@ -28,7 +28,7 @@
                     <li class="nav-item active">
                          <a class="navbar-brand" href="listrubros">Rubros</a></li>
                     <li class="nav-item active">
-                        <a class="navbar-brand" href="admin">Login<span class="sr-only"></span></a></li>
+                        <a class="navbar-brand" href="login">Login<span class="sr-only"></span></a></li>
 
                 </ul>
             </div>

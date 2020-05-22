@@ -7,6 +7,7 @@ class ProductController {
     private $model;
     private $view;
     private $modelItem;
+   
     public function __construct() {
         $this->model = new ProductModel();
         $this->view = new ProductView();

@@ -79,7 +79,13 @@
             $controller->insertItem();
         break;
 
-        case 'verificar': 
+        case 'login': 
+            $controller = new AuthController();
+            $controller-> ShowLogin();
+           
+            
+        break;
+        case 'verifyUser': 
             $controller = new AuthController();
             $controller-> verifyUser();
            

@@ -4,7 +4,7 @@
     
         <h1 style='color:blue'>Logueo de usuarios:</h1>
         
-        <form action="verificar" method="post" class="my-4">     
+        <form action="verifyUser" method="post" class="my-4">     
             
             <div class="form-group">
                 <label>Nombre de Usuario</label>

@@ -21,8 +21,7 @@ class AuthModel{
         // 2. enviamos la consulta (3 pasos)
         $sentencia = $db->prepare("SELECT * FROM usuarios WHERE nombre_usuario=? AND contrasenia=?"); // prepara la consulta
         $sentencia->execute([$usuario,$pass]); // ejecuta
-        $registrado = $sentencia->fetchAll(PDO::FETCH_OBJ); // obtiene la respuesta
+        return $sentencia->fetchAll(PDO::FETCH_OBJ); // obtiene la respuesta
         
-        return $registrado;
-    }
+        }
 }

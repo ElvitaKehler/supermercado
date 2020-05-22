@@ -13,9 +13,9 @@ class AuthController{
         $this->model=new AuthModel();
     }
 
-    public function showLoguin(){
+    public function ShowLogin(){
                 
-        $this->view->Verify();
+        $this->view->showFormUser();
     }
 
     public function verifyUser(){
