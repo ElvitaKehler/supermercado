@@ -15,6 +15,11 @@
                       <input type="password" name="contrasenia" class="form-control">
                     
             </div>
+             {if $error}
+             <div class="alert alert-danger">
+                 {$error}
+             </div>
+             {/if}
             
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
