@@ -87,7 +87,3 @@ public function itemEditado(){
 }
 
 }
-
-
-
-?>

@@ -68,7 +68,7 @@ class ProductController {
         }
     }
 
-    public function InsertItem(){
+ /*   public function InsertItem(){
                     
         // toma los valores enviados por el usuario
         $nombre = $_POST['nombre'];
@@ -83,6 +83,8 @@ class ProductController {
        if($success)
            header('Location: ' . BASE_URL . "listar");
    }
+*/
+
    public function deleteProduct($idproducto){
     $success = $this->model->borrarProducto($idproducto);
     if($success)
@@ -93,6 +95,7 @@ class ProductController {
     $this->view->showError($msg);
 
    }
+   
    public function highProduct(){
        $rubros=$this->modelItem->getItems();
        

@@ -15,24 +15,21 @@
         <img src="images/descarga.jpg" class="rounded float-right" height="50" width="50">  
         <h1 class="text-center"style="color:blue" > Supermercado LA WEB </h1>     
         </div>
-        <nav class="barranav navbar navbar-expand-lg navbar navbar-dark bg-primary mb-3">
-            <a class="navbar-brand" href="listar">Productos</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+       
+       <nav class="barranav navbar navbar-expand-lg navbar navbar-dark bg-primary mb-3">
+             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                <li class="nav-item active">
-                <a class="navbar-brand" href="listrubros">Rubros</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                </li>
-                <a class="navbar-brand" href="admin">Administrador</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                </li>
+                    <li class="nav-item active">
+                         <a class="navbar-brand" href="listar">Productos</a> </li>
+                    <li class="nav-item active">
+                         <a class="navbar-brand" href="listrubros">Rubros</a></li>
+                    <li class="nav-item active">
+                        <a class="navbar-brand" href="admin">Login<span class="sr-only"></span></a></li>
+
                 </ul>
             </div>
         </nav>
