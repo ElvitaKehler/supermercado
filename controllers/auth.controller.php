@@ -24,11 +24,11 @@ class AuthController{
 
         $usuario = $_POST['nombre_usuario'];
         $pass = $_POST['contrasenia'];
-        
+     
         //busco el usuario
                            
         $verificado=$this->model->VerUserRegistrado($usuario);
-        
+      
         if (!empty($verificado) && password_verify($pass, $verificado->contrasenia)) {
            
              // abro session y guardo al usuario logueado
@@ -40,7 +40,7 @@ class AuthController{
              header("Location: " . BASE_URL . "listar");
 
             }  else {
-            $this->view->showFormUser("Datos inválidos");
+            $this->view->showFormUser("Datos inválidos ");
             }
            
          }
