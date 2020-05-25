@@ -50,7 +50,7 @@
         case 'admin':   //ACCESO PARA EL ADMINISTRADOR
 
             $controller = new AuthController();
-            $controller->ShowLoguin();     //MUESTRA EL FORMULARIO DE LOGUEO
+            $controller->showLoguin();     //MUESTRA EL FORMULARIO DE LOGUEO
         break;
 
         case 'formAltaItem':  
@@ -85,6 +85,7 @@
            
             
         break;
+        
         case 'verifyUser': 
             $controller = new AuthController();
             $controller-> verifyUser();

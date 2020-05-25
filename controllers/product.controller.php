@@ -26,10 +26,10 @@ class ProductController {
     public function showProductsByItem($rubro){
         
         $productos=$this->model->getProductsByItem($rubro);
-        
+        $esAdmin=true;
        
         // actualizo la vista
-        $this->view->showProductRubros($productos);
+        $this->view->showProductRubros($productos,$esAdmin);
     }
     
     public function ViewProduct($id){

@@ -16,11 +16,12 @@ class ProductView {
         
     }
 
-    public function showProductRubros($productos){
+    public function showProductRubros($productos,$esAdmin){
        // var_dump($productos);die;
         $smarty = new Smarty();
         $smarty->assign("base_url", BASE_URL);
         $smarty->assign("listProductsByItem", $productos);
+        $smarty->assign("esadmin",$esAdmin);
 
         $smarty->display('showProductRubros.tpl');
         
