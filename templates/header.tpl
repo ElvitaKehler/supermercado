@@ -24,9 +24,18 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
+                         <a class="navbar-brand" href="inicio">Home</a></li>
+                    <li class="nav-item active">
                          <a class="navbar-brand" href="listar">Productos</a> </li>
                     <li class="nav-item active">
-                         <a class="navbar-brand" href="listrubros">Rubros</a></li>
+                         <a class="navbar-brand" href="listrubros">Rubros</a></li>                    
+                   
+                </ul>
+               
+            </div>
+            <div class="login-container">
+                <ul class="navbar-nav">
+                   
                     <li class="nav-item active">
                         <a class="navbar-brand" href="login">Login<span></span></a></li>
                      <li class="nav-item active">           
@@ -35,5 +44,6 @@
                 </ul>
                
             </div>
+
         </nav>
     

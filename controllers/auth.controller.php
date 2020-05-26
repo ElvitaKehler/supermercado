@@ -48,7 +48,7 @@ class AuthController{
     public function endSesion(){
         session_start();
         session_destroy();        
-        header("Location: " . BASE_URL . "listar");
+        header("Location: " . BASE_URL . "inicio");
     }
             
 

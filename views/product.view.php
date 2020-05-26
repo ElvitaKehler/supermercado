@@ -78,4 +78,11 @@ class ProductView {
         $smarty->display('errorProductoRepetido.tpl');
     }
 
+    public function showOfertas(){
+        $smarty = new Smarty();
+        $smarty->assign("base_url", BASE_URL);
+
+        $smarty->display('ofertas.tpl');
+
+}
 }

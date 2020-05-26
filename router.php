@@ -8,7 +8,7 @@
 
     // define una acción por defecto
     if (empty($_GET['action'])) {
-        $_GET['action'] = 'listar';
+        $_GET['action'] = 'inicio';
     } 
      
 
@@ -19,6 +19,10 @@
 
     // decide que camino tomar según TABLA DE RUTEO
     switch ($parametros[0]) {
+        case 'inicio':
+            $controller=new ProductController();
+            $controller->inicialPage();
+        break;
         case 'insertar':
             $controller=new ProductController();
             $controller->InsertProduct();
