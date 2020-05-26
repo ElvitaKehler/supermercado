@@ -8,16 +8,14 @@ class ItemView{
     public function __construct() {
         $this->smarty = new Smarty();
         $this->smarty->assign("base_url", BASE_URL);
+        $this->smarty->assign("esadmin",AuthHelper::userLogged());
     
     }
 
-    public function items($rubros,$esAdmin){
+    public function items($rubros){
         $this->smarty->assign("listarubros", $rubros);
-        $this->smarty->assign("esadmin",$esAdmin);
         $this->smarty->display('items.tpl');
     }
-
-    
 
     public function showError($msg){   
         $this->smarty->assign("mensaje", $msg);

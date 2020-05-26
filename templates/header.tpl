@@ -35,12 +35,12 @@
             </div>
             <div class="login-container">
                 <ul class="navbar-nav">
-                    {if empty($_SESSION)}
+                    {if !$esadmin}
                     <li class="nav-item active">
                         <a class="navbar-brand" href="login">Login<span></span></a></li>
                     {else}                   
                      <li class="nav-item active">           
-                        <a class="navbar-brand" href='cerrar_sesion'>Cerrar Sesión </a></li>                  
+                        <a class="navbar-brand" href='cerrar_sesion'>Logout </a></li>                  
                     {/if} 
                 </ul>
                
