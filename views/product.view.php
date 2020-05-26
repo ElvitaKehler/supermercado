@@ -1,9 +1,10 @@
 <?php
 require_once('libs/Smarty.class.php');
 
-class ProductView {
 
-    private $smarty;
+class ProductView  {
+
+   private $smarty;
 
     public function __construct() {
         $this->smarty = new Smarty();
