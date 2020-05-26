@@ -121,6 +121,6 @@ class ProductController {
         return $esAdmin;
     }
     public function inicialPage(){
-        $this->view->showOfertas();
+        $this->view->showHome();
     }
 }
