@@ -15,10 +15,9 @@ class ItemController {
     }
    
     public function showItems(){
-
-        $rubros=$this->model->getItems();
-        $esAdmin=true;                          //simulación de true=logueado o false NO Logueado.
-       
+        //barrera de seguridad
+        $esAdmin=$this->checklogged();
+        $rubros=$this->model->getItems();     
        
         // actualizo la vista
         $this->view->items($rubros,$esAdmin);
@@ -58,10 +57,12 @@ class ItemController {
    }
 
    public function deleteItem($rubro){
-    
+     //barrera de seguridad
+     $esAdmin=$this->checklogged();
+
     $this->model->borrarItem($rubro);
     $rubros=$this->model->getItems();
-    $esAdmin=true;   
+      
     $this->view->items($rubros,$esAdmin);
 
    }
@@ -84,6 +85,16 @@ public function itemEditado(){
         $this->showItems();
    // }
  
+}
+private function checklogged(){
+    session_start();
+    if(!isset($_SESSION['ID_USER'])){
+       $esAdmin=false;            
+    }
+    else{
+        $esAdmin=true;
+    }
+    return $esAdmin;
 }
 
 }

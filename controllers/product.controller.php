@@ -15,18 +15,22 @@ class ProductController {
     }
 
     public function  showProducts(){
+        //barrera de seguridad
+        $esAdmin=$this->checklogged();
+     
         // pido las tareas al MODELO
          $productos=$this->model->getAll();
-         $esAdmin=true;                         //simulación de true=logueado o false NO Logueado.
-
+                                //simulación de true=logueado o false NO Logueado.
+       
         // actualizo la vista
         $this->view->showProduct($productos,$esAdmin);
     }
 
     public function showProductsByItem($rubro){
-        
+         //barrera de seguridad
+         $esAdmin=$this->checklogged();
         $productos=$this->model->getProductsByItem($rubro);
-        $esAdmin=true;
+        
        
         // actualizo la vista
         $this->view->showProductRubros($productos,$esAdmin);
@@ -69,7 +73,7 @@ class ProductController {
         }
     }
 
- /*   public function InsertItem(){
+    /*   public function InsertItem(){
                     
         // toma los valores enviados por el usuario
         $nombre = $_POST['nombre'];
@@ -83,14 +87,14 @@ class ProductController {
 
        if($success)
            header('Location: ' . BASE_URL . "listar");
-   }
-*/
+        }
+    */
 
    public function deleteProduct($idproducto){
     $success = $this->model->borrarProducto($idproducto);
     if($success)
     header('Location: ' . BASE_URL . "listar");
-}
+    }
 
    public function showError($msg){
     $this->view->showError($msg);
@@ -109,16 +113,26 @@ class ProductController {
    
     $this->view->showFormEditProduct($producto);
 
-}
-public function productoEditado(){
-        $idProduct=$_POST['idproducto'];
-        $nombre = $_POST['nombreProducto'];
-        $marca = $_POST['marcaProducto'];
-        $precio = $_POST['precioProducto'];
-        $id_rubro = $_POST['rubroProducto'];
-    //    var_dump($idProduct,$nombre,$marca,$precio,$id_rubro);die;  
- $this->model->modifyProducto($idProduct,$nombre,$marca,$precio,$id_rubro);
- $this-> showProducts();
-   
-}
+    }
+    public function productoEditado(){
+            $idProduct=$_POST['idproducto'];
+            $nombre = $_POST['nombreProducto'];
+            $marca = $_POST['marcaProducto'];
+            $precio = $_POST['precioProducto'];
+            $id_rubro = $_POST['rubroProducto'];
+        //    var_dump($idProduct,$nombre,$marca,$precio,$id_rubro);die;  
+    $this->model->modifyProducto($idProduct,$nombre,$marca,$precio,$id_rubro);
+    $this-> showProducts();
+    
+    }
+   private function checklogged(){
+        session_start();
+        if(!isset($_SESSION['ID_USER'])){
+           $esAdmin=false;            
+        }
+        else{
+            $esAdmin=true;
+        }
+        return $esAdmin;
+    }
 }

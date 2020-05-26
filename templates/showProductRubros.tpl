@@ -1,5 +1,9 @@
 {include 'header.tpl'}
-
+{if $esadmin==0}
+ <table>
+ <tr style='color:blue'><th scope='col'><h2>NO ESTA LOGUEADO </h2></th></tr>
+ </table>
+  {/if}
     {if  empty($listProductsByItem)}
                 <h2>Este rubro no tiene productos</h2>  
     {else} 

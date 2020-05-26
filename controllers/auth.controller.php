@@ -43,7 +43,13 @@ class AuthController{
             $this->view->showFormUser("Datos inválidos ");
             }
            
-         }
+    }
+
+    public function endSesion(){
+        session_start();
+        session_destroy();        
+        header("Location: " . BASE_URL . "listar");
+    }
             
 
 

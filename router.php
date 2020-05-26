@@ -85,6 +85,12 @@
            
             
         break;
+        case 'cerrar_sesion': 
+            $controller = new AuthController();
+            $controller-> endSesion();
+           
+            
+        break;
         
         case 'verifyUser': 
             $controller = new AuthController();
