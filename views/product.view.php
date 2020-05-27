@@ -24,9 +24,9 @@ class ProductView  {
         
     }
 
-    public function showProductRubros($productos,$esAdmin){
+    public function showProductRubros($productos){    //showProductRubros($productos,,$esAdmin) estaba escrito así.
         $this->smarty->assign("listProductsByItem", $productos);
-        $this->smarty->assign("esadmin",$esAdmin);
+    //    $this->smarty->assign("esadmin",$esAdmin);    Daba error en product.controller.php
         $this->smarty->display('showProductRubros.tpl');
         
     }

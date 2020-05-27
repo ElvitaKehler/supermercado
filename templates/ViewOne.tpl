@@ -11,6 +11,7 @@
             <td>Marca: <b>{$prod->marca}</b> </td>
             <td>Precio: <b>{$prod->precio}</b> </td>
         </tr>
+        <img src="images/{($identif[0]->nombre)}.jpg">
 
     {/foreach}
  {include 'footer.tpl'}   

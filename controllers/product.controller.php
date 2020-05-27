@@ -23,7 +23,7 @@ class ProductController {
 
     public function showProductsByItem($rubro){
         $productos=$this->model->getProductsByItem($rubro);
-        $this->view->showProductRubros($productos,$esAdmin);
+        $this->view->showProductRubros($productos);  // $this->view->showProductRubros($productos, $esAdmin);estaba escrito así y daba error.
     }
     
     public function ViewProduct($id){
