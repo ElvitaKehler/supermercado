@@ -8,7 +8,7 @@
     {foreach $identif item = prod}          
        
         <tr>        
-            <td>Marca: <b>{$prod->marca}</b> </td>
+            <td>Marca: <b>{strtoupper($prod->marca)}</b> </td>
             <td>Precio: <b>{$prod->precio}</b> </td>
         </tr>
         <img src="images/{($identif[0]->nombre)}.jpg">

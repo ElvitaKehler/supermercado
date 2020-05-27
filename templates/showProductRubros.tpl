@@ -12,8 +12,8 @@
                 {foreach $listProductsByItem item= producto}           
             
                     <tr>         
-                        <td><b>{$producto->nombre}</b></td>
-                        <td><b>{$producto->marca}</b> </td>
+                        <td><b>{strtoupper($producto->nombre)}</b></td>
+                        <td><b>{strtoupper($producto->marca)}</b> </td>
                         <td><b>{$producto->precio}</b> </td>
                         <td> <a href='verproducto/{$producto->id_producto} class='btn btn-link>Ver</a>
                         {if $esadmin==1} 
