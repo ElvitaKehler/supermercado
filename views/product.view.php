@@ -1,11 +1,12 @@
 <?php
 require_once('libs/Smarty.class.php');
 require_once('helpers/auth.helper.php');
+require_once('views.php');
 
 
-class ProductView  {
+class ProductView extends Views {
 
-   private $smarty;
+  /* private $smarty;
    
    
 
@@ -15,7 +16,7 @@ class ProductView  {
         $this->smarty->assign("esadmin",AuthHelper::userLogged());
         $this->smarty->assign("usuario",AuthHelper::userName());
     
-    }
+    }*/
     
     public function showProduct($productos){       
         $this->smarty->assign("listaProductos", $productos);

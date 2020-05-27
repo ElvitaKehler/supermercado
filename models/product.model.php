@@ -1,14 +1,16 @@
 <?php
 
+require_once('model.php');
+
 /**
  * Interactua con la tabla PRODUCTOS DE LA DB_SUPERMERCADO
  */
-class ProductModel {
+class ProductModel extends Model {
 
     /**
      * Crear la conexion
      */
-    private function createConection() {
+    /*private function createConection() {
         $host = 'localhost';
         $userName = 'root';
         $password = '';
@@ -16,7 +18,7 @@ class ProductModel {
         $pdo=new PDO("mysql:host=$host;dbname=$database;charset=utf8", $userName , $password);
         return $pdo;
 
-    }
+    }*/
 
 
     /**

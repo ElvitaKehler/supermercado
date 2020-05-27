@@ -1,10 +1,11 @@
 <?php
 
+require_once('model.php');
 
 
-class ItemModel{
+class ItemModel extends Model{
 
-    private function createConection() {
+   /* private function createConection() {
         $host = 'localhost';
         $userName = 'root';
         $password = '';
@@ -12,7 +13,7 @@ class ItemModel{
         $pdo=new PDO("mysql:host=$host;dbname=$database;charset=utf8", $userName , $password);
         return $pdo;
 
-     }
+     }*/
 
     public function getItems() {
         // 1. abro la conexión con MySQL 
