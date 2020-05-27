@@ -2,9 +2,7 @@
 
 class AuthHelper {
 
-    
-
-    static public function userLogged() {
+     static public function userLogged() {
         if (session_status() != PHP_SESSION_ACTIVE){
             session_start();
         }
@@ -15,7 +13,7 @@ class AuthHelper {
          
     }
 
-    static public function checkLogged() {
+    static public function checkLogged() {      //Barrera de acceso para usuarios logueados
         if (session_status() != PHP_SESSION_ACTIVE){
             session_start();
         }
@@ -27,6 +25,7 @@ class AuthHelper {
         }
 
     }
+
     static public function userName() {
         if (session_status() != PHP_SESSION_ACTIVE){
             session_start();

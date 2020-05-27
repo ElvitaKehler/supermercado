@@ -2,34 +2,15 @@
 
 require_once('model.php');
 
-/**
- * Interactua con la tabla PRODUCTOS DE LA DB_SUPERMERCADO
- */
 class ProductModel extends Model {
 
-    /**
-     * Crear la conexion
-     */
-    /*private function createConection() {
-        $host = 'localhost';
-        $userName = 'root';
-        $password = '';
-        $database = 'db_supermercado';
-        $pdo=new PDO("mysql:host=$host;dbname=$database;charset=utf8", $userName , $password);
-        return $pdo;
-
-    }*/
-
-
-    /**
-     * Devuelve todos los productos.
-     */
+    
     public function getAll() {
         // 1. abro la conexión con MySQL 
         $db = $this->createConection();
 
         // 2. enviamos la consulta (3 pasos)
-        $sentencia = $db->prepare("SELECT * FROM productos"); // prepara la consulta
+        $sentencia = $db->prepare("SELECT * FROM productos ORDER BY productos.nombre ASC"); // prepara la consulta
         $sentencia->execute(); // ejecuta
         $productos = $sentencia->fetchAll(PDO::FETCH_OBJ); // obtiene la respuesta
 
@@ -38,15 +19,13 @@ class ProductModel extends Model {
 
     public function getProductsByItem($rubro){
         
-      
         $db = $this->createConection(); // 1. abro la conexión con MySQL 
-
 
         //Creamos la consulta para obtener una categoria
         $sentencia = $db->prepare("SELECT productos.id_producto, productos.nombre, productos.marca, productos.precio,rubros.id_rubro, rubros.nombre as rubro
         FROM productos INNER JOIN rubros ON rubros.id_rubro=productos.id_rubro WHERE rubros.id_rubro=? ORDER BY productos.nombre ASC "); // prepara la consulta
 
-        $sentencia->execute([$rubro]); // ejecuta --> LLEGA BIEN SIN FILTRAR POR RUBRO
+        $sentencia->execute([$rubro]); 
         $productos = $sentencia->fetchAll(PDO::FETCH_OBJ); // obtiene la respuesta
         
         return $productos;

@@ -5,15 +5,7 @@ require_once('model.php');
 
 class ItemModel extends Model{
 
-   /* private function createConection() {
-        $host = 'localhost';
-        $userName = 'root';
-        $password = '';
-        $database = 'db_supermercado';
-        $pdo=new PDO("mysql:host=$host;dbname=$database;charset=utf8", $userName , $password);
-        return $pdo;
-
-     }*/
+  
 
     public function getItems() {
         // 1. abro la conexión con MySQL 
@@ -37,6 +29,7 @@ class ItemModel extends Model{
     }
 
     public function borrarITem($idrubro){
+       
         // 1. abro la conexión con MySQL 
         $db = $this->createConection();
 

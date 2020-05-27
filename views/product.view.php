@@ -6,28 +6,20 @@ require_once('views.php');
 
 class ProductView extends Views {
 
-  /* private $smarty;
-   
-   
+  
+    public function showHome(){  
+        $this->smarty->display('home.tpl');
 
-    public function __construct() {
-        $this->smarty = new Smarty();
-        $this->smarty->assign("base_url", BASE_URL);
-        $this->smarty->assign("esadmin",AuthHelper::userLogged());
-        $this->smarty->assign("usuario",AuthHelper::userName());
-    
-    }*/
+    }
     
     public function showProduct($productos){       
         $this->smarty->assign("listaProductos", $productos);
-       
         $this->smarty->display('showProduct.tpl');
         
     }
 
-    public function showProductRubros($productos){    //showProductRubros($productos,,$esAdmin) estaba escrito así.
+    public function showProductRubros($productos){    
         $this->smarty->assign("listProductsByItem", $productos);
-    //    $this->smarty->assign("esadmin",$esAdmin);    Daba error en product.controller.php
         $this->smarty->display('showProductRubros.tpl');
         
     }
@@ -37,18 +29,13 @@ class ProductView extends Views {
         $this->smarty->display('ViewOne.tpl');
          
     }
-
-    public function showError($msg){ 
-        $this->smarty->assign("mensaje", $msg);
-        $this->smarty->display('showError.tpl');
     
-    }
-
     public function ShowFormByProduct($id){
         $this->smarty->assign("listarubros", $id);
         $this->smarty->display('ShowFormProductos.tpl');
     }
-    
+
+     
     public function showFormEditProduct($producto){
         $this->smarty->assign("producto", $producto);
         $this->smarty->display('editProduct.tpl');
@@ -62,8 +49,5 @@ class ProductView extends Views {
         $this->smarty->display('errorProductoRepetido.tpl');
     }
 
-    public function showHome(){  
-        $this->smarty->display('home.tpl');
-
-    }
+    
 }

@@ -2,6 +2,7 @@
     require_once 'controllers/product.controller.php';
     require_once 'controllers/item.controller.php';
     require_once 'controllers/auth.controller.php';
+    require_once 'controllers/error.controller.php';
 
     // definimos la base url de forma dinamica
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -19,130 +20,105 @@
 
     // decide que camino tomar según TABLA DE RUTEO
     switch ($parametros[0]) {
-        case 'inicio':
+
+        //ACCIONES DE ACCESO PÚBLICO
+
+        case 'inicio':              //Muestra el Home de la página
             $controller=new ProductController();
             $controller->inicialPage();
         break;
-        case 'insertar':
-            $controller=new ProductController();
-            $controller->InsertProduct();
-        break;
-        case 'listar': // /lista los productos   ->   showProd()
-            // instanciando un objeto de la clase ProdController
+       
+        case 'listar':              // Muestra TODOS los productos  
             $controller = new ProductController();
             $controller->showProducts();
         break;
 
-        case 'listrubros': // /lista los rubros   ->   showRubros()
-            // instanciando un objeto de la clase RubroController
+        case 'listrubros':          //Muestra TODOS los rubros
             $controller = new ItemController();
             $controller->showItems();
         break;
-        case 'productos_por_rubros': // /lista productos por rubro /n  ->   showRubrosPOrRubro()
-            // instanciando un objeto de la clase RubroController
-            
+
+        case 'productos_por_rubros': // Muestra productos de un rubro específico
             $controller = new ProductController();            
             $controller->showProductsByItem($parametros[1]);
-           
         break;
-        case 'verproducto': // /ver el detalle de un producto/n  ->   ViewProduct()
-                      
+
+        case 'verproducto':          //Muestra el detalle de un producto
             $controller = new ProductController();            
             $controller->ViewProduct($parametros[1]);
-            
-        break;
-        /*
-        case 'admin':   //ACCESO PARA EL ADMINISTRADOR
-
-            $controller = new AuthController();
-            $controller->showLoguin();     //MUESTRA EL FORMULARIO DE LOGUEO
-        break;
-        */
-        case 'formAltaItem':  
-
-            $controller = new ItemController();
-            $controller->formItem();     
         break;
 
-        case 'formAltaProducto':  
-
+        //ACCIONES DE ACCESO USUARIO LOGUEADO
+        
+        case 'formAltaProducto':    //Muestra el formulario para insertar producto
             $controller = new ProductController();
             $controller->formProduct();  
-             
         break;
-
-
-        case 'altaprod':    //Alta a nuevo producto
-           
+        
+        case 'altaprod':    //Alta a nuevo producto, desde ACTION del formulario
             $controller = new ProductController();
             $controller->InsertProduct();
         break;
 
-        case 'altaItem':  //Alta a nuevo rubro
-           
+        case 'formAltaItem':  //Muestra el formulario para insertar un nuevo rubro
+            $controller = new ItemController();
+            $controller->formItem();     
+        break;
+
+        case 'altaItem':  //Alta a nuevo rubro, desde ACTION del formulario
             $controller = new ItemController();
             $controller->insertItem();
         break;
 
-        case 'login': 
-            $controller = new AuthController();
-            $controller-> ShowLogin();
-           
-            
-        break;
-        case 'cerrar_sesion': 
-            $controller = new AuthController();
-            $controller-> endSesion();
-           
-            
-        break;
-        
-        case 'verifyUser': 
-            $controller = new AuthController();
-            $controller-> verifyUser();
-           
-            
-        break;
-
-        case 'borrar_rubro':  //Baja a rubro
-           
-            $controller = new ItemController();
-            $controller->deleteItem($parametros[1]);
-        break;
-
-        case 'borrar_producto':  //Baja a producto
-           
-            $controller = new ProductController();
-            $controller->deleteProduct($parametros[1]);
-        break;
-
-        case 'editar_rubro':  //Baja a rubro
-           
-            $controller = new ItemController();
-            $controller->editItem($parametros[1]);
-        break;
-
-        case 'rubroEditado':  //Baja a rubro
-           
-            $controller = new ItemController();
-            $controller->itemEditado();
-        break;
-
-        case 'editar_producto':  //Baja a rubro
-           
+        case 'editar_producto':  //Muestra el formulario para editar un producto
             $controller = new ProductController();
             $controller->editProduct($parametros[1]);
         break;
 
-        case 'productoEditado':  //Baja a rubro
-           
+        case 'productoEditado':  //Edita el producto, desde ACTION del formulario
             $controller = new ProductController();
             $controller->productoEditado();
         break;
 
-         default: 
-         $controller = new ProductController();
+        case 'borrar_producto':  //Elimina un producto de la BD
+            $controller = new ProductController();
+            $controller->deleteProduct($parametros[1]);
+        break;
+
+        case 'editar_rubro':    //Muestra el formulario para editar un rubro
+            $controller = new ItemController();
+            $controller->editItem($parametros[1]);
+        break;
+
+        case 'rubroEditado':  //Edita el rubro, desde ACTION del formulario
+            $controller = new ItemController();
+            $controller->itemEditado();
+        break;
+
+        case 'borrar_rubro':  //Elimina el rubro de la BD
+            $controller = new ItemController();
+            $controller->deleteItem($parametros[1]);
+        break;
+
+    //ACIONES DE AUTENTICACIÓN
+
+        case 'login':       // Muestra el formulario de Logueo
+            $controller = new AuthController();
+            $controller-> ShowLogin();
+        break;
+
+        case 'verifyUser':  //Verifica usuario existente, desde ACTION del formulario
+            $controller = new AuthController();
+            $controller-> verifyUser();
+        break;
+
+        case 'cerrar_sesion': //Cierra la sesión logueada.
+            $controller = new AuthController();
+            $controller-> endSesion();
+        break;
+        
+        default: 
+         $controller = new ErrorController();
          $controller->showError("404 not found");
-            
         break;
     }

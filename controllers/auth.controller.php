@@ -39,7 +39,7 @@ class AuthController{
              
              header("Location: " . BASE_URL . "listar");
 
-            }  else {
+        }  else {
             $this->view->showFormUser("Datos inválidos ");
             }
            
