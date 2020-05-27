@@ -27,6 +27,16 @@ class AuthHelper {
         }
 
     }
+    static public function userName() {
+        if (session_status() != PHP_SESSION_ACTIVE){
+            session_start();
+        }
+        if(isset($_SESSION['USERNAME'])) {
+            return $_SESSION['USERNAME'];
+        }
+        
+         
+    }
 
    
     

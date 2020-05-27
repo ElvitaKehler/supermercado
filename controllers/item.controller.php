@@ -16,17 +16,13 @@ class ItemController {
     }
    
     public function showItems(){
-        //barrera de seguridad
-       // $esAdmin=$this->checklogged();
         $rubros=$this->model->getItems();     
-       
-        // actualizo la vista
-        $this->view->items($rubros);
+        $this->view->items($rubros);  // actualizo la vista
     }
 
     public function insertItem(){
 
-        if (AuthHelper::checkLogged()){
+        if (AuthHelper::checkLogged()){ //Barrera para usuario logueado
       
             $nombre = $_POST['nombreItem']; // toma los valores enviados por el usuario
             if(empty($nombre)){
@@ -67,31 +63,16 @@ class ItemController {
         $item=$this->model->getItem($idItem);
     
         $this->view->showFormEdit($item);
+      }
     }
-}
-public function itemEditado(){
+
+    public function itemEditado(){
     $nombre=$_POST['nombreItem'];
     $id=$_POST['iditem'];
     $ItemEdit=$this->model->getItems($nombre);
-    /*if(!empty($ItemEdit)){
-        echo"Error el item ya existe";
-        echo"   ";
-    }
-    else{*/
+   
         $this->model->modifyItem($id,$nombre);
         $this->showItems();
-   // }
- 
-}
-/*private function checklogged(){
-    session_start();
-    if(!isset($_SESSION['ID_USER'])){
-       $esAdmin=false;            
+   
     }
-    else{
-        $esAdmin=true;
-    }
-    return $esAdmin;
-}*/
-
 }

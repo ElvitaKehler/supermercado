@@ -11,8 +11,8 @@
         </head>
         <body>
         <div  class="panel panel-primary">        
-        <img src="images/descarga.jpg" class="rounded float-left" height="50" width="50" >       
-        <img src="images/descarga.jpg" class="rounded float-right" height="50" width="50">  
+        <img src="images/descarga.jpg" class="rounded float-left" height="50" width="50" > 
+        <img src="images/descarga.jpg" class="rounded float-right" height="50" width="50">
         <h1 class="text-center"style="color:blue" > Supermercado LA WEB </h1>     
         </div>
        
@@ -40,7 +40,7 @@
                         <a class="navbar-brand" href="login">Login<span></span></a></li>
                     {else}                   
                      <li class="nav-item active">           
-                        <a class="navbar-brand" href='cerrar_sesion'>Logout </a></li>                  
+                        <a class="navbar-brand" href='cerrar_sesion'><p class="">Usuario: {$usuario}</p>  Logout </a></li>                  
                     {/if} 
                 </ul>
                
