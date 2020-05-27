@@ -60,7 +60,7 @@
         case 'formAltaItem':  
 
             $controller = new ItemController();
-            $controller->highItem();     //MUESTRA EL FORMULARIO DE LOGUEO
+            $controller->highItem();     
         break;
 
         case 'formAltaProducto':  

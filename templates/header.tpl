@@ -11,8 +11,8 @@
         </head>
         <body>
         <div  class="panel panel-primary">        
-        <img src="images/descarga.jpg" class="rounded float-left" height="50" width="50" >       
-        <img src="images/descarga.jpg" class="rounded float-right" height="50" width="50">  
+        <img src="images/descarga.jpg" class="rounded float-left" height="50" width="50" > 
+        <img src="images/descarga.jpg" class="rounded float-right" height="50" width="50">
         <h1 class="text-center"style="color:blue" > Supermercado LA WEB </h1>     
         </div>
        
@@ -35,12 +35,21 @@
             </div>
             <div class="login-container">
                 <ul class="navbar-nav">
+<<<<<<< HEAD
                    
+=======
+                    {if !$esadmin}
+>>>>>>> 051040c2b50f57f2e2626b0e52231b27a4aa5909
                     <li class="nav-item active">
                         <a class="navbar-brand" href="login">Login<span></span></a></li>
                      <li class="nav-item active">           
+<<<<<<< HEAD
                         <a class="navbar-brand" href='cerrar_sesion'>Cerrar Sesión </a></li>                  
                    
+=======
+                        <a class="navbar-brand" href='cerrar_sesion'><p class="">Usuario: {$usuario}</p>  Logout </a></li>                  
+                    {/if} 
+>>>>>>> 051040c2b50f57f2e2626b0e52231b27a4aa5909
                 </ul>
                
             </div>

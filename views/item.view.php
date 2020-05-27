@@ -1,76 +1,49 @@
 <?php
 require_once('libs/Smarty.class.php');
 
-class ItemView
-{
+class ItemView{
 
-    public function items($rubros,$esAdmin)    
-    {
-        //var_dump($rubros[0]->id_rubro);die; 
-        $smarty = new Smarty();
-        $smarty->assign("base_url", BASE_URL);
-        $smarty->assign("listarubros", $rubros);
-        $smarty->assign("esadmin",$esAdmin);
+    private $smarty;
 
-        $smarty->display('items.tpl');
-    }
-
-    
-
-    public function showError($msg){
-        $smarty = new Smarty();
-        $smarty->assign("base_url", BASE_URL);
-        $smarty->assign("mensaje", $msg);
-
-        $smarty->display('showError.tpl');
+    public function __construct() {
+        $this->smarty = new Smarty();
+        $this->smarty->assign("base_url", BASE_URL);
+        $this->smarty->assign("esadmin",AuthHelper::userLogged());
     
     }
 
-    public function deleteItem($rubros)    
-    {
-        //var_dump($rubros[0]->id_rubro);die; 
-        $smarty = new Smarty();
-        $smarty->assign("base_url", BASE_URL);
-        $smarty->assign("listarubros", $rubros);
+    public function items($rubros){
+        $this->smarty->assign("listarubros", $rubros);
+        $this->smarty->display('items.tpl');
+    }
 
-        $smarty->display('items.tpl');
+    public function showError($msg){   
+        $this->smarty->assign("mensaje", $msg);
+        $this->smarty->display('showError.tpl');
+    
+    }
+
+    public function deleteItem($rubros){
+        $this->smarty->assign("listarubros", $rubros);
+        $this->smarty->display('items.tpl');
     }
 
 
-    public function showFormEdit($item){     
-       
-        $smarty = new Smarty();
-        $smarty->assign("base_url", BASE_URL);
-        $smarty->assign("item", $item);
-
-        $smarty->display('editItem.tpl');
+    public function showFormEdit($item){          
+        $this->smarty->assign("item", $item);
+        $this->smarty->display('editItem.tpl');
     }
 
     public function ShowFormByItem(){
-
-        $smarty = new Smarty();
-        $smarty->assign("base_url", BASE_URL);
-        
-
-        $smarty->display('ShowFormItems.tpl');
+        $this->smarty->display('ShowFormItems.tpl');
     }
 
     public function ErrorAlCargarItem(){
-
-        $smarty = new Smarty();
-        $smarty->assign("base_url", BASE_URL);
-        
-
-        $smarty->display('errorCargaItem.tpl');
+        $this->smarty->display('errorCargaItem.tpl');
     }
 
     public function ErrorItemRepetido(){
-
-        $smarty = new Smarty();
-        $smarty->assign("base_url", BASE_URL);
-        
-
-        $smarty->display('errorItemRepetido.tpl');
+        $this->smarty->display('errorItemRepetido.tpl');
     }
     
 }

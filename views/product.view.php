@@ -1,88 +1,68 @@
 <?php
 require_once('libs/Smarty.class.php');
+require_once('helpers/auth.helper.php');
 
-class ProductView {
 
+class ProductView  {
+
+   private $smarty;
+   
+   
+
+    public function __construct() {
+        $this->smarty = new Smarty();
+        $this->smarty->assign("base_url", BASE_URL);
+        $this->smarty->assign("esadmin",AuthHelper::userLogged());
+        $this->smarty->assign("usuario",AuthHelper::userName());
     
-
-    public function showProduct($productos,$esAdmin){
-            
-        $smarty = new Smarty();
-        $smarty->assign("base_url", BASE_URL);
-        $smarty->assign("listaProductos", $productos);
-        $smarty->assign("esadmin",$esAdmin);
+    }
     
-        $smarty->display('showProduct.tpl');
+    public function showProduct($productos){       
+        $this->smarty->assign("listaProductos", $productos);
+       
+        $this->smarty->display('showProduct.tpl');
         
     }
 
     public function showProductRubros($productos,$esAdmin){
-       // var_dump($productos);die;
-        $smarty = new Smarty();
-        $smarty->assign("base_url", BASE_URL);
-        $smarty->assign("listProductsByItem", $productos);
-        $smarty->assign("esadmin",$esAdmin);
-
-        $smarty->display('showProductRubros.tpl');
+        $this->smarty->assign("listProductsByItem", $productos);
+        $this->smarty->assign("esadmin",$esAdmin);
+        $this->smarty->display('showProductRubros.tpl');
         
     }
     
     public function ViewOne($id){ 
-    
-        $smarty = new Smarty();
-        $smarty->assign("base_url", BASE_URL);
-        $smarty->assign("identif", $id);
-
-        $smarty->display('ViewOne.tpl');
-    
-        
+        $this->smarty->assign("identif", $id);
+        $this->smarty->display('ViewOne.tpl');
+         
     }
 
- 
-    public function showError($msg){
-        $smarty = new Smarty();
-        $smarty->assign("base_url", BASE_URL);
-        $smarty->assign("mensaje", $msg);
-
-        $smarty->display('showError.tpl');
+    public function showError($msg){ 
+        $this->smarty->assign("mensaje", $msg);
+        $this->smarty->display('showError.tpl');
     
     }
 
     public function ShowFormByProduct($id){
-
-        $smarty = new Smarty();
-        $smarty->assign("base_url", BASE_URL);
-        $smarty->assign("listarubros", $id);
-
-        $smarty->display('ShowFormProductos.tpl');
+        $this->smarty->assign("listarubros", $id);
+        $this->smarty->display('ShowFormProductos.tpl');
     }
+    
     public function showFormEditProduct($producto){
-      
-       
-        $smarty = new Smarty();
-        $smarty->assign("base_url", BASE_URL);
-        $smarty->assign("producto", $producto);
-
-        $smarty->display('editProduct.tpl');
+        $this->smarty->assign("producto", $producto);
+        $this->smarty->display('editProduct.tpl');
     }
-    public function ErrorAlCargarProd(){
-        $smarty = new Smarty();
-        $smarty->assign("base_url", BASE_URL);
-
-        $smarty->display('errorCargaProduct.tpl');
+    
+    public function ErrorAlCargarProd(){  
+        $this->smarty->display('errorCargaProduct.tpl');
     }
-    public function ProductoRepetido(){
-        $smarty = new Smarty();
-        $smarty->assign("base_url", BASE_URL);
-
-        $smarty->display('errorProductoRepetido.tpl');
+    
+    public function ProductoRepetido(){   
+        $this->smarty->display('errorProductoRepetido.tpl');
     }
 
-    public function showHome(){
-        $smarty = new Smarty();
-        $smarty->assign("base_url", BASE_URL);
+    public function showHome(){  
+        $this->smarty->display('home.tpl');
 
-        $smarty->display('home.tpl');
-
-}
+    }
 }

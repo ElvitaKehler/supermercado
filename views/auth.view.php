@@ -3,14 +3,19 @@
 require_once('libs/Smarty.class.php');
 
 class AuthView{
+    private $smarty;
+
+    public function __construct() {
+        $this->smarty = new Smarty();
+        $this->smarty->assign("base_url", BASE_URL);
+        $this->smarty->assign("esadmin",AuthHelper::userLogged());
+    
+    }
     
     public function showFormUser($error = null){
 
-        $smarty = new Smarty();
-        $smarty->assign("base_url", BASE_URL);
-        $smarty->assign("error",$error);
-        
-        $smarty->display('ShowFormUser.tpl');
+        $this->smarty->assign("error",$error);
+        $this->smarty->display('ShowFormUser.tpl');
         
     }
 
