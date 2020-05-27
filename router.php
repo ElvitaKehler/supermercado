@@ -51,22 +51,23 @@
             $controller->ViewProduct($parametros[1]);
             
         break;
+        /*
         case 'admin':   //ACCESO PARA EL ADMINISTRADOR
 
             $controller = new AuthController();
             $controller->showLoguin();     //MUESTRA EL FORMULARIO DE LOGUEO
         break;
-
+        */
         case 'formAltaItem':  
 
             $controller = new ItemController();
-            $controller->highItem();     
+            $controller->formItem();     
         break;
 
         case 'formAltaProducto':  
 
             $controller = new ProductController();
-            $controller->highProduct();  
+            $controller->formProduct();  
              
         break;
 

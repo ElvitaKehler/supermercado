@@ -44,7 +44,7 @@ class ItemController {
         }
     }
 
-   public function highItem(){
+   public function formItem(){
     if (AuthHelper::checkLogged()){
         $this->view->ShowFormByItem();
     }
@@ -69,7 +69,7 @@ class ItemController {
     public function itemEditado(){
     $nombre=$_POST['nombreItem'];
     $id=$_POST['iditem'];
-    $ItemEdit=$this->model->getItems($nombre);
+    //$ItemEdit=$this->model->getItems($nombre);
    
         $this->model->modifyItem($id,$nombre);
         $this->showItems();

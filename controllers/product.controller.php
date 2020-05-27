@@ -72,7 +72,7 @@ class ProductController {
 
    }
    
-   public function highProduct(){
+   public function formProduct(){
         if (AuthHelper::checkLogged()){ //Barrera para usuario logueado
             $rubros=$this->modelItem->getItems();
             $this->view->ShowFormByProduct($rubros);
