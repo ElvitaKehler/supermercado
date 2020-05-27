@@ -1,9 +1,5 @@
 {include 'header.tpl'}
-{if !$esadmin}
- <table>
- <tr style='color:blue'><th scope='col'><h2>NO ESTA LOGUEADO </h2></th></tr>
- </table>
-  {/if}
+
 {if $esadmin} 
  <table class='table table-hover table-striped table-bordered table table-condensed' style='width:900px'>
       
