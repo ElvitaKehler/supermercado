@@ -11,7 +11,7 @@ class Views {
         $this->smarty->assign("base_url", BASE_URL);
         $this->smarty->assign("esadmin",AuthHelper::userLogged());
         $this->smarty->assign("usuario",AuthHelper::userName());
-        if ( isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 10)) { 
+        if ( isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 60)) { 
             session_destroy(); // destruye la sesión, y vuelve al login
             header("Location: " . BASE_URL . "inicio");
         } 
