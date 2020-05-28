@@ -14,4 +14,4 @@
         <img src="images/{($identif[0]->nombre)}.jpg">
 
     {/foreach}
- {include 'footer.tpl'}   
+{include 'footer.tpl'}   

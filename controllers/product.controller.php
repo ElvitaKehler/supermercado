@@ -35,7 +35,11 @@ class ProductController {
     
     public function ViewProduct($id){
         $producto=$this->model->getone($id);
-        $this->view->ViewOne($producto);
+        if (!empty($producto)){
+            $this->view->ViewOne($producto);
+        }else
+        $this->viewError->showError("Producto Inexistente");
+        
     }
 
     public function formProduct(){
