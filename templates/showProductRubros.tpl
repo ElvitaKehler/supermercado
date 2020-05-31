@@ -8,11 +8,12 @@
         <h2>Rubro: {strtoupper($listProductsByItem[0]->rubro)}</h2> 
          
             <table class='table table-hover table-striped table-bordered table table-condensed' style='width:900px'>
-                <tr style='color:blue'><th scope='col'>Producto</th><th scope='col'>Marca</th><th scope='col'>Precio</th></tr>  
+                <tr style='color:blue'><th scope='col'></th><th scope='col'>Producto</th><th scope='col'>Marca</th><th scope='col'>Precio</th></tr>  
       
                 {foreach $listProductsByItem item= producto}           
             
-                    <tr>         
+                    <tr> 
+                        <td><img src="images/imagesProd/{($producto->nombre)}.jpg"></td>        
                         <td><b>{strtoupper($producto->nombre)}</b></td>
                         <td><b>{strtoupper($producto->marca)}</b> </td>
                         <td><b>{$producto->precio}</b> </td>

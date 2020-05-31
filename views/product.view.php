@@ -18,7 +18,8 @@ class ProductView extends Views {
         
     }
 
-    public function showProductRubros($productos){    
+    public function showProductRubros($productos){
+         
         $this->smarty->assign("listProductsByItem", $productos);
         $this->smarty->display('showProductRubros.tpl');
         
@@ -39,6 +40,7 @@ class ProductView extends Views {
     public function showFormEditProduct($producto){
         $this->smarty->assign("producto", $producto);
         $this->smarty->display('editProduct.tpl');
+        
     }
     
     public function ErrorAlCargarProd(){  
