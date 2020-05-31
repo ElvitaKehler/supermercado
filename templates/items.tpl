@@ -2,7 +2,7 @@
 
  
 {if $esadmin}
-    <table class='table table-hover table-striped table-bordered table table-condensed' style='width:900px'>
+    <table  class="table table-hover table-dark" style='width:900px'>
        
         <tr style='color:blue'>
             <th scope='col'><h2> Rubro disponibles </h2></th>
@@ -15,7 +15,7 @@
     </table>
  {/if}
 
-<table class='table table-hover table-striped table-bordered table table-condensed' style='width:400px'>
+<table  class="table table-hover table-dark" style='width:400px'>
       
        <tr style='color:blue'>
             <th scope='col'></th>
@@ -24,10 +24,10 @@
         {foreach $listarubros item= rubro} 
         <tr>
             <td><img src="images/imagesRubros/{($rubro->nombre)}.jpg"></td>
-             <td><a href="productos_por_rubros/{$rubro->id_rubro}" class='btn btn-link'>{strtoupper($rubro->nombre)}</a>  
+             <td><a href="productos_por_rubros/{$rubro->id_rubro}" class='btn btn-link'><b>{strtoupper($rubro->nombre)}</b> </a> 
              {if $esadmin}             
-                  <td> <a href='borrar_rubro/{$rubro->id_rubro}' class='btn btn-link'>Borrar </a></td>
-                  <td> <a href='editar_rubro/{$rubro->id_rubro}' class='btn btn-link'>Editar </a></td>
+                  <td> <a href='borrar_rubro/{$rubro->id_rubro}' class='btn btn-link'><b>Borrar</b> </a></td>
+                  <td> <a href='editar_rubro/{$rubro->id_rubro}' class='btn btn-link'><b>Editar</b> </a></td>
               {/if}
         </tr>
             {/foreach}

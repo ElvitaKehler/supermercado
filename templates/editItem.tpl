@@ -16,7 +16,7 @@
             </div>
             
 
-            <button type="submit" class="btn btn-primary">Editar</button>
+            <button type="submit" class="btn btn-dark">Editar</button>
         </form>
         </div>
     

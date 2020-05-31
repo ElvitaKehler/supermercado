@@ -16,10 +16,10 @@
         <div  class="panel panel-primary">        
         <img src="images/descarga.jpg" class="rounded float-left" height="50" width="50" > 
         <img src="images/descarga.jpg" class="rounded float-right" height="50" width="50">
-        <h1 class="text-center"style="color:#4976E7" > Supermercado  WEB </h1>     
+        <h1 class="text-center"style="color:#darkorange" > Supermercado  WEB </h1>     
         </div>
        
-       <nav class="barranav navbar navbar-expand-lg navbar navbar-dark bg-primary mb-3">
+       <nav class="barranav navbar navbar-expand-lg navbar navbar-dark bg-dark mb-3">
              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -40,10 +40,13 @@
                 <ul class="navbar-nav">
                      {if !$esadmin}
                     <li class="nav-item active">
-                        <a class="navbar-brand" href="login">Login<span></span></a></li>
-                    {else}                   
+                        <a class="navbar-brand" href="login"><b style='color:blue'>Login</b><span></span></a></li>
+                    {else}
+                    <li class="nav-item active"> 
+                     <p class="navbar-brand"> Usuario: {$usuario}  </p></li> 
+                     <li class="nav-item active"></li>                    
                      <li class="nav-item active">           
-                        <a class="navbar-brand" href='cerrar_sesion'><p class="">Usuario: {$usuario}</p>  Logout </a></li>                  
+                        <a class="navbar-brand" href='cerrar_sesion'><b style='color:blue'>Logout </b></a></li>                  
                     {/if} 
 
                 </ul>

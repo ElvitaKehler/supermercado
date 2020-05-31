@@ -1,8 +1,8 @@
 </table>
-<footer class="container-fluid bg-primary  text-white py-3 text-center">
+<footer class="table table-hover table-dark">
    
  
- <p>| © 2020 SUPERMERCADO LA WEB |</p>
+ <p class="text-center">| © 2020 SUPERMERCADO LA WEB |</p>
 </footer>
 
 

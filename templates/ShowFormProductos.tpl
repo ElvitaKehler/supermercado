@@ -28,7 +28,7 @@
             </select>
             </div>
 
-            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button type="submit" class="btn btn-dark">Guardar</button>
         </form>
  </div>      
         

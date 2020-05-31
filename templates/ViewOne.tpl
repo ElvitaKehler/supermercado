@@ -1,9 +1,9 @@
 {include 'header.tpl'}
-
-   <h1> Rubro :{strtoupper($identif[0]->rubro)}</h1>
-    <h2>Producto: {strtoupper($identif[0]->nombre)}</h2>
-   
-    <table class='table table-hover table-striped table-bordered table table-condensed' style='width:900px'>
+<table  class="table table-hover table-dark" style='width:900px'>
+   <tr ><td><h2 class="table table-hover table-dark"> Rubro :{strtoupper($identif[0]->rubro)}</h2> </td></tr>
+   <tr ><td><h2 >Producto: {strtoupper($identif[0]->nombre)}</h2> </td></tr>
+</table>   
+    <table  class="table table-hover table-dark" style='width:900px'>
      
     {foreach $identif item = prod}          
        
