@@ -18,11 +18,12 @@
 <table class='table table-hover table-striped table-bordered table table-condensed' style='width:400px'>
       
        <tr style='color:blue'>
-          <th scope='col'>RUBRO</th>
+            <th scope='col'></th>
+            <th scope='col'>RUBRO</th>
        </tr>
         {foreach $listarubros item= rubro} 
         <tr>
-            
+            <td><img src="images/imagesRubros/{($rubro->nombre)}.jpg"></td>
              <td><a href="productos_por_rubros/{$rubro->id_rubro}" class='btn btn-link'>{strtoupper($rubro->nombre)}</a>  
              {if $esadmin}             
                   <td> <a href='borrar_rubro/{$rubro->id_rubro}' class='btn btn-link'>Borrar </a></td>
