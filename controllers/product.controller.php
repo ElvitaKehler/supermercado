@@ -57,22 +57,19 @@ class ProductController {
             $nombre = $_POST['nombre']; // toma los valores enviados por el usuario
             $marca = $_POST['marca'];
             $precio = $_POST['precio'];
-            $id_rubro = $_POST['id_rubro'];  
-            if(empty($nombre)||empty($marca)||empty($precio)||empty($id_rubro)){   //verifica que no haya campos vacíos
+            $id_rubro = $_POST['id_rubro'];
+            $producto=$this->model->getProductoNombre($nombre,$marca); // verifica si el producto ya fue cargado
+            if(!empty($producto)) {
+                $this->view->ProductoRepetido();                        
+            } 
+            if(empty($producto) && (empty($nombre)||empty($marca)||empty($precio)||empty($id_rubro))){   //verifica que no haya campos vacíos
                 $this->view->ErrorAlCargarProd();
             } 
-            else{
-                $producto=$this->model->getProductoNombre($nombre,$marca); // verifica si el producto ya fue cargado
-                if(!empty($producto)) {
-                    $this->view->ProductoRepetido();                        
-                }
-                else{
-                    // inserta en la DB y redirige
-                    $success = $this->model->InsertOneProduct($nombre, $marca, $precio,$id_rubro); //lo agrega a la base de datos
-                    if($success)
-                        header('Location: ' . BASE_URL . "listar");
-                }
-            
+            if(empty($producto) && !empty($nombre) && !empty($marca)&& !empty($precio) && !empty($id_rubro)){       
+                 // inserta en la DB y redirige
+                 $success = $this->model->InsertOneProduct($nombre, $marca, $precio,$id_rubro); //lo agrega a la base de datos
+                 if($success)
+                    header('Location: ' . BASE_URL . "listar");
             }
         }
     }

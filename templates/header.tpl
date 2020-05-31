@@ -16,7 +16,7 @@
         <div  class="panel panel-primary">        
         <img src="images/descarga.jpg" class="rounded float-left" height="50" width="50" > 
         <img src="images/descarga.jpg" class="rounded float-right" height="50" width="50">
-        <h1 class="text-center"style="color:blue" > Supermercado LA WEB </h1>     
+        <h1 class="text-center"style="color:#4976E7" > Supermercado  WEB </h1>     
         </div>
        
        <nav class="barranav navbar navbar-expand-lg navbar navbar-dark bg-primary mb-3">

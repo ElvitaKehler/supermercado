@@ -11,11 +11,14 @@ class ItemController {
     private $model;
     private $view;
     private $viewError;
+    private $modelprod;
 
     public function __construct() {
         $this->model = new ItemModel();
         $this->view = new ItemView();
+        $this->modelprod=new ProductModel();
         $this->viewError = new ErrorView();
+        
     }
    
     public function showItems(){
@@ -28,21 +31,19 @@ class ItemController {
         if (AuthHelper::checkLogged()){ //Barrera para usuario logueado
       
             $nombre = $_POST['nombreItem']; // toma los valores enviados por el usuario
+            $item = $this->model->getItemNombre($nombre); //verifica si el rubro está repetido
+            if(!empty($item)) {
+                $this->view->ErrorItemRepetido();
+            }
             if(empty($nombre)){
                 $this->view->ErrorAlCargarItem();   //verifica si el campo está vacío
             } 
-            else{
-                    $item = $this->model->getItemNombre($nombre); //verifica si el rubro está repetido
-                    if(!empty($item)) {
-                        $this->view->ErrorItemRepetido();
-                    }
-                    else { 
-                            // inserta en la DB y redirige
-                            $success = $this->model->insertOneItem($nombre);    //inserta a la base de datos el rubro
-                            if($success){
-                                header('Location: ' . BASE_URL . "listrubros");
-                            }
-                    }
+            if(empty($item) && !empty($nombre)) {
+                // inserta en la DB y redirige
+                $success = $this->model->insertOneItem($nombre);    //inserta a la base de datos el rubro
+                if($success){
+                    header('Location: ' . BASE_URL . "listrubros");
+                }
             }
         }
     }
@@ -55,8 +56,15 @@ class ItemController {
 
    public function deleteItem($rubro){
     if (AuthHelper::checkLogged()){
-         $this->model->borrarItem($rubro);
-         header('Location: ' . BASE_URL . "listrubros");    //En BD Eliminación por CASCADE
+        $productos=$this->modelprod->getProductsByItem($rubro);
+        if(empty($productos)){
+            $this->model->borrarItem($rubro);
+            header('Location: ' . BASE_URL . "listrubros");    //En BD Eliminación 
+        }else
+             $this->view->errorAlBorrarRubro();   
+        
+       
+        
  
     }
 }

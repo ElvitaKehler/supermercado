@@ -38,5 +38,8 @@ class ItemView extends Views{
     public function ErrorItemRepetido(){
         $this->smarty->display('errorItemRepetido.tpl');
     }
+    public function errorAlBorrarRubro(){
+        $this->smarty->display('errorrubroconproductos.tpl');
+    }
     
 }
