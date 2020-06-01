@@ -63,7 +63,7 @@ class ProductController {
             if(!empty($producto)) {
                 $this->view->ProductoRepetido();                        
             } 
-            if(empty($producto) && (empty($nombre)||empty($marca)||empty($precio)||empty($id_rubro))){   //verifica que no haya campos vacíos
+            if(empty($producto) && (empty($nombre)||empty($marca)||empty($precio)||empty($id_rubro)||empty($imagenprod))){   //verifica que no haya campos vacíos
                 $this->view->ErrorAlCargarProd();
             } 
             if(empty($producto) && !empty($nombre) && !empty($marca)&& !empty($precio) && !empty($id_rubro)&& !empty($imagenprod)){       
