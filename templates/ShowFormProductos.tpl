@@ -27,6 +27,10 @@
                 {/foreach}
             </select>
             </div>
+            <div class="form-group">
+                <label>Imagen Producto</label>
+                <input name="imagenprod" type="text" class="form-control">
+            </div>
 
             <button type="submit" class="btn btn-dark">Guardar</button>
         </form>

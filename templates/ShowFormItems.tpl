@@ -11,6 +11,10 @@
                 <label>nombre</label>
                     <input name="nombreItem" type="text" class="form-control">
             </div>
+            <div class="form-group">
+                <label>Imagen del Rubro</label>
+                    <input name="imagenrubro" type="text" class="form-control">
+            </div>
             
 
             <button type="submit" class="btn btn-dark">Guardar</button>

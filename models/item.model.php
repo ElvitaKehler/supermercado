@@ -18,14 +18,14 @@ class ItemModel extends Model{
 
         return $rubros;
     }
-    public function InsertOneItem($nombre){
+    public function InsertOneItem($nombre,$imagen){
        
         // 1. abro la conexión con MySQL 
         $db = $this->createConection();
 
         // 2. enviamos la consulta
-        $sentencia = $db->prepare("INSERT INTO rubros(nombre) VALUES(?)"); // prepara la consulta
-        return $sentencia->execute([$nombre]); // ejecuta
+        $sentencia = $db->prepare("INSERT INTO rubros(nombre,imagen_rubro) VALUES(?,?)"); // prepara la consulta
+        return $sentencia->execute([$nombre,$imagen]); // ejecuta
     }
 
     public function borrarITem($idrubro){

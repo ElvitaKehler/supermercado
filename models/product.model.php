@@ -64,14 +64,14 @@ class ProductModel extends Model {
         return $producto;
     } 
 
-    public function InsertOneProduct($nombre, $marca, $precio,$id_rubro){
+    public function InsertOneProduct($nombre, $marca, $precio,$id_rubro,$imagen){
        
             // 1. abro la conexión con MySQL 
             $db = $this->createConection();
     
             // 2. enviamos la consulta
-            $sentencia = $db->prepare("INSERT INTO productos(nombre, marca, precio, id_rubro) VALUES(?, ?, ?, ?)"); // prepara la consulta
-            return $sentencia->execute([$nombre, $marca, $precio,$id_rubro]); // ejecuta
+            $sentencia = $db->prepare("INSERT INTO productos(nombre, marca, precio, id_rubro,imagen) VALUES(?, ?, ?, ?,?)"); // prepara la consulta
+            return $sentencia->execute([$nombre, $marca, $precio,$id_rubro,$imagen]); // ejecuta
     }
     public function borrarProducto($idproducto){
         // 1. abro la conexión con MySQL 

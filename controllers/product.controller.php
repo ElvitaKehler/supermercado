@@ -58,6 +58,7 @@ class ProductController {
             $marca = $_POST['marca'];
             $precio = $_POST['precio'];
             $id_rubro = $_POST['id_rubro'];
+            $imagenprod = $_POST['imagenprod'];
             $producto=$this->model->getProductoNombre($nombre,$marca); // verifica si el producto ya fue cargado
             if(!empty($producto)) {
                 $this->view->ProductoRepetido();                        
@@ -65,9 +66,9 @@ class ProductController {
             if(empty($producto) && (empty($nombre)||empty($marca)||empty($precio)||empty($id_rubro))){   //verifica que no haya campos vacíos
                 $this->view->ErrorAlCargarProd();
             } 
-            if(empty($producto) && !empty($nombre) && !empty($marca)&& !empty($precio) && !empty($id_rubro)){       
+            if(empty($producto) && !empty($nombre) && !empty($marca)&& !empty($precio) && !empty($id_rubro)&& !empty($imagenprod)){       
                  // inserta en la DB y redirige
-                 $success = $this->model->InsertOneProduct($nombre, $marca, $precio,$id_rubro); //lo agrega a la base de datos
+                 $success = $this->model->InsertOneProduct($nombre, $marca, $precio,$id_rubro,$imagenprod); //lo agrega a la base de datos
                  if($success)
                     header('Location: ' . BASE_URL . "listar");
             }

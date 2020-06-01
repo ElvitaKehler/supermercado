@@ -31,6 +31,7 @@ class ItemController {
         if (AuthHelper::checkLogged()){ //Barrera para usuario logueado
       
             $nombre = $_POST['nombreItem']; // toma los valores enviados por el usuario
+            $imagenitem=$_POST['imagenrubro'];
             $item = $this->model->getItemNombre($nombre); //verifica si el rubro está repetido
             if(!empty($item)) {
                 $this->view->ErrorItemRepetido();
@@ -38,9 +39,9 @@ class ItemController {
             if(empty($nombre)){
                 $this->view->ErrorAlCargarItem();   //verifica si el campo está vacío
             } 
-            if(empty($item) && !empty($nombre)) {
+            if(empty($item) && !empty($nombre) && !empty($imagenitem)) {
                 // inserta en la DB y redirige
-                $success = $this->model->insertOneItem($nombre);    //inserta a la base de datos el rubro
+                $success = $this->model->insertOneItem($nombre,$imagenitem);    //inserta a la base de datos el rubro
                 if($success){
                     header('Location: ' . BASE_URL . "listrubros");
                 }
