@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-05-2020 a las 02:26:02
+-- Tiempo de generación: 01-06-2020 a las 05:03:23
 -- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.3
+-- Versión de PHP: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -33,22 +32,31 @@ CREATE TABLE `productos` (
   `nombre` varchar(100) NOT NULL,
   `marca` varchar(100) NOT NULL,
   `precio` int(100) NOT NULL,
-  `id_rubro` int(11) NOT NULL
+  `id_rubro` int(11) NOT NULL,
+  `imagen` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id_producto`, `nombre`, `marca`, `precio`, `id_rubro`) VALUES
-(98, 'Arroz', 'gallo', 150, 83),
-(99, 'Llave tubo', 'bahco', 500, 84),
-(100, 'Pinza', 'Stanley', 300, 84),
-(102, 'atun', 'La Campagnola', 200, 83),
-(103, 'manzana', 'La Roja', 100, 70),
-(104, 'Banana', 'ecuador', 150, 70),
-(105, 'Remera', 'Legacy', 500, 86),
-(106, 'Asado', 'Ternera', 400, 82);
+INSERT INTO `productos` (`id_producto`, `nombre`, `marca`, `precio`, `id_rubro`, `imagen`) VALUES
+(99, 'llave', 'bahco', 500, 84, 'images/imagesProd/llave.jpg'),
+(100, 'Pinza', 'Stanley', 300, 84, 'images/imagesProd/pinza.jpg'),
+(105, 'Remera', 'Legacy', 500, 86, 'images/imagesProd/remera.jpg'),
+(109, 'atun', 'La Campagnola', 200, 90, 'images/imagesProd/atun.jpg'),
+(111, 'pullover', 'Huapy', 1000, 86, 'images/imagesProd/pullover.jpg'),
+(112, 'Fideos', 'Don Vicente', 120, 90, 'images/imagesProd/fideos.jpg\r\n'),
+(113, 'Leche', 'La Serenisima', 100, 90, 'images/imagesProd/leche.jpg'),
+(114, 'Manzana', 'LaRoja', 110, 87, 'images/imagesProd/manzana.jpg'),
+(115, 'Banana', 'Ecuador', 150, 87, 'images/imagesProd/banana.jpg'),
+(116, 'jogging', 'Nike', 1200, 86, 'images/imagesProd/jogging.jpg'),
+(118, 'asado', 'Ternera', 400, 95, 'images/imagesProd/asado.jpg'),
+(119, 'chorizo', 'cerdo', 300, 95, 'images/imagesProd/chorizo.jpg'),
+(126, 'Arroz', 'gallo', 200, 90, 'images/imagesProd/arroz.jpg'),
+(127, 'pantalon', 'Legacy', 5000, 86, 'images/imagesProd/pantalon.jpg'),
+(129, 'Aspirina', 'bayer', 200, 101, 'images/imagesProd/aspirina.jpg'),
+(130, 'Tupper', 'TuTUpper', 500, 102, 'images/imagesProd/tupper.jpg');
 
 -- --------------------------------------------------------
 
@@ -58,20 +66,23 @@ INSERT INTO `productos` (`id_producto`, `nombre`, `marca`, `precio`, `id_rubro`)
 
 CREATE TABLE `rubros` (
   `id_rubro` int(11) NOT NULL,
-  `nombre` varchar(20) NOT NULL
+  `nombre` varchar(20) NOT NULL,
+  `imagen_rubro` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `rubros`
 --
 
-INSERT INTO `rubros` (`id_rubro`, `nombre`) VALUES
-(70, 'fruteria'),
-(82, 'Carniceria'),
-(83, 'Despensa'),
-(84, 'Ferreteria'),
-(85, 'Autos'),
-(86, 'Ropa');
+INSERT INTO `rubros` (`id_rubro`, `nombre`, `imagen_rubro`) VALUES
+(84, 'Ferreteria', 'images/imagesRubros/ferreteria.jpg'),
+(86, 'Ropa', 'images/imagesRubros/ropa.jpg'),
+(87, 'fruteria', 'images/imagesRubros/fruteria.jpg'),
+(90, 'Despensa', 'images/imagesRubros/despensa.jpg'),
+(95, 'Carniceria', 'images/imagesRubros/carniceria.jpg'),
+(101, 'farmacia', 'images/imagesRubros/farmacia.jpg'),
+(102, 'Bazar', 'images/imagesRubros/bazar.jpg'),
+(108, 'pesca', 'images/imagesRubros/pesca.jpg');
 
 -- --------------------------------------------------------
 
@@ -124,13 +135,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
 -- AUTO_INCREMENT de la tabla `rubros`
 --
 ALTER TABLE `rubros`
-  MODIFY `id_rubro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `id_rubro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -146,7 +157,7 @@ ALTER TABLE `usuarios`
 -- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
-  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`id_rubro`) REFERENCES `rubros` (`id_rubro`) ON DELETE CASCADE;
+  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`id_rubro`) REFERENCES `rubros` (`id_rubro`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
