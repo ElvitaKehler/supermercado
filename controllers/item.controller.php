@@ -36,7 +36,7 @@ class ItemController {
             if(!empty($item)) {
                 $this->view->ErrorItemRepetido();
             }
-            if(empty($nombre)|| empty($imagenitem)){
+            if(empty($nombre)&& empty($imagenitem)){
                 $this->view->ErrorAlCargarItem();   //verifica si el campo está vacío
             } 
             if(empty($item) && !empty($nombre) && !empty($imagenitem)) {
