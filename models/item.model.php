@@ -12,7 +12,7 @@ class ItemModel extends Model{
         $db = $this->createConection();
 
         // 2. enviamos la consulta (3 pasos)
-        $sentencia = $db->prepare("SELECT * FROM rubros"); // prepara la consulta
+        $sentencia = $db->prepare("SELECT * FROM rubros ORDER BY rubros.nombre ASC "); // prepara la consulta
         $sentencia->execute(); // ejecuta
         $rubros = $sentencia->fetchAll(PDO::FETCH_OBJ); // obtiene la respuesta
 
