@@ -4,7 +4,7 @@
     
     
 
-        <h1 style='color:blue'>Inserte un Rubro</h1>
+        <h1 style='color:orange'>Inserte un Rubro</h1>
         <form action="altaItem" method="post" class="my-4">
             
             <div class="form-group">

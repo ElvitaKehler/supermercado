@@ -2,7 +2,7 @@
 
 <div class="container">
     
-        <h1 style='color:blue'>Logueo de usuarios:</h1>
+        <h1 style='color:orange'>Logueo de usuarios:</h1>
         
         <form action="verifyUser" method="post" class="my-4">     
             

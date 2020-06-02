@@ -3,7 +3,7 @@
 <div class="container">  
        
 
-        <h1>Edite el  Producto  {$producto[0]->nombre}</h1>
+        <h1 style='color:orange'>Edite el  Producto  {$producto[0]->nombre}</h1>
         <form action="productoEditado/{$producto[0]->nombre}" method="post" class="my-4">
         <div class="form-group">
 
