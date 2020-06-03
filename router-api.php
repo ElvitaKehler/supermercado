@@ -10,6 +10,7 @@ $router =new Router();
 
 $router->addRoute('productos','GET','ProdApiController','getprod');
 $router->addRoute('productos/:ID','GET','ProdApiController','getoneprod');
+$router->addRoute('productos/:ID','DELETE','ProdApiController','deloneprod');
 
 //Rubros
 //$router->addRoute('rubros','GET','ItemApiController','getItms');
