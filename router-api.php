@@ -15,10 +15,13 @@ $router->addRoute('productos/:ID','DELETE','ProdApiController','deloneprod');
 //Rubros
 //$router->addRoute('rubros','GET','ItemApiController','getItms');
 //$router->addRoute('rubros/:ID','GET','ItemApiController','getoneitem');
+//$router->addRoute('rubros/:ID','DELETE','ItemApiController','deloneitem');
 
 //Usuarios
 //$router->addRoute('usuarios','GET','UserApiController','getUsers');
 //$router->addRoute('usuarios/:ID','GET','UserApiController','getoneuser');
+//$router->addRoute('usuarios/:ID','DELETE','UserApiController','deloneuser');
+
 
 
 //rutea
