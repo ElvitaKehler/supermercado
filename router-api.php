@@ -2,7 +2,7 @@
 require_once 'libs/router/Router.php';
 require_once 'API/Prod.Api.Controller.php';
 
-$router =new Route();
+$router =new Router();
 
 //creo la tabla de ruteo
 
