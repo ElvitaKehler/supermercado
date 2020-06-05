@@ -1,4 +1,5 @@
 <?php
+
 require_once 'models/product.model.php';
 require_once 'api/api.View.php';
 
