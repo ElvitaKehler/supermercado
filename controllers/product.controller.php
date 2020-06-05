@@ -35,6 +35,7 @@ class ProductController {
     
     public function ViewProduct($id){
         $producto=$this->model->getone($id);
+       
         if (!empty($producto)){
             $this->view->ViewOne($producto);
         }else
@@ -59,6 +60,10 @@ class ProductController {
             $precio = $_POST['precio'];
             $id_rubro = $_POST['id_rubro'];
             $imagenprod = $_FILES['imagenprod']["name"];
+            $ubimagenprod = $_FILES['imagenprod']["tmp_name"];
+            $nombrefinal ="images/imagesProd/".uniqid("",true)."."
+            . strtolower(pathinfo($imagenprod,PATHINFO_EXTENSION)); 
+            move_uploaded_file($ubimagenprod,$nombrefinal);
             $producto=$this->model->getProductoNombre($nombre,$marca); // verifica si el producto ya fue cargado
             if(!empty($producto)) {
                 $this->view->ProductoRepetido();                        
@@ -68,7 +73,7 @@ class ProductController {
             } 
             if(empty($producto) && !empty($nombre) && !empty($marca)&& !empty($precio) && !empty($id_rubro)&& !empty($imagenprod)){       
                  // inserta en la DB y redirige
-                 $success = $this->model->InsertOneProduct($nombre, $marca, $precio,$id_rubro,$imagenprod); //lo agrega a la base de datos
+                 $success = $this->model->InsertOneProduct($nombre, $marca, $precio,$id_rubro,$nombrefinal); //lo agrega a la base de datos
                  if($success)
                     header('Location: ' . BASE_URL . "listar");
             }

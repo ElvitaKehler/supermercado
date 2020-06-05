@@ -5,7 +5,7 @@
     
 
         <h1 style='color:orange'>Inserte un Rubro</h1>
-        <form action="altaItem" method="post" class="my-4">
+        <form action="altaItem" method="post" class="my-4"  enctype="multipart/form-data">
             
             <div class="form-group">
                 <label>nombre</label>
@@ -13,7 +13,7 @@
             </div>
             <div class="form-group">
                 <label>Imagen del Rubro</label>
-                    <input name="imagenrubro" type="text" class="form-control">
+                   <input name="imagenrubro" type="file" class="form-control">
             </div>
             
 

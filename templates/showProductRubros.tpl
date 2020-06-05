@@ -5,7 +5,7 @@
                  <div class="text-center "><a class="" href="listrubros"><h3>Volver</h3></a></div>
     {else} 
      
-        <img src="images/imagesRubros/{($listProductsByItem[0]->rubro)}.jpg"> 
+        <img src="{($listProductsByItem[0]->imagen_rubro)}"> 
         <table  class="table table-hover table-dark" style='width:900px'>
          <tr ><td><h2 ><b style='color:orange'>Rubro: {strtoupper($listProductsByItem[0]->rubro)}</b></h2> </td></tr> 
         </table> 
@@ -15,7 +15,7 @@
                 {foreach $listProductsByItem item= producto}           
             
                     <tr> 
-                        <td><img src="images/imagesProd/{($producto->nombre)}.jpg"></td>        
+                        <td><img src="{($producto->imagen)}"></td>        
                         <td><b>{strtoupper($producto->nombre)}</b></td>
                         <td><b>{strtoupper($producto->marca)}</b> </td>
                         <td><b>{$producto->precio}</b> </td>

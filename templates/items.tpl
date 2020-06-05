@@ -23,7 +23,7 @@
        </tr>
         {foreach $listarubros item= rubro} 
         <tr>
-            <td><img src="images/imagesRubros/{($rubro->nombre)}.jpg"></td>
+            <td><img src={($rubro->imagen_rubro)}></td>
              <td><a href="productos_por_rubros/{$rubro->id_rubro}" class='btn btn-link'><b style='color:orange'>{strtoupper($rubro->nombre)}</b> </a> 
              {if $esadmin}             
                   <td> <a href='borrar_rubro/{$rubro->id_rubro}' class='btn btn-link'><b style='color:orange'>Borrar</b> </a></td>
