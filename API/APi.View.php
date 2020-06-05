@@ -1,4 +1,4 @@
-<?
+<?php
 
 class ApiView{
 
@@ -22,3 +22,4 @@ class ApiView{
       }
 
 }
+?>

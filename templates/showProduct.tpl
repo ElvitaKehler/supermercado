@@ -15,7 +15,7 @@
         {foreach $listaProductos item= producto} 
             
            <tr>
-            <td><img src="images/imagesProd/{($producto->nombre)}.jpg"></td>
+            <td><img src={($producto->imagen)}></td>
              <td> <b> {strtoupper($producto->nombre)} </b> </td>
             <td> <b> {strtoupper($producto->marca)}</b> </td>
                 <td> <b>{$producto->precio}</b> </td>

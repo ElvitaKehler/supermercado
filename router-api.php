@@ -1,6 +1,8 @@
-<?
+<?php
+
+
 require_once 'libs/router/Router.php';
-require_once 'API/Prod.Api.Controller.php';
+require_once 'api/prod.Api.Controller.php';
 
 $router =new Router();
 
@@ -9,8 +11,8 @@ $router =new Router();
 //Productos
 
 $router->addRoute('productos','GET','ProdApiController','getprod');
-$router->addRoute('productos/:ID','GET','ProdApiController','getoneprod');
-$router->addRoute('productos/:ID','DELETE','ProdApiController','deloneprod');
+//$router->addRoute('productos/:ID','GET','ProdApiController','getoneprod');
+//$router->addRoute('productos/:ID','DELETE','ProdApiController','deloneprod');
 
 //Rubros
 //$router->addRoute('rubros','GET','ItemApiController','getItms');
@@ -27,3 +29,5 @@ $router->addRoute('productos/:ID','DELETE','ProdApiController','deloneprod');
 //rutea
 
 $router->route($_REQUEST['resource'],$_SERVER['REQUEST_METHOD']); //recurso (productos, rubros...) y verbo (GET, POst....)
+
+?>
