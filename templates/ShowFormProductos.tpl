@@ -5,7 +5,7 @@
         <h1 style='color:orange'>Inserte un Producto</h1>
         
         
-        <form action="altaprod" method="post" class="my-4">     
+        <form action="altaprod" method="post" class="my-4" enctype="multipart/form-data">     
             
             <div class="form-group">
                 <label>nombre</label>
@@ -29,7 +29,7 @@
             </div>
             <div class="form-group">
                 <label>Imagen Producto</label>
-                <input name="imagenprod" type="text" class="form-control">
+                <input name="imagenprod" type="file" class="form-control">
             </div>
 
             <button type="submit" class="btn btn-dark">Guardar</button>

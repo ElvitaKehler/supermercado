@@ -58,7 +58,7 @@ class ProductController {
             $marca = $_POST['marca'];
             $precio = $_POST['precio'];
             $id_rubro = $_POST['id_rubro'];
-            $imagenprod = $_POST['imagenprod'];
+            $imagenprod = $_FILES['imagenprod']["name"];
             $producto=$this->model->getProductoNombre($nombre,$marca); // verifica si el producto ya fue cargado
             if(!empty($producto)) {
                 $this->view->ProductoRepetido();                        
