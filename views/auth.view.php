@@ -14,9 +14,10 @@ class AuthView extends Views {
     }
 
     public function showFormRegistroUser($error = null){
+        
 
         $this->smarty->assign("error",$error);
-        $this->smarty->display('ShowFormRegUser.tpl');
+        $this->smarty->display('showFormRegUser.tpl');
         
     }
 

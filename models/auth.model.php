@@ -19,15 +19,15 @@ class AuthModel extends Model{
         }
 
 
-        public function InsertarUsuario($nombre,$contrasenia) {                
+     public function InsertarUsuario($nombre,$contrasenia) {      
         
                 // 1. abro la conexión con MySQL 
                 $db = $this->createConection();      
            
     
                 // 2. enviamos la consulta
-                $sentencia = $db->prepare("INSERT INTO usuarios(nombre_usuario, contrasenia,) VALUES(?, ?)"); // prepara la consulta
-                return $sentencia->execute([$nombre,$contrasenia, ]); // ejecuta
+                $sentencia = $db->prepare("INSERT INTO usuarios(nombre_usuario,contrasenia) VALUES(?,?)"); // prepara la consulta
+                return $sentencia->execute([$nombre,$contrasenia]); // ejecuta
                 
         }
 }
