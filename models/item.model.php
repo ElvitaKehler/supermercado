@@ -64,15 +64,15 @@ public function getItemNombre($nombre){
     return $rubro;
 }
 
-public function modifyItem($idrubro,$nombre){
+public function modifyItem($idrubro,$nombre,$imagen){
 
 
    // 1. abro la conexión con MySQL 
    $db = $this->createConection();
 
    // 2. enviamos la consulta (3 pasos)
-   $sentencia = $db->prepare("UPDATE rubros SET nombre=? WHERE id_rubro=?"); // prepara la consulta
-   $sentencia->execute([$nombre,$idrubro]); // ejecuta
+   $sentencia = $db->prepare("UPDATE rubros SET nombre=? , imagen_rubro=? WHERE id_rubro=?"); // prepara la consulta
+   $sentencia->execute([$nombre,$imagen,$idrubro]); // ejecuta
   
 
 }

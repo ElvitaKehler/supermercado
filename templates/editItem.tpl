@@ -4,7 +4,7 @@
        
 
         <h1 style='color:orange'>Edite el  Rubro {$item[0]->nombre}</h1>
-        <form action="rubroEditado/{$item[0]->nombre}" method="post" class="my-4">
+        <form action="rubroEditado/{$item[0]->nombre}" method="post" class="my-4" enctype="multipart/form-data">
         <div class="form-group">
 
                 
@@ -13,6 +13,8 @@
 
                             <label>nombre</label>
                     <input name="nombreItem" type="text" value={$item[0]->nombre} class="form-control">
+                     <label>Imagen del Rubro</label>
+                   <input name="imagenrubro" type="file" class="form-control">
             </div>
             
 

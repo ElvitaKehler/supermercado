@@ -111,8 +111,13 @@ class ProductController {
             $marca = $_POST['marcaProducto'];
             $precio = $_POST['precioProducto'];
             $id_rubro = $_POST['rubroProducto'];
+            $imagenprod = $_FILES['imagenprod']["name"];
+            $ubimagenprod = $_FILES['imagenprod']["tmp_name"];
+            $nombrefinal ="images/imagesProd/".uniqid("",true)."."
+            . strtolower(pathinfo($imagenprod,PATHINFO_EXTENSION)); 
+            move_uploaded_file($ubimagenprod,$nombrefinal);
         
-    $this->model->modifyProducto($idProduct,$nombre,$marca,$precio,$id_rubro);
+    $this->model->modifyProducto($idProduct,$nombre,$marca,$precio,$id_rubro,$nombrefinal);
     $this-> showProducts();
     
     }

@@ -4,7 +4,7 @@
        
 
         <h1 style='color:orange'>Edite el  Producto  {$producto[0]->nombre}</h1>
-        <form action="productoEditado/{$producto[0]->nombre}" method="post" class="my-4">
+        <form action="productoEditado/{$producto[0]->nombre}" method="post" class="my-4" enctype="multipart/form-data">
         <div class="form-group">
 
                 
@@ -19,6 +19,8 @@
                     <input name="precioProducto" type="text" value={$producto[0]->precio} class="form-control">
                              
                     <input name="rubroProducto" type="hidden" value={$producto[0]->id_rubro} class="form-control">
+                                <label>Imagen</label>
+                    <input name="imagenprod" type="file" value={$producto[0]->imagen}  class="form-control">
             </div>
             
 

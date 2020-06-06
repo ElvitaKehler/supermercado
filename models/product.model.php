@@ -85,12 +85,12 @@ class ProductModel extends Model {
         return $sentencia;
    }
 
-   public function modifyProducto($id,$nombre,$marca,$precio,$id_rubro){
+   public function modifyProducto($id,$nombre,$marca,$precio,$id_rubro,$imagen){
     // 1. abro la conexión con MySQL 
     $db = $this->createConection();
 
  // 2. enviamos la consulta (3 pasos)
- $sentencia = $db->prepare("UPDATE productos SET  nombre=? , marca=? , precio=? , id_rubro=? WHERE id_producto=?"); // prepara la consulta
- $sentencia->execute([$nombre,$marca,$precio,$id_rubro,$id]); // ejecuta
+ $sentencia = $db->prepare("UPDATE productos SET  nombre=? , marca=? , precio=? , id_rubro=? , imagen=? WHERE id_producto=?"); // prepara la consulta
+ $sentencia->execute([$nombre,$marca,$precio,$id_rubro,$imagen,$id]); // ejecuta
    } 
 }

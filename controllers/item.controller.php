@@ -88,8 +88,12 @@ class ItemController {
     public function itemEditado(){
         $nombre=$_POST['nombreItem'];
         $id=$_POST['iditem'];   //Se encuentra oculto
-   
-        $this->model->modifyItem($id,$nombre);
+        $imagenitem = $_FILES['imagenrubro']["name"];
+        $ubimagenrubro = $_FILES['imagenrubro']["tmp_name"];
+        $nombrefinal ="images/imagesRubros/".uniqid("",true)."."
+        . strtolower(pathinfo($imagenitem,PATHINFO_EXTENSION)); 
+        move_uploaded_file($ubimagenrubro,$nombrefinal);
+        $this->model->modifyItem($id,$nombre,$nombrefinal);
         header('Location: ' . BASE_URL . "listrubros");
    
     }
