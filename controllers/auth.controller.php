@@ -50,7 +50,30 @@ class AuthController{
         session_destroy();        
         header("Location: " . BASE_URL . "inicio");
     }
-            
+     
+    
+    public function ShowFormRegistro(){
+
+         $this->view->showFormRegistroUser();
+    }
+
+    public function RegistrarUsuario(){
+        
+        $usuario = $_POST['nombreusuario'];
+        $pass = $_POST['contraseniaUser'];
+        var_dump($usuario,$pass);die;
+     
+        //busco si el usuario ya existe
+                           
+        $verificado=$this->model->VerUserRegistrado($usuario);
+       // var_dump($verificado);die;
+        if (!($verificado)){
+            $this->model->InsertarUsuario($usuario,$pass);
+            header("Location: " . BASE_URL . "listar");
+        }
+       
+        
+    }
 
 
     

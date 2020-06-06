@@ -38,6 +38,8 @@
             </div>
             <div class="login-container">
                 <ul class="navbar-nav">
+                     <li class="nav-item active">
+                         <a class="navbar-brand" href="registroUsuario">Registrarse</a></li>
                      {if !$esadmin}
                     <li class="nav-item active">
                         <a class="navbar-brand" href="login"><b style='color:orange'>Login</b><span></span></a></li>

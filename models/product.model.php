@@ -72,7 +72,7 @@ class ProductModel extends Model {
             // 2. enviamos la consulta
             $sentencia = $db->prepare("INSERT INTO productos(nombre, marca, precio, id_rubro,imagen) VALUES(?, ?, ?, ?,?)"); // prepara la consulta
             return $sentencia->execute([$nombre, $marca, $precio,$id_rubro,$imagen]); // ejecuta
-            move_uploaded_file($_FILES["imagenprod"]["tmp_name"], "images/imagesProd");
+           
 
     }
     public function borrarProducto($idproducto){
