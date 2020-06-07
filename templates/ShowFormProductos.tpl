@@ -29,7 +29,7 @@
             </div>
             <div class="form-group">
                 <label>Imagen Producto</label>
-                <input name="imagenprod" type="file" class="form-control">
+                <input name="imagenprod" type="file" class="form-control btn btn-default">
             </div>
 
             <button type="submit" class="btn btn-dark">Guardar</button>

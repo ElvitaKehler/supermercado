@@ -13,7 +13,7 @@
             </div>
             <div class="form-group">
                 <label>Imagen del Rubro</label>
-                   <input name="imagenrubro" type="file" class="form-control">
+                   <input name="imagenrubro" type="file" class="form-control btn btn-default ">
             </div>
             
 
