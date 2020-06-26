@@ -2,28 +2,18 @@
 
 
 require_once 'libs/router/Router.php';
-require_once 'api/prod.Api.Controller.php';
+require_once 'api/coment.Api.Controller.php';
 
 $router =new Router();
 
 //creo la tabla de ruteo
 
-//Productos
+//Comentarios
 
-$router->addRoute('productos','GET','ProdApiController','getprod');
-$router->addRoute('productos/:ID','GET','ProdApiController','getoneprod');
-$router->addRoute('productos/:ID','DELETE','ProdApiController','deloneprod');
-
-//Rubros
-//$router->addRoute('rubros','GET','ItemApiController','getItms');
-//$router->addRoute('rubros/:ID','GET','ItemApiController','getoneitem');
-//$router->addRoute('rubros/:ID','DELETE','ItemApiController','deloneitem');
-
-//Usuarios
-//$router->addRoute('usuarios','GET','UserApiController','getUsers');
-//$router->addRoute('usuarios/:ID','GET','UserApiController','getoneuser');
-//$router->addRoute('usuarios/:ID','DELETE','UserApiController','deloneuser');
-
+$router->addRoute('comentarios','GET','ComentApiController','getcoments'); // muestra todos los comentarios
+$router->addRoute('comentarios/:ID','GET','ComentApiController','getcomentone'); //muestra los comentarios de un producto a partir del id del producto
+$router->addRoute('comentarios/:ID','DELETE','ComentApiController','delonecoment'); // elimina un comentario a partir del id del comentario
+$router->addRoute('comentarios','POST','ComentApiController','addcoments'); // agrega todos los comentarios
 
 
 //rutea

@@ -25,64 +25,52 @@ class ComentModel extends Model{
 
         //Creamos la consulta para obtener una categoria
         $sql="SELECT * FROM comentarios WHERE comentarios.id_producto_fk=? ORDER BY comentarios.id_producto_fk ASC ";
-        $sentencia = $db->prepare($sql); // prepara la consulta         FALTA la relación con la TABLA 
+        $sentencia = $db->prepare($sql); // prepara la consulta          
 
         $sentencia->execute([$idcomentprod]); 
         $coments = $sentencia->fetchAll(PDO::FETCH_OBJ); // obtiene la respuesta
         
         return $coments;
     } 
-    
+       
 
- /*   
-
-    public function borrarITem($idrubro){
+    public function delcoment($idcoment){
        
         // 1. abro la conexión con MySQL 
         $db = $this->createConection();
 
         // 2. enviamos la consulta
-        $sentencia = $db->prepare("DELETE FROM rubros  WHERE id_rubro = ?"); // prepara la consulta
-        $sentencia->execute([$idrubro]); // ejecuta 
-        return $sentencia;
+        $sql="DELETE FROM comentarios  WHERE id_comentario = ?";
+        $sentencia = $db->prepare($sql); // prepara la consulta
+        $sentencia->execute([$idcoment]); // ejecuta 
+        
         
   }
 
-  public function getItem($idrubro){
+  public function getone($idcoment){
     // 1. abro la conexión con MySQL 
     $db = $this->createConection();
 
     // 2. enviamos la consulta (3 pasos)
-    $sentencia = $db->prepare("SELECT * FROM rubros WHERE id_rubro=?"); // prepara la consulta
-    $sentencia->execute([$idrubro]); // ejecuta
-    $rubro = $sentencia->fetchAll(PDO::FETCH_OBJ); // obtiene la respuesta
+    $sql="SELECT * FROM comentarios WHERE id_comentario=?";
+    $sentencia = $db->prepare($sql); // prepara la consulta
+    $sentencia->execute([$idcoment]); // ejecuta
+    $coment = $sentencia->fetch(PDO::FETCH_OBJ); // obtiene la respuesta
 
-    return $rubro;
+    return $coment;
 }
 
-public function getItemNombre($nombre){
-    // 1. abro la conexión con MySQL 
-    $db = $this->createConection();
+    public function addcoment($detalle,$puntaje,$id_prod){
+        // 1. abro la conexión con MySQL 
+         $db = $this->createConection();
 
-    // 2. enviamos la consulta (3 pasos)
-    $sentencia = $db->prepare("SELECT * FROM rubros WHERE nombre=?"); // prepara la consulta
-    $sentencia->execute([$nombre]); // ejecuta
-    $rubro = $sentencia->fetchAll(PDO::FETCH_OBJ); // obtiene la respuesta
+        $sql="INSERT INTO comentarios(detalle, puntaje, id_producto_fk) VALUES(?, ?, ?)";
+        $sentencia = $db->prepare($sql); 
+        $sentencia->execute([$detalle,$puntaje,$id_prod]);
+        $lastID=$db->lastInsertID();
+        
+        return $lastID;
+    }
 
-    return $rubro;
-}
-
-public function modifyItem($idrubro,$nombre,$imagen){
-
-
-   // 1. abro la conexión con MySQL 
-   $db = $this->createConection();
-
-   // 2. enviamos la consulta (3 pasos)
-   $sentencia = $db->prepare("UPDATE rubros SET nombre=? , imagen_rubro=? WHERE id_rubro=?"); // prepara la consulta
-   $sentencia->execute([$nombre,$imagen,$idrubro]); // ejecuta
-  
-
-}*/
 }
 
