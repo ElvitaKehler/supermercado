@@ -21,8 +21,8 @@ class ComentApiController{
     }
 
     public function getcomentone($params = []){
-        $idcomentprod = $params[':ID'];
-
+      $idcomentprod = $params[':ID'];
+      
         $comentprod = $this->model->getcomentprod($idcomentprod);
         if ($comentprod)
             $this->view->response($comentprod, 200);
