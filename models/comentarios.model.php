@@ -5,14 +5,42 @@ require_once('model.php');
 
 class ComentModel extends Model{
 
+    public function white_list(&$value, $allowed, $message) {      //para controlar valores permitidos
+        if ($value === null) {
+            return $allowed[0];
+        }
+        $key = array_search($value, $allowed, true);
+        if ($key === false) { 
+            throw new InvalidArgumentException($message); 
+        } else {
+            return $value;
+        }
+    }
+
   
 
-   public function getAll() {
+   public function getAll($orden=[]) {
+
+    $sort='fecha';
+    $order='ASC';
+
+    if(isset($orden['sort'])){           ///api/comentarios?sort=fecha&order=asc
+        $sort= $orden['sort'];
+        if (isset($orden['order'])){
+            $order=$orden['order']; 
+        }
+
+    }
+     //para evitar inyección SQL
+    $sort = $this->white_list($sort, ["id_comentario","fecha","detalle","puntaje","id_producto_fk"], "Criterio de orden no valido");  
+    $order = $this->white_list($order, ["ASC","DESC","asc","desc"], "Direccion de ORDER BY no valida");    
+
+
         // 1. abro la conexión con MySQL 
         $db = $this->createConection();
 
         // 2. enviamos la consulta (3 pasos)
-        $sql="SELECT * FROM comentarios ORDER BY comentarios.id_producto_fk ASC ";
+        $sql="SELECT * FROM comentarios ORDER BY $sort $order";
         $sentencia = $db->prepare($sql); // prepara la consulta
         $sentencia->execute(); // ejecuta
         $coments = $sentencia->fetchAll(PDO::FETCH_OBJ); // obtiene la respuesta

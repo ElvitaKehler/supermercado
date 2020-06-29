@@ -14,8 +14,17 @@ class ComentApiController{
         $this->data = file_get_contents("php://input");
     }
 
-    public function getcoments(){
-        $coments = $this->model->getAll();
+    public function getcoments($params = []){
+        $orden=[];
+
+        if(isset($_GET['sort'])){           ///api/comentarios?sort=id_producto_fk&order=asc
+            $orden['sort']= $_GET['sort'];
+            if (isset($_GET['order'])){
+                $orden['order']=$_GET['order']; 
+            }
+
+        }
+        $coments = $this->model->getAll($orden);  //traigo todas las tareas
         $this->view->response($coments,200);
 
     }
