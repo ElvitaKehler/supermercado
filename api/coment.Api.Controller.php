@@ -31,8 +31,17 @@ class ComentApiController{
 
     public function getcomentone($params = []){
       $idcomentprod = $params[':ID'];
+      $orden=[];
+
+      if(isset($_GET['sort'])){           ///api/comentarios?sort=id_producto_fk&order=asc
+          $orden['sort']= $_GET['sort'];
+          if (isset($_GET['order'])){
+              $orden['order']=$_GET['order']; 
+          }
+
+      }
       
-        $comentprod = $this->model->getcomentprod($idcomentprod);
+        $comentprod = $this->model->getcomentprod($idcomentprod,$orden);
         if ($comentprod)
             $this->view->response($comentprod, 200);
         else
@@ -41,7 +50,7 @@ class ComentApiController{
 
     public function delonecoment($params = []){
         $idcoment = $params[':ID'];
-        $coment = $this->model->getone($idcoment); // HACER
+        $coment = $this->model->getone($idcoment); 
 
         // verifico que exista
         if (empty($coment)) {
@@ -50,14 +59,16 @@ class ComentApiController{
         }
 
         // si existe la elimina
-        $this->model->delcoment($idcoment); // HACER delcoment
+        $this->model->delcoment($idcoment); 
         $this->view->response("La tarea con id {$idcoment} se eliminó correctamente", 200);
     }
     public function getdata(){
         return json_decode($this->data);
         }
 
-    public function addcoments(){
+   
+   
+        public function addcoments(){
         // devuelve el JSOn enviado por POST
         $body = $this->getdata();
 
@@ -74,39 +85,6 @@ class ComentApiController{
         }
         $this->view->response("La tarea fue agregada correctamente con el id {$idcoment}", 200);
     }
-
-  /*  public function getprod($params = []){
-        $tareas = $this->model->getAll();
-        $this->view->response($tareas,200);
-
-    }
-
-    public function getoneprod($params = []){
-        $idTarea = $params[':ID'];
-
-        $tarea = $this->model->getone($idTarea);
-        if ($tarea)
-            $this->view->response($tarea, 200);
-        else
-            $this->view->response("no existe tarea con id {$idTarea}", 404);
-    }
-    
-    public function deloneprod($params = []) {
-        $idTarea = $params[':ID'];
-        $tarea = $this->model->getone($idTarea);
-        
-        // verifico que exista
-        if (empty($tarea)) {
-            $this->view->response("no existe tarea con id {$idTarea}", 404);
-            die();
-        }
-
-        // si existe la elimina
-        $this->model->borrarProducto($idTarea);
-        $this->view->response("La tarea con id {$idTarea} se eliminó correctamente", 200);
-    }*/
-
-
 
     
 

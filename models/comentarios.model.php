@@ -47,12 +47,25 @@ class ComentModel extends Model{
 
         return $coments;
     }
-    public function getcomentprod($idcomentprod){
+    public function getcomentprod($idcomentprod,$orden=[]){
+        $sort='fecha';
+        $order='ASC';
+    
+        if(isset($orden['sort'])){           ///api/comentarios?sort=fecha&order=asc
+            $sort= $orden['sort'];
+            if (isset($orden['order'])){
+                $order=$orden['order']; 
+            }
+    
+        }
+         //para evitar inyección SQL
+        $sort = $this->white_list($sort, ["id_comentario","fecha","detalle","puntaje"], "Criterio de orden no valido");  
+        $order = $this->white_list($order, ["ASC","DESC","asc","desc"], "Direccion de ORDER BY no valida");  
         
         $db = $this->createConection(); // 1. abro la conexión con MySQL 
 
         //Creamos la consulta para obtener una categoria
-        $sql="SELECT * FROM comentarios WHERE comentarios.id_producto_fk=? ORDER BY comentarios.id_producto_fk ASC ";
+        $sql="SELECT * FROM comentarios WHERE comentarios.id_producto_fk=? ORDER BY $sort $order ";
         $sentencia = $db->prepare($sql); // prepara la consulta          
 
         $sentencia->execute([$idcomentprod]); 
