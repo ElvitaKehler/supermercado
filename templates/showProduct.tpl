@@ -7,10 +7,9 @@
         </tr>
     </table>
  {/if}
-       <table  class="table table-hover table-dark" style='width:900px'>
+ <table  class="table table-hover table-dark" style='width:900px'>
       
        <tr style='color:orange'><th scope='col'></th><th scope='col'>Producto</th><th scope='col'>Marca</th><th scope='col'>Precio</th></tr>
-        
        
         {foreach $listaProductos item= producto} 
             
@@ -26,4 +25,7 @@
                         {/if}
                 </tr>
         {/foreach}
+    </table>
+    
+    
      {include 'footer.tpl'}   
