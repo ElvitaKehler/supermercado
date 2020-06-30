@@ -16,8 +16,12 @@
 
     {/foreach}
 </table>
-<div class="card">
-    <div class="clard-header">
+<p id="idprod" type="hidden">{$identif[0]->id_producto}</p>
+<div>
+   
+       {include 'vue/coments.vue'}
+    
+</div>
 
 <script src="js/main.js"></script>
 {include 'footer.tpl'}   
