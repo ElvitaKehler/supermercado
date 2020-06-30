@@ -42,10 +42,8 @@ class ComentApiController{
       }
       
         $comentprod = $this->model->getcomentprod($idcomentprod,$orden);
-        if ($comentprod)
-            $this->view->response($comentprod, 200);
-        else
-            $this->view->response("no existe comentarios para el producto con id {$idcomentprod}", 404);
+        $this->view->response($comentprod, 200);
+        
     }
 
     public function delonecoment($params = []){

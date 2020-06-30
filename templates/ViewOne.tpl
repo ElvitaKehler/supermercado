@@ -16,7 +16,7 @@
 
     {/foreach}
 </table>
-<p id="idprod" type="hidden">{$identif[0]->id_producto}</p>
+<input id="idprod" type="hidden" value={$identif[0]->id_producto}>
 <div>
    
        {include 'vue/coments.vue'}

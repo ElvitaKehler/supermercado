@@ -11,10 +11,15 @@
 
            <ul id="list-coments" class="list-group list-group-flush">
             
-           
-            <li v-for="comentario in comentarios" class="list-group-item list-group-item-action"> 
-                {{ comentario.detalle }} Puntaje: {{ comentario.puntaje }}
-            </li>
+            <div v-if="comentarios.length==0">        <!--falta hacer-->
+                No hay comentarios para este producto
+              </div>
+              <div v-if ="comentarios.length!=0">
+                <li v-for="comentario in comentarios" class="list-group-item list-group-item-action"> 
+                    {{ comentario.detalle }} Puntaje: {{ comentario.puntaje }}
+                </li>
+              </div>
+            
         
         </ul>
 
