@@ -11,9 +11,9 @@
                 <label>nombre</label>
                     <input name="nombreItem" type="text" class="form-control">
             </div>
-            <div class="form-group">
-                <label>Imagen del Rubro</label>
-                   <input name="imagenrubro" type="file" class="form-control btn btn-default ">
+             <div class="custom-file margen-abajo">
+                <input type="file" class="custom-file-input" name="imagenrubro" id="validatedCustomFile" multiple>
+                <label class="custom-file-label" for="validatedCustomFile">Agregar imagenes...</label>
             </div>
             
 

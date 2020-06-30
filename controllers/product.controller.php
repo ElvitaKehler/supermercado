@@ -60,9 +60,13 @@ class ProductController {
             $precio = $_POST['precio'];
             $id_rubro = $_POST['id_rubro'];
             $imagenprod = $_FILES['imagenprod']["name"];
+           
             $ubimagenprod = $_FILES['imagenprod']["tmp_name"];
+           // print_r($_POST);
+            //print_r($_FILES);die;
             $nombrefinal ="images/imagesProd/".uniqid("",true)."."
             . strtolower(pathinfo($imagenprod,PATHINFO_EXTENSION)); 
+            
             move_uploaded_file($ubimagenprod,$nombrefinal);
             $producto=$this->model->getProductoNombre($nombre,$marca); // verifica si el producto ya fue cargado
             if(!empty($producto)) {

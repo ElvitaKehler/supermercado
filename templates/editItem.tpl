@@ -13,9 +13,14 @@
 
                             <label>nombre</label>
                     <input name="nombreItem" type="text" value={$item[0]->nombre} class="form-control">
-                     <label>Imagen del Rubro</label>
-                   <input name="imagenrubro" type="file" class="form-control">
+                  
+                   
+            <div class="custom-file margen-abajo">
+                <input type="file" class="custom-file-input" name="imagenrubro" id="validatedCustomFile" multiple>
+                <label class="custom-file-label" for="validatedCustomFile">Agregar imagen...</label>
             </div>
+            </div>
+            
             
 
             <button type="submit" class="btn btn-dark">Editar</button>
