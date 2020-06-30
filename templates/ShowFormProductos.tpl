@@ -29,7 +29,10 @@
             </div>
             <div class="form-group">
                 <label>Imagen Producto</label>
-                <input name="imagenprod" type="file" class="form-control btn btn-default">
+               <div class="custom-file margen-abajo">
+                <input type="file" class="custom-file-input" name="imagenprod[]" id="validatedCustomFile" multiple>
+                <label class="custom-file-label" for="validatedCustomFile">Agregar imagen...</label>
+            </div>
             </div>
 
             <button type="submit" class="btn btn-dark">Guardar</button>
