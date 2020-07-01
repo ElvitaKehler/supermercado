@@ -30,8 +30,8 @@
             <div class="form-group">
                 <label>Imagen Producto</label>
                <div class="custom-file margen-abajo">
-                <input type="file" class="custom-file-input" name="imagenprod[]" id="validatedCustomFile" multiple>
-                <label class="custom-file-label" for="validatedCustomFile">Agregar imagen...</label>
+                <input type="file" class="custom-file-input" name="imagenprod"  >
+                <label class="custom-file-label">Agregar imagen...</label>
             </div>
             </div>
 

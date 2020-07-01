@@ -19,13 +19,19 @@
                     <input name="precioProducto" type="text" value={$producto[0]->precio} class="form-control">
                              
                     <input name="rubroProducto" type="hidden" value={$producto[0]->id_rubro} class="form-control">
-                                <label>Imagen</label>
-                    <input name="imagenprod" type="file" value={$producto[0]->imagen}  class="form-control">
-            </div>
+                      <div class="form-group">
+                <label>Imagen </label>
+               <div class="custom-file margen-abajo">
+                    <input type="file" class="custom-file-input" name="imagenprod">
+                    <label class="custom-file-label" >Agregar imagen...</label>
+                </div>     
+           
             
 
             <button type="submit" class="btn btn-dark">Editar</button>
         </form>
+         <div class="custom-file margen-abajo">                   
+            <a class="btn btn-warning ancho" href="borrarimagenprod/{$producto[0]->id_producto}">Borrar imagen</a>            
         </div>
     
 {include 'footer.tpl'}   

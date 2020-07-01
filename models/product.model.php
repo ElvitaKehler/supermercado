@@ -85,6 +85,17 @@ class ProductModel extends Model {
         return $sentencia;
    }
 
+   public function borrarImagenProducto($imagen){
+        // 1. abro la conexión con MySQL 
+        $db = $this->createConection();
+
+        // 2. enviamos la consulta
+        $sentencia = $db->prepare("DELETE FROM productos    WHERE imagen = ?"); // prepara la consulta
+        $sentencia->execute([$imagen]); // ejecuta 
+        return $sentencia;
+
+   }
+
    public function modifyProducto($id,$nombre,$marca,$precio,$id_rubro,$imagen){
     // 1. abro la conexión con MySQL 
     $db = $this->createConection();

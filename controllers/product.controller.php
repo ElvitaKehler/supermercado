@@ -93,6 +93,15 @@ class ProductController {
        }
    }
 
+   public function deleteImagenProduct($idproducto){
+    if (AuthHelper::checkLogged()){ //Barrera para usuario logueado
+        var_dump($idproducto);die;
+        $success = $this->model->borrarImagenProducto($idproducto);
+        if($success)
+            header('Location: ' . BASE_URL . "listar");
+   }
+   }
+
   
   
 
@@ -116,9 +125,11 @@ class ProductController {
             $precio = $_POST['precioProducto'];
             $id_rubro = $_POST['rubroProducto'];
             $imagenprod = $_FILES['imagenprod']["name"];
+            //var_dump($imagenprod);
             $ubimagenprod = $_FILES['imagenprod']["tmp_name"];
             $nombrefinal ="images/imagesProd/".uniqid("",true)."."
-            . strtolower(pathinfo($imagenprod,PATHINFO_EXTENSION)); 
+            . strtolower(pathinfo($imagenprod,PATHINFO_EXTENSION));
+            //var_dump($nombrefinal);die; 
             move_uploaded_file($ubimagenprod,$nombrefinal);
         
     $this->model->modifyProducto($idProduct,$nombre,$marca,$precio,$id_rubro,$nombrefinal);
