@@ -37,11 +37,11 @@ class ComentModel extends Model{
 
 
         // 1. abro la conexión con MySQL 
-        $db = $this->createConection();
+     //   $db = $this->createConection();
 
         // 2. enviamos la consulta (3 pasos)
         $sql="SELECT * FROM comentarios ORDER BY $sort $order";
-        $sentencia = $db->prepare($sql); // prepara la consulta
+        $sentencia = $this->db->prepare($sql); // prepara la consulta
         $sentencia->execute(); // ejecuta
         $coments = $sentencia->fetchAll(PDO::FETCH_OBJ); // obtiene la respuesta
 
@@ -62,11 +62,11 @@ class ComentModel extends Model{
         $sort = $this->white_list($sort, ["id_comentario","fecha","detalle","puntaje"], "Criterio de orden no valido");  
         $order = $this->white_list($order, ["ASC","DESC","asc","desc"], "Direccion de ORDER BY no valida");  
         
-        $db = $this->createConection(); // 1. abro la conexión con MySQL 
+     //   $db = $this->createConection(); // 1. abro la conexión con MySQL 
 
         //Creamos la consulta para obtener una categoria
         $sql="SELECT * FROM comentarios WHERE comentarios.id_producto_fk=? ORDER BY $sort $order ";
-        $sentencia = $db->prepare($sql); // prepara la consulta          
+        $sentencia = $this->db->prepare($sql); // prepara la consulta          
 
         $sentencia->execute([$idcomentprod]); 
         $coments = $sentencia->fetchAll(PDO::FETCH_OBJ); // obtiene la respuesta
@@ -78,11 +78,11 @@ class ComentModel extends Model{
     public function delcoment($idcoment){
        
         // 1. abro la conexión con MySQL 
-        $db = $this->createConection();
+     //   $db = $this->createConection();
 
         // 2. enviamos la consulta
         $sql="DELETE FROM comentarios  WHERE id_comentario = ?";
-        $sentencia = $db->prepare($sql); // prepara la consulta
+        $sentencia = $this->db->prepare($sql); // prepara la consulta
         $sentencia->execute([$idcoment]); // ejecuta 
         
         
@@ -90,11 +90,11 @@ class ComentModel extends Model{
 
   public function getone($idcoment){
     // 1. abro la conexión con MySQL 
-    $db = $this->createConection();
+   // $db = $this->createConection();
 
     // 2. enviamos la consulta (3 pasos)
     $sql="SELECT * FROM comentarios WHERE id_comentario=?";
-    $sentencia = $db->prepare($sql); // prepara la consulta
+    $sentencia = $this->db->prepare($sql); // prepara la consulta
     $sentencia->execute([$idcoment]); // ejecuta
     $coment = $sentencia->fetch(PDO::FETCH_OBJ); // obtiene la respuesta
 
@@ -103,12 +103,12 @@ class ComentModel extends Model{
 
     public function addcoment($detalle,$puntaje,$id_prod){
         // 1. abro la conexión con MySQL 
-         $db = $this->createConection();
+       //  $db = $this->createConection();
 
         $sql="INSERT INTO comentarios(detalle, puntaje, id_producto_fk) VALUES(?, ?, ?)";
-        $sentencia = $db->prepare($sql); 
+        $sentencia = $this->db->prepare($sql); 
         $sentencia->execute([$detalle,$puntaje,$id_prod]);
-        $lastID=$db->lastInsertID();
+        $lastID=$this->db->lastInsertID();
         
         return $lastID;
     }

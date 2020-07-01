@@ -7,10 +7,10 @@ class ProductModel extends Model {
     
     public function getAll() {
         // 1. abro la conexión con MySQL 
-        $db = $this->createConection();
+      //  $db = $this->createConection();
 
         // 2. enviamos la consulta (3 pasos)
-        $sentencia = $db->prepare("SELECT * FROM productos ORDER BY productos.nombre ASC"); // prepara la consulta
+        $sentencia = $this->db->prepare("SELECT * FROM productos ORDER BY productos.nombre ASC"); // prepara la consulta
         $sentencia->execute(); // ejecuta
         $productos = $sentencia->fetchAll(PDO::FETCH_OBJ); // obtiene la respuesta
 
@@ -19,10 +19,10 @@ class ProductModel extends Model {
 
     public function getProductsByItem($rubro){
         
-        $db = $this->createConection(); // 1. abro la conexión con MySQL 
+       // $db = $this->createConection(); // 1. abro la conexión con MySQL 
 
         //Creamos la consulta para obtener una categoria
-        $sentencia = $db->prepare("SELECT productos.id_producto, productos.nombre, productos.marca, productos.precio,productos.imagen,rubros.id_rubro, rubros.nombre as rubro,rubros.imagen_rubro
+        $sentencia = $this->db->prepare("SELECT productos.id_producto, productos.nombre, productos.marca, productos.precio,productos.imagen,rubros.id_rubro, rubros.nombre as rubro,rubros.imagen_rubro
         FROM productos INNER JOIN rubros ON rubros.id_rubro=productos.id_rubro WHERE rubros.id_rubro=? ORDER BY productos.nombre ASC "); // prepara la consulta
 
         $sentencia->execute([$rubro]); 
@@ -34,11 +34,11 @@ class ProductModel extends Model {
     public function getone($id){
         
       
-        $db = $this->createConection(); // 1. abro la conexión con MySQL 
+      //  $db = $this->createConection(); // 1. abro la conexión con MySQL 
 
 
         //Creamos la consulta para obtener una categoria
-        $sentencia = $db->prepare("SELECT productos.id_producto, productos.nombre, productos.marca, productos.precio,productos.imagen, rubros.id_rubro, rubros.nombre as rubro
+        $sentencia = $this->db->prepare("SELECT productos.id_producto, productos.nombre, productos.marca, productos.precio,productos.imagen, rubros.id_rubro, rubros.nombre as rubro
         FROM productos INNER JOIN rubros ON rubros.id_rubro=productos.id_rubro WHERE productos.id_producto=? ORDER BY productos.nombre ASC "); // prepara la consulta
 
         $sentencia->execute([$id]); // ejecuta -
@@ -51,11 +51,11 @@ class ProductModel extends Model {
     public function getProductoNombre($nombre,$marca){
         
       
-        $db = $this->createConection(); // 1. abro la conexión con MySQL 
+      //  $db = $this->createConection(); // 1. abro la conexión con MySQL 
 
 
         //Creamos la consulta para obtener una categoria
-        $sentencia = $db->prepare("SELECT * FROM productos WHERE nombre=? AND marca=? "); // prepara la consulta
+        $sentencia = $this->db->prepare("SELECT * FROM productos WHERE nombre=? AND marca=? "); // prepara la consulta
 
         $sentencia->execute([$nombre,$marca]); // ejecuta -
         $producto = $sentencia->fetchAll(PDO::FETCH_OBJ); // obtiene la respuesta
@@ -67,30 +67,30 @@ class ProductModel extends Model {
     public function InsertOneProduct($nombre, $marca, $precio,$id_rubro,$imagen){
        
             // 1. abro la conexión con MySQL 
-            $db = $this->createConection();
+        //    $db = $this->createConection();
     
             // 2. enviamos la consulta
-            $sentencia = $db->prepare("INSERT INTO productos(nombre, marca, precio, id_rubro,imagen) VALUES(?, ?, ?, ?,?)"); // prepara la consulta
+            $sentencia = $this->db->prepare("INSERT INTO productos(nombre, marca, precio, id_rubro,imagen) VALUES(?, ?, ?, ?,?)"); // prepara la consulta
             return $sentencia->execute([$nombre, $marca, $precio,$id_rubro,$imagen]); // ejecuta
            
 
     }
     public function borrarProducto($idproducto){
         // 1. abro la conexión con MySQL 
-        $db = $this->createConection();
+    //    $db = $this->createConection();
 
         // 2. enviamos la consulta
-        $sentencia = $db->prepare("DELETE FROM productos WHERE id_producto = ?"); // prepara la consulta
+        $sentencia = $this->db->prepare("DELETE FROM productos WHERE id_producto = ?"); // prepara la consulta
         $sentencia->execute([$idproducto]); // ejecuta 
         return $sentencia;
    }
 
    public function modifyProducto($id,$nombre,$marca,$precio,$id_rubro,$imagen){
     // 1. abro la conexión con MySQL 
-    $db = $this->createConection();
+   // $db = $this->createConection();
 
  // 2. enviamos la consulta (3 pasos)
- $sentencia = $db->prepare("UPDATE productos SET  nombre=? , marca=? , precio=? , id_rubro=? , imagen=? WHERE id_producto=?"); // prepara la consulta
+ $sentencia = $this->db->prepare("UPDATE productos SET  nombre=? , marca=? , precio=? , id_rubro=? , imagen=? WHERE id_producto=?"); // prepara la consulta
  $sentencia->execute([$nombre,$marca,$precio,$id_rubro,$imagen,$id]); // ejecuta
    } 
 }
