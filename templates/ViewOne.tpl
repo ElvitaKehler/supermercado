@@ -25,3 +25,9 @@
 
 <script src="js/main.js"></script>
 {include 'footer.tpl'}   
+
+<!--{if $esadmin==1} 
+    <td scope='col'> <a href="borrar_producto/{$producto->id_producto}" class="btn btn-link"><b style='color:orange'>Borrar</b> </a>
+    <td scope='col'> <a href="editar_producto/{$producto->id_producto}" class="btn btn-link"><b style='color:orange'>Editar</b> </a>
+{/if}
+-->
