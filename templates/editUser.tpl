@@ -4,7 +4,7 @@
        
 
         <h1 style='color:orange'>Modifique permisos </h1>
-        <form action="user_editado/{$usuario->_usuario}" method="post" class="my-4">
+        <form action="user_editado/{$usuario->id_usuario}" method="post" class="my-4">
         
 
                 <label>id Usuario</label> 
@@ -18,4 +18,4 @@
         </form>
  </div>        
     
- {include 'footer.tpl'}   
+  {include 'footer.tpl'}         
