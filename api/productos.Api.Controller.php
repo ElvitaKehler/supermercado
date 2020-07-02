@@ -51,6 +51,16 @@ class ProdApiController{
 
     }
 
+    public function deleteProducto($params = NULL){
+        $id = $params[':ID'];
+        $producto=$this->model->borrarProducto($id);
+        if ($producto) {
+            $this->view->response($producto,200);
+        } else {
+            $this->view->response($producto,404);
+        }       
+    }
+
 
 }
 
