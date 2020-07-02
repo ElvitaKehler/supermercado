@@ -20,10 +20,37 @@
 <h1>es registrado pude ingresar comentarios</h1>
 {/if}
 {if $User=='admin'}
-<h1>es admin puede hacer lo que quiera!!!!!</h1>
+     <h1>es admin puede hacer lo que quiera!!!!!</h1>
+     <div class="form-group">
+     <h3>Agregue su comentario:</h3>
+     <form action="" method="post" class="my-4" enctype="multipart/form-data"> 
+     <div>
+     <label>Fecha: </label>
+     <input type="text" name="fecha">
+     </div>  
+     <div>      
+            <label>Detalle: </label>
+             <textarea name="detalle"> </textarea>
+        </div>  
+        <div>  
+             <label>Puntaje: </label>
+             <select name="puntaje">
+                 <option value="1">1-malo</option>
+                 <option value="2">2-regular</option>
+                 <option value="3">3-bueno</option>
+                 <option value="4">4-muy bueno</option>
+                 <option value="5">5-excelente</option>
+                
+             </select>
+        </div>
+             <button type="submit" onclick="agregar({$identif->id_producto})" class="btn btn-dark">Guardar</button>
+         </form>
+     </div>
+     
 {/if}
 <input id="idprod" type="hidden" value={$identif->id_producto}>
 <input id="user" type="hidden" value={$User}>
+
 <div>
    
        {include 'vue/coments.vue'}

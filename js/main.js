@@ -7,22 +7,28 @@ let app =new Vue({
         footer: "Comentarios renderizados con CSR",
         comentarios:[],
         esadmin:""      
-            }
-
+            },
+    methods: {
+        eliminar: function (id) {
+            eliminarcomentario(id);
+        },
+        agregar: function(id) {
+            agregarcomentario(id);
+        }
+    },
 });
 
 
 let idprod = document.querySelector('#idprod').value;
 let esadmin = document.querySelector('#user').value;
-
-
-//alert('productos/'+idprod+'/comentarios');
-
-//carga inicial de comentarios
+//document.querySelector("#btn_agregar").addEventListener('click', agregarcomentario); -> NO TOMA DEL VUE
+console.log($('#btn_agregar'));
 
 cargarcomentarios(idprod);
 cargarusuario(esadmin);
 
+
+//carga inicial de comentarios
 function cargarcomentarios(idprod){
     fetch('api/productos/'+idprod+'/comentarios')        
      .then(response=>response.json())
@@ -34,34 +40,49 @@ function cargarcomentarios(idprod){
 //carga usuario
 function cargarusuario(esadmin){
     app.esadmin=esadmin;
-    console.log(app.esadmin);
+   // console.log(app.esadmin);
 }
 
 //agregar comentarios a un producto
 
+function eliminarcomentario(idcoment){
+    fetch('api/comentarios/' + idcoment, {
+        method: 'DELETE',
+        
+    })
+    .then(response => {
+        cargarcomentarios(idprod);
+       
+    })
+    .catch(error => console.log(error));
+}
+
 function agregarcomentario(idprod){
-
-}
-
-/*document.querySelector("#form-tarea").addEventListener('submit', addTask);
-function addTask(e) {
-    e.preventDefault();
-    
+    alert("ingresa a la funcion agregar comentario");
     let data = {
-        titulo:  document.querySelector("input[name=titulo]").value,
-        descripcion:  document.querySelector("input[name=descripcion]").value,
-        prioridad:  document.querySelector("input[name=prioridad]").value
-    }
-
-    fetch('api/tareas', {
+        detalle: document.querySelector("textarea[name=detalle]").value,
+        fecha: document.querySelector("input[name=fecha]").value,
+        puntaje: document.querySelector("select[name=puntaje]").value,
+        id_producto: idprod
+    } 
+    fetch('api/comentarios', {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},       
-        body: JSON.stringify(data) 
-     })
-     .then(response => {
-         getTasks();
-     })
-     .catch(error => console.log(error));
-}
-*/
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        cargarcomentarios(idprod);
+    })
+    .catch(error => console.log(error));
+ 
+    
+    alert(" Se agregó comentario con para el producto con el id producto "+idproducto);
+ }
+
+
+    
+
+
+
+
 

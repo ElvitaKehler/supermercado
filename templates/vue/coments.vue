@@ -8,9 +8,6 @@
         <div class="card-header">
             <h5 class="mb-0">Comentarios </h5>
 
-            <div v-if ="(esadmin=='admin')||(esadmin=='registrado')">
-                    <button id="btn_agregar">Agregar</button>
-            </div>
         </div>
 
            <ul id="list-coments" class="list-group list-group-flush">
@@ -22,7 +19,8 @@
                 <li v-for="comentario in comentarios" class="list-group-item list-group-item-action"> 
                     {{ comentario.detalle }} Puntaje: {{ comentario.puntaje }}
                  <div v-if ="esadmin=='admin'">
-                    <button id="btn_eliminar">Eliminar</button>
+                     <button v-if="esadmin=='admin'" v-on:click="eliminar(comentario.id_comentario)" class="btn btn-dark">Eliminar</button>
+                
                 </div>
                      
 

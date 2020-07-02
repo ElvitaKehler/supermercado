@@ -52,10 +52,9 @@
                      <li class="nav-item active">
                          <a class="navbar-brand" href="login"><b style='color:orange'>Login</b><span></span></a></li>
                      {else}
-                     <li class="nav-item active">
-                         <p class="navbar-brand"> Usuario: {$usuario} </p>
-                     </li>
-                     <li class="nav-item active"></li>
+                     {* <li class="nav-item active">
+                         <p class="navbar-brand"> Usuario: {$usuario} </p>                     </li>
+                     <li class="nav-item active"></li> *}
                      <li class="nav-item active">
                          <a class="navbar-brand" href='cerrar_sesion'><b style='color:orange'>Logout </b></a></li>
                      {/if}
