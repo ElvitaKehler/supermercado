@@ -16,11 +16,11 @@
 
    
 </table>
-{if $User=='registrado'}
-<h1>es registrado pude ingresar comentarios</h1>
-{/if}
-{if $User=='admin'}
-     <h1>es admin puede hacer lo que quiera!!!!!</h1>
+{* {if $User=='registrado'}
+<h1>es registrado pude ingresar comentarios</h1> 
+{/if}*}
+{if $User=='admin' ||$User=='registrado'}
+     {* <h1>es admin puede hacer lo que quiera!!!!!</h1> *}
      <div class="form-group">
      <h3>Agregue su comentario:</h3>
      <form action="" method="post" class="my-4" enctype="multipart/form-data"> 
