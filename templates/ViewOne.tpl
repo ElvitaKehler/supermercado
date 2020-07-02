@@ -23,6 +23,7 @@
 <h1>es admin puede hacer lo que quiera!!!!!</h1>
 {/if}
 <input id="idprod" type="hidden" value={$identif->id_producto}>
+<input id="user" type="hidden" value={$User}>
 <div>
    
        {include 'vue/coments.vue'}
