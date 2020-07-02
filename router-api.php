@@ -22,7 +22,8 @@ $router->addRoute('productos/rubro/:ID_RUBRO','GET','ProdApiController','getProd
 $router->addRoute('productos/nombre/:NOMBRE/:MARCA','GET','ProdApiController','getProductosPorNombre');  
 $router->addRoute('productos/:ID','GET','ProdApiController','getProducto'); 
 $router->addRoute('productos/:ID','DELETE','ProdApiController','deleteProducto');
-
+$router->addRoute('productos','POST','ProdApiController','agregarProducto');
+$router->addRoute('productos/:ID','PUT','ProdApiController','editarProducto');
 
 //rutea
 
