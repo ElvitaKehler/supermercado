@@ -14,7 +14,7 @@ $router =new Router();
 $router->addRoute('comentarios','GET','ComentApiController','getcoments'); // muestra todos los comentarios
 $router->addRoute('productos/:ID/comentarios','GET','ComentApiController','getcomentone'); //muestra los comentarios de un producto a partir del id del producto
 $router->addRoute('comentarios/:ID','DELETE','ComentApiController','delonecoment'); // elimina un comentario a partir del id del comentario
-$router->addRoute('comentarios','POST','ComentApiController','addcoments'); // agrega un comentario
+$router->addRoute('comentarios','POST','ComentApiController','addcoment'); // agrega un comentario
 
 
 $router->addRoute('productos','GET','ProdApiController','getProductos'); 

@@ -24,7 +24,7 @@ class ComentModel extends Model{
     $sort='fecha';
     $order='ASC';
 
-    if(isset($orden['sort'])){           ///api/comentarios?sort=fecha&order=asc
+    if(isset($orden['sort'])){           ///api/comentarios?sort=id_producto_fk&order=asc
         $sort= $orden['sort'];
         if (isset($orden['order'])){
             $order=$orden['order']; 
@@ -47,11 +47,12 @@ class ComentModel extends Model{
 
         return $coments;
     }
+    
     public function getcomentprod($idcomentprod,$orden=[]){
         $sort='fecha';
         $order='ASC';
     
-        if(isset($orden['sort'])){           ///api/comentarios?sort=fecha&order=asc
+        if(isset($orden['sort'])){           
             $sort= $orden['sort'];
             if (isset($orden['order'])){
                 $order=$orden['order']; 
@@ -101,13 +102,13 @@ class ComentModel extends Model{
     return $coment;
 }
 
-    public function addcoment($detalle,$puntaje,$id_prod){
+    public function addcoment($detalle,$fecha,$puntaje,$id_prod){
         // 1. abro la conexión con MySQL 
        //  $db = $this->createConection();
 
-        $sql="INSERT INTO comentarios(detalle, puntaje, id_producto_fk) VALUES(?, ?, ?)";
+        $sql="INSERT INTO comentarios(detalle, fecha, puntaje, id_producto_fk) VALUES(?, ?, ?, ?)";
         $sentencia = $this->db->prepare($sql); 
-        $sentencia->execute([$detalle,$puntaje,$id_prod]);
+        $sentencia->execute([$detalle,$fecha,$puntaje,$id_prod]);
         $lastID=$this->db->lastInsertID();
         
         return $lastID;

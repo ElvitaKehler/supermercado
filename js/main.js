@@ -5,16 +5,17 @@ let app =new Vue({
     el: "#app-coments",
     data: {
         footer: "Comentarios renderizados con CSR",
-        comentarios:[]
+        comentarios:[],
+        
             }
 
 });
 
 
 let idprod = document.querySelector('#idprod').value;
+let esadmin = 0;
 
-
-let lista = document.querySelector('#list-coments');
+//let lista = document.querySelector('#list-coments');
 
 //alert('productos/'+idprod+'/comentarios');
 //carga inicial de comentarios
