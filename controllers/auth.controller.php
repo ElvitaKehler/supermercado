@@ -100,18 +100,9 @@ class AuthController{
     } 
     
     public function editarUser(){
-<<<<<<< HEAD
-      $idUser=$_POST['iduser'];
-       // $nameUser=$_POST['nombreUsuario'];
-        $tipo = $_POST['tipo'];
-       var_dump($idUser);
-        //var_dump($nameUser);
-        var_dump($tipo);die;
-=======
         $idUser=$_POST['iduser'];
         $nameUser=$_POST['nombreUsuario'];
         $tipo = $_POST['tipo'];        
->>>>>>> e8da33799c92157a4c69fe6fb378fe4673d1c492
         $this->model->modifyUser($nameUser,$tipo,$idUser);
         $usuarios=$this->model->getUsers();
         $this->view->viewUsers($usuarios);
