@@ -5,6 +5,7 @@ require_once 'models/item.model.php';
 require_once 'models/imagenprod.model.php';
 require_once 'helpers/auth.helper.php';
 require_once 'views/error.view.php';
+require_once 'libs/smarty/Smarty.class.php';
 
 class ProductController {
 
@@ -38,7 +39,7 @@ class ProductController {
     
     public function ViewProduct($id){
         $producto=$this->model->getone($id);
-       
+       //var_dump($producto);die;
         if (!empty($producto)){
             $this->view->ViewOne($producto);
         }else

@@ -37,7 +37,10 @@
                          <a class="navbar-brand" href="listar">Productos</a> </li>
                      <li class="nav-item active">
                          <a class="navbar-brand" href="listrubros">Rubros</a></li>
-
+                    {if $User=='admin'}
+                     <li class="nav-item active">
+                         <a class="navbar-brand" href="permisos"><b style='color:orange'>Permisos</b><span></span></a></li>
+                    {/if}
                  </ul>
 
              </div>
@@ -45,7 +48,7 @@
                  <ul class="navbar-nav">
                      <li class="nav-item active">
                          <a class="navbar-brand" href="registroUsuario">Registrarse</a></li>
-                     {if !$esadmin}
+                     {if !$User}
                      <li class="nav-item active">
                          <a class="navbar-brand" href="login"><b style='color:orange'>Login</b><span></span></a></li>
                      {else}

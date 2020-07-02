@@ -1,7 +1,7 @@
 {include 'header.tpl'}
 
  
-{if $esadmin}
+{if $User=='admin'}
     <table  class="table table-hover table-dark" style='width:900px'>
        
         <tr style='color:orange'>
@@ -25,7 +25,7 @@
         <tr>
             <td><img src={($rubro->imagen_rubro)}></td>
              <td><a href="productos_por_rubros/{$rubro->id_rubro}" class='btn btn-link'><b style='color:orange'>{strtoupper($rubro->nombre)}</b> </a> 
-             {if $esadmin}             
+             {if $User=='admin'}             
                   <td> <a href='borrar_rubro/{$rubro->id_rubro}' class='btn btn-link'><b style='color:orange'>Borrar</b> </a></td>
                   <td> <a href='editar_rubro/{$rubro->id_rubro}' class='btn btn-link'><b style='color:orange'>Editar</b> </a></td>
               {/if}

@@ -2,6 +2,7 @@
 require_once 'views/auth.view.php';
 require_once 'models/auth.model.php';
 require_once 'views/product.view.php';
+require_once 'views/error.view.php';
 
 
 
@@ -9,10 +10,12 @@ class AuthController{
     
     private $view;
     private $model;
+    private $errorview;
    
     public function __construct() {
         $this->view = new AuthView();
         $this->model=new AuthModel();
+        $this->errorview = new ErrorView();
     }
 
     public function ShowLogin(){
@@ -28,7 +31,7 @@ class AuthController{
         //busco el usuario
                            
         $verificado=$this->model->VerUserRegistrado($usuario);
-      
+     
         if (!empty($verificado) && password_verify($pass, $verificado->contrasenia)) {
            
              // abro session y guardo al usuario logueado
@@ -36,7 +39,8 @@ class AuthController{
              $_SESSION['IS_LOGGED'] = true;
              $_SESSION['ID_USER'] = $verificado->id_usuario;
              $_SESSION['USERNAME'] = $verificado->nombre_usuario;
-             
+             $_SESSION['TIPO'] =$verificado->tipo;
+            // var_dump($_SESSION);die;
              header("Location: " . BASE_URL . "listar");
 
         }  else {
@@ -58,26 +62,53 @@ class AuthController{
          $this->view->showFormRegistroUser();
     }
 
-    public function RegistrarUsuario(){
-       
-        
+    public function RegistrarUsuario(){       
+        $tipo ="registrado";
         $usuario = $_POST['nombreusuario'];
         $pass = $_POST['contraseniaUser'];
+        $hash = password_hash($pass, PASSWORD_DEFAULT);     
     
         //busco si el usuario ya existe
                            
        $verificado=$this->model->VerUserRegistrado($usuario);
        
        if (!($verificado)){
-            $this->model->InsertarUsuario($usuario,$pass);
+            $this->model->InsertarUsuario($usuario,$hash,$tipo);
             header("Location: " . BASE_URL . "listar");
         
-        }
-
-       
-        
+        }else{
+            $msg="Usuario repetido";
+            $this->errorview-> showError($msg);
+        }      
     }
 
+    public function showUsers(){
+        $usuarios=$this->model->getUsers();
+        $this->view->viewUsers($usuarios);
+    }
 
+    public function deleteUser($user){
+        $this->model->delUser($user);
+        $usuarios=$this->model->getUsers();
+        $this->view->viewUsers($usuarios);
+    }
+
+    public function editUser($id){
+        $usuario=$this->model->getUser($id);        //devuelve los datos del usuario para modificar los cambios
+        //var_dump($usuario);die;       
+        $this->view->showFormEditUser($usuario);      
+    } 
     
+    public function editarUser(){
+        $idUser=$_POST['iduser'];
+        $nameUser=$_POST['nombreUsuario'];
+        $tipo = $_POST['tipo'];
+        var_dump($idUser);
+        var_dump($nameUser);
+        var_dump($tipo);die;
+        $this->model->modifyUser($nameUser,$tipo,$idUser);
+        $usuarios=$this->model->getUsers();
+        $this->view->viewUsers($usuarios);
+       
+    }
 }

@@ -20,7 +20,7 @@
                         <td><b>{strtoupper($producto->marca)}</b> </td>
                         <td><b>{$producto->precio}</b> </td>
                         <td scope='col'> <a href="verproducto/{$producto->id_producto}" class="btn btn-link"><b style='color:orange'>Ver</b></a>
-                        {if $esadmin==1} 
+                        {if $User=='admin'} 
                             <td scope='col'> <a href="borrar_producto/{$producto->id_producto}" class="btn btn-link"><b style='color:orange'>Borrar</b> </a>
                             <td scope='col'> <a href="editar_producto/{$producto->id_producto}" class="btn btn-link"><b style='color:orange'>Editar</b> </a>
                         {/if}

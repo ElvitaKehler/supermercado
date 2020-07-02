@@ -7,18 +7,24 @@ class AuthView extends Views {
    
     
     public function showFormUser($error = null){
-
         $this->smarty->assign("error",$error);
-        $this->smarty->display('ShowFormUser.tpl');
-        
+        $this->smarty->display('ShowFormUser.tpl');        
     }
 
-    public function showFormRegistroUser($error = null){
-        
-
+    public function showFormRegistroUser($error = null){      
         $this->smarty->assign("error",$error);
-        $this->smarty->display('showFormRegUser.tpl');
-        
+        $this->smarty->display('showFormRegUser.tpl');        
+    }
+
+    public function viewUsers($usuarios){
+        $this->smarty->assign("usuarios",$usuarios);
+        $this->smarty->display('showUsers.tpl');   
+
+    }
+
+    public function showFormEditUser($usuario){
+        $this->smarty->assign("usuario",$usuario);
+        $this->smarty->display('editUser.tpl');   
     }
 
 

@@ -7,7 +7,8 @@ class AuthHelper {
             session_start();
         }
         if(isset($_SESSION['IS_LOGGED'])) {
-            return true;
+            $tipo = $_SESSION['TIPO'];
+            return $tipo;
         }
         return false;
          

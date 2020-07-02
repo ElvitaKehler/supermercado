@@ -19,15 +19,38 @@ class AuthModel extends Model{
         }
 
 
-     public function InsertarUsuario($nombre,$contrasenia) {      
+     public function InsertarUsuario($nombre,$contrasenia,$tipo) {      
         
                 // 1. abro la conexión con MySQL 
               //  $db = $this->createConection();      
            
     
                 // 2. enviamos la consulta
-                $sentencia = $this->db->prepare("INSERT INTO usuarios(nombre_usuario,contrasenia) VALUES(?,?)"); // prepara la consulta
-                return $sentencia->execute([$nombre,$contrasenia]); // ejecuta
+                $sentencia = $this->db->prepare("INSERT INTO usuarios(nombre_usuario,contrasenia,tipo) VALUES(?,?,?)"); // prepara la consulta
+                return $sentencia->execute([$nombre,$contrasenia,$tipo]); // ejecuta
                 
-        }
+      }
+
+      public function getUsers(){
+          $sentencia = $this->db->prepare("SELECT * FROM usuarios "); // prepara la consulta
+          $sentencia->execute(); // ejecuta
+          return $sentencia->fetchAll(PDO::FETCH_OBJ); // obtiene la respuesta
+      }
+
+      public function delUser($user){
+        $sentencia = $this->db->prepare("DELETE FROM usuarios WHERE id_usuario = ?"); // prepara la consulta
+        $sentencia->execute([$user]); // ejecuta 
+        return $sentencia;
+      }
+
+      public function getUser($id){
+        $sentencia = $this->db->prepare("SELECT * FROM usuarios WHERE id_usuario = ?"); // prepara la consulta
+          $sentencia->execute([$id]); // ejecuta
+          return $sentencia->fetch(PDO::FETCH_OBJ); // obtiene la respuesta
+      }
+
+      public function modifyUser($nameUser,$tipo,$id){
+        $sentencia = $this->db->prepare("UPDATE usuarios SET  nombre_usuario=? , tipo=?  WHERE id_usuario=?"); // prepara la consulta
+        $sentencia->execute([$nameUser,$tipo,$id]);
+      }
 }

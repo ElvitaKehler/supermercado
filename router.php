@@ -48,8 +48,28 @@
             $controller->ViewProduct($parametros[1]);
         break;
 
-        //ACCIONES DE ACCESO USUARIO LOGUEADO
+        //ACCIONES DE ACCESO USUARIO ADMIN
         
+        case 'permisos':    //Muestra el formulario para insertar producto
+            $controller = new AuthController();
+            $controller->showUsers();  
+        break;
+
+        case 'editar_usuario':  //Muestra el formulario para editar un producto
+            $controller = new AuthController();
+            $controller->editUser($parametros[1]);
+        break;
+
+        case 'user_editado':  //Edita el producto, desde ACTION del formulario
+            $controller = new AuthController();
+            $controller->editarUser();  
+        break;
+
+        case 'borrar_usuario':  //Elimina un producto de la BD
+            $controller = new AuthController();
+            $controller->deleteUser($parametros[1]);
+        break;
+
         case 'formAltaProducto':    //Muestra el formulario para insertar producto
             $controller = new ProductController();
             $controller->formProduct();  
