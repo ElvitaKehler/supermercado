@@ -19,45 +19,45 @@ class ProdApiController{
         $this->view->response($productos,200);
     }
 
-    public function getProductosPorItem($params = NULL){
+    public function getProductosPorItem($params = []){
         $rubro =  $params[':ID_RUBRO'];
         $productos=$this->model->getProductsByItem($rubro);
         if ($productos) {
             $this->view->response($productos,200);
         } else {
-            $this->view->response($productos,404);
+            $this->view->response("No existe el producto",404);
         }
     }
 
-    public function getProducto($params = NULL){
+    public function getProducto($params = []){
         $id = $params[':ID'];
         $productos=$this->model->getone($id);
         if ($productos) {
             $this->view->response($productos,200);
         } else {
-            $this->view->response($productos,404);
+            $this->view->response("No existe el producto con id {$id}",404);
         }       
     }
 
-    public function getProductosPorNombre($params = NULL){
+    public function getProductosPorNombre($params = []){
         $nombre= $params[':NOMBRE'];
         $marca = $params[':MARCA'];
         $producto=$this->model->getProductoNombre($nombre,$marca);
         if ($producto) {
             $this->view->response($producto,200);
         } else {
-            $this->view->response($producto,404);
+            $this->view->response("No existe el producto",404);
         }       
 
     }
 
-    public function deleteProducto($params = NULL){
+    public function deleteProducto($params = []){
         $id = $params[':ID'];
         $producto=$this->model->borrarProducto($id);
         if ($producto) {
             $this->view->response($producto,200);
         } else {
-            $this->view->response($producto,404);
+            $this->view->response("No existe el producto con id {$id}",404);
         }       
     }
 
