@@ -3,6 +3,7 @@
 
 require_once 'libs/router/Router.php';
 require_once 'api/coment.Api.Controller.php';
+require_once 'api/productos.Api.Controller.php';
 
 $router =new Router();
 
@@ -14,6 +15,12 @@ $router->addRoute('comentarios','GET','ComentApiController','getcoments'); // mu
 $router->addRoute('productos/:ID/comentarios','GET','ComentApiController','getcomentone'); //muestra los comentarios de un producto a partir del id del producto
 $router->addRoute('comentarios/:ID','DELETE','ComentApiController','delonecoment'); // elimina un comentario a partir del id del comentario
 $router->addRoute('comentarios','POST','ComentApiController','addcoments'); // agrega un comentario
+
+
+$router->addRoute('productos','GET','ProdApiController','getProductos'); 
+$router->addRoute('productos/rubro/:ID_RUBRO','GET','ProdApiController','getProductosPorItem');
+$router->addRoute('productos/nombre/:NOMBRE/:MARCA','GET','ProdApiController','getProductosPorNombre');  
+$router->addRoute('productos/:ID','GET','ProdApiController','getProducto'); 
 
 
 //rutea

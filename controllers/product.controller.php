@@ -2,6 +2,7 @@
 require_once 'models/product.model.php';
 require_once 'views/product.view.php';
 require_once 'models/item.model.php';
+require_once 'models/imagenprod.model.php';
 require_once 'helpers/auth.helper.php';
 require_once 'views/error.view.php';
 
@@ -10,12 +11,14 @@ class ProductController {
     private $model;
     private $view;
     private $modelItem;
+    private $modelImagen;
     private $viewError;
    
     public function __construct() {
         $this->model = new ProductModel();
         $this->view = new ProductView();
         $this->modelItem = new ItemModel();
+        $this->modelImagen = new ImagenProdModel();
         $this->viewError = new ErrorView();
     }
 
@@ -77,8 +80,9 @@ class ProductController {
             } 
             if(empty($producto) && !empty($nombre) && !empty($marca)&& !empty($precio) && !empty($id_rubro)&& !empty($imagenprod)){       
                  // inserta en la DB y redirige
-                 $success = $this->model->InsertOneProduct($nombre, $marca, $precio,$id_rubro,$nombrefinal); //lo agrega a la base de datos
-                 if($success)
+                 $idproducto = $this->model->InsertOneProduct($nombre, $marca, $precio,$id_rubro,$nombrefinal); //lo agrega a la base de datos
+                 //$idimagen =  $this->modelImagen->InsertImagen($idproducto,$nombrefinal);
+                
                     header('Location: ' . BASE_URL . "listar");
             }
         }

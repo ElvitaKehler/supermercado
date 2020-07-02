@@ -11,7 +11,7 @@ class ComentApiController{
     function __construct(){
         $this->model = new ComentModel();
         $this->view = new ApiView();
-        $this->data = file_get_contents("php://input");
+        $this->data = file_get_contents("php://input");//trae el cuerpo(body en postman) para agregar el comentario
     }
 
     public function getcoments($params = []){

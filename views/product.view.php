@@ -1,5 +1,5 @@
 <?php
-require_once('libs/Smarty.class.php');
+
 require_once('helpers/auth.helper.php');
 require_once('views.php');
 

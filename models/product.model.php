@@ -42,7 +42,7 @@ class ProductModel extends Model {
         FROM productos INNER JOIN rubros ON rubros.id_rubro=productos.id_rubro WHERE productos.id_producto=? ORDER BY productos.nombre ASC "); // prepara la consulta
 
         $sentencia->execute([$id]); // ejecuta -
-        $producto = $sentencia->fetchAll(PDO::FETCH_OBJ); // obtiene la respuesta
+        $producto = $sentencia->fetch(PDO::FETCH_OBJ); // obtiene la respuesta
         
      
         return $producto;
@@ -64,14 +64,15 @@ class ProductModel extends Model {
         return $producto;
     } 
 
-    public function InsertOneProduct($nombre, $marca, $precio,$id_rubro,$imagen){
+    public function InsertOneProduct($nombre, $marca, $precio,$id_rubro){
        
             // 1. abro la conexión con MySQL 
         //    $db = $this->createConection();
     
             // 2. enviamos la consulta
-            $sentencia = $this->db->prepare("INSERT INTO productos(nombre, marca, precio, id_rubro,imagen) VALUES(?, ?, ?, ?,?)"); // prepara la consulta
-            return $sentencia->execute([$nombre, $marca, $precio,$id_rubro,$imagen]); // ejecuta
+            $sentencia = $this->db->prepare("INSERT INTO productos(nombre, marca, precio, id_rubro) VALUES(?, ?, ?, ?)"); // prepara la consulta
+            $sentencia->execute([$nombre, $marca, $precio,$id_rubro]); // ejecuta
+            return $this->db->lastInsertId(); 
            
 
     }
