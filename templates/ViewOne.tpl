@@ -32,11 +32,11 @@
      </div>  
      <div>      
             <label>Detalle: </label>
-             <textarea name="detalle"> </textarea>
+             <textarea name="detalle"id="detalle"> </textarea>
         </div>  
         <div>  
              <label>Puntaje: </label>
-             <select name="puntaje">
+             <select name="puntaje"id="puntaje">
                  <option value="1">1-malo</option>
                  <option value="2">2-regular</option>
                  <option value="3">3-bueno</option>
@@ -58,6 +58,7 @@
        {include 'vue/coments.vue'}
     
 </div>
+
 
 <script src="js/main.js"></script>
 {include 'footer.tpl'}   
