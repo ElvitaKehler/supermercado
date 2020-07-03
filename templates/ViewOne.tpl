@@ -25,10 +25,10 @@
      {* <h1>es admin puede hacer lo que quiera!!!!!</h1> *}
      <div class="form-group">
      <h3>Agregue su comentario:</h3>
+      
      <form action="" method="post" class="my-4" enctype="multipart/form-data"> 
      <div>
-     <label>Fecha: </label>
-     <input type="text" name="fecha">
+     
      </div>  
      <div>      
             <label>Detalle: </label>
@@ -45,7 +45,7 @@
                 
              </select>
         </div>
-             <button type="submit" onclick="agregar({$identif->id_producto})" class="btn btn-dark">Guardar</button>
+             <button id="btnagregar" class="btn btn-dark">Guardar</button>
          </form>
      </div>
      

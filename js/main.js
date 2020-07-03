@@ -18,11 +18,12 @@ let app =new Vue({
     },
 });
 
-
+let boton=document.querySelector('#btnagregar');
 let idprod = document.querySelector('#idprod').value;
 let esadmin = document.querySelector('#user').value;
+boton.addEventListener("click", agregarcomentario(idprod));
 //document.querySelector("#btn_agregar").addEventListener('click', agregarcomentario); -> NO TOMA DEL VUE
-console.log($('#btn_agregar'));
+console.log($('#btnagregar'));
 
 cargarcomentarios(idprod);
 cargarusuario(esadmin);
@@ -61,7 +62,7 @@ function agregarcomentario(idprod){
     alert("ingresa a la funcion agregar comentario");
     let data = {
         detalle: document.querySelector("textarea[name=detalle]").value,
-        fecha: document.querySelector("input[name=fecha]").value,
+        //fecha: document.querySelector("input[name=fecha]").value,
         puntaje: document.querySelector("select[name=puntaje]").value,
         id_producto: idprod
     } 
@@ -76,7 +77,7 @@ function agregarcomentario(idprod){
     .catch(error => console.log(error));
  
     
-    alert(" Se agregó comentario con para el producto con el id producto "+idproducto);
+    alert(" Se agregó comentario  para el producto ");
  }
 
 
