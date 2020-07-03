@@ -24,10 +24,10 @@
      <div class="form-group">
      <h3>Agregue su comentario:</h3>
      <form action="" method="post" class="my-4" enctype="multipart/form-data"> 
-     <div>
+     {* <div>
      <label>Fecha: </label>
      <input type="text" name="fecha">
-     </div>  
+     </div>   *}
      <div>      
             <label>Detalle: </label>
              <textarea name="detalle"> </textarea>

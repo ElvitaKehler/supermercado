@@ -61,7 +61,7 @@ function agregarcomentario(idprod){
     alert("ingresa a la funcion agregar comentario");
     let data = {
         detalle: document.querySelector("textarea[name=detalle]").value,
-        fecha: document.querySelector("input[name=fecha]").value,
+       // fecha: document.querySelector("input[name=fecha]").value,
         puntaje: document.querySelector("select[name=puntaje]").value,
         id_producto: idprod
     } 
@@ -72,6 +72,7 @@ function agregarcomentario(idprod){
     })
     .then(response => {
         cargarcomentarios(idprod);
+        alert(" Se agregó comentario con para el producto con el id producto "+idproducto);
     })
     .catch(error => console.log(error));
  

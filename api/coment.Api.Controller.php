@@ -72,11 +72,11 @@ class ComentApiController{
 
         // inserta el comentario
         $detalle = $body->detalle;
-        $fecha = $body->fecha;
+       // $fecha = $body->fecha;
         $puntaje = $body->puntaje;
         $id_prod = $body->id_producto_fk;
 
-        $idcoment = $this->model->addcoment($detalle,$fecha,$puntaje,$id_prod);
+        $idcoment = $this->model->addcoment($detalle, $puntaje, $id_prod); //quité el $fecha
 
         if(empty($idcoment)){
             $this->view->response("La tarea no fue creada", 500);
