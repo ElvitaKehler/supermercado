@@ -105,7 +105,7 @@
             $controller->deleteProduct($parametros[1]);
         break;
 
-        case 'borrarimagenprod':  //Elimina un producto de la BD
+        case 'borrarimagen':  //Elimina un producto de la BD
             $controller = new ProductController();
             $controller->deleteImagenProduct($parametros[1]);
         break;

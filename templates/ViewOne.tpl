@@ -11,6 +11,7 @@
         <tr>        
             <td>Marca: <b>{strtoupper($identif->marca)}</b> </td>
             <td>Precio: <b>{$identif->precio}</b> </td>
+            <td scope='col'> <a href="borrarimagen/{$identif->id_producto}" class="btn btn-link"><b style='color:orange'>Borrar Imagen</b> </a>
         </tr>
         <img src={($identif->imagen)}>
 
@@ -20,6 +21,7 @@
 <h1>es registrado pude ingresar comentarios</h1> 
 {/if}*}
 {if $User=='admin' ||$User=='registrado'}
+
      {* <h1>es admin puede hacer lo que quiera!!!!!</h1> *}
      <div class="form-group">
      <h3>Agregue su comentario:</h3>
