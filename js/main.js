@@ -6,12 +6,14 @@ let app =new Vue({
     data: {
         footer: "Comentarios renderizados con CSR",
         comentarios:[],
-        esadmin:""      
+        esadmin:"",
+        promedio:0      
             },
     methods: {
         eliminar: function (id) {
             eliminarcomentario(id);
         },
+       
     },
 });
 
@@ -24,26 +26,37 @@ if (esadmin =="admin" || esadmin =="registrado"){
     agregarcomentario(idprod);
 };
 }
-
-
-
-
-
 cargarcomentarios(idprod);
+
 cargarusuario(esadmin);
+
 
 
 //carga inicial de comentarios
 function cargarcomentarios(idprod){
+    let suma=0;
+    let cont =0;
     fetch('api/productos/'+idprod+'/comentarios')        
      .then(response=>response.json())
      .then(comentarios=>{
          console.log(comentarios);
        app.comentarios=comentarios;
-      
+       //Calcula el promedio de los puntajes
+       for(let comentario of comentarios){
+        suma += parseInt(comentario.puntaje, 10);
+        cont ++;
+    }
+    app.promedio = parseFloat(suma/cont).toFixed(2);
+       
+       
  
      });
 }
+
+
+
+
+
 
 
 //carga usuario

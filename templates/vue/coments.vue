@@ -15,6 +15,7 @@
                 No hay comentarios para este producto
               </div>
             <div v-if ="comentarios.length!=0">
+            <h6>El promedio de las puntuaciones es : {{ promedio }}</h6>
                 <li v-for="comentario in comentarios" class="list-group-item list-group-item-action"> 
                     {{ comentario.fecha }} {{ comentario.detalle }} Puntaje: {{ comentario.puntaje }}
                  <div v-if ="esadmin=='admin'">
