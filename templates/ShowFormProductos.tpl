@@ -30,9 +30,9 @@
             <div class="form-group">
                 <label>Imagen Producto</label>
                <div class="custom-file margen-abajo">
-                <input type="file" class="custom-file-input" name="imagenprod"  >
-                <label class="custom-file-label">Agregar imagen...</label>
-            </div>
+                    <input type="file" class="custom-file-input" name="imagenprod"  >
+                    <label class="custom-file-label">Agregar imagen...</label>
+                </div>
             </div>
 
             <button type="submit" class="btn btn-dark">Guardar</button>

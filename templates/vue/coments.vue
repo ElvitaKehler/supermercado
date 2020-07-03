@@ -1,3 +1,5 @@
+
+
 {literal}
 
 <section id="app-coments">
@@ -9,27 +11,19 @@
             <h5 class="mb-0">Comentarios </h5>
         </div>
 
-           <ul id="list-coments" class="list-group list-group-flush">
-            
-            <div v-if="comentarios.length==0">        
-                No hay comentarios para este producto
-              </div>
-            <div v-if ="comentarios.length!=0">
-            <h6>El promedio de las puntuaciones es : {{ promedio }}</h6>
-                <li v-for="comentario in comentarios" class="list-group-item list-group-item-action"> 
-                    {{ comentario.fecha }} {{ comentario.detalle }} Puntaje: {{ comentario.puntaje }}
-                 <div v-if ="esadmin=='admin'">
-                     <button v-if="esadmin=='admin'" v-on:click="eliminar(comentario.id_comentario)" class="btn btn-dark">Eliminar</button>
-                
-                </div>
-                     
 
-                </li>
-              </div>
-       
-        </ul>
-
-        <div class="card-footer text-muted">
+    <table  id="list-coments" class="table table-hover table-dark" style='width:900px'>
+        <tr style='color:orange' v-if="comentarios.length==0"><th scope='col'> No hay comentarios para este producto</th></tr>
+        <tr style='color:yellow' v-if="comentarios.length!=0"><th scope='col'>El promedio de las puntuaciones es : {{ promedio }}</th></tr>
+         <tr style='color:orange' ><th scope='col'><h3>Fecha</th></h3><th scope='col'><h3>Comentario</h3></th><th scope='col'><h3>Puntuación</h3></th></tr>
+        <tr  v-for="comentario in comentarios">
+            <td> <b>  {{ comentario.fecha }} </b> </td>
+            <td> <b> {{ comentario.detalle }}</b> </td>
+            <td> <b>Puntaje: {{ comentario.puntaje }}</b> </td>
+            <td scope='col'  v-if ="esadmin=='admin'">  <button v-if="esadmin=='admin'" v-on:click="eliminar(comentario.id_comentario)" class="btn btn-dark">Eliminar</button></td>
+        </tr>      
+    </table>
+     <div class="card-footer text-muted">
             {{ footer }}
         </div>
 
@@ -37,3 +31,4 @@
 
 </section>
 {/literal}
+

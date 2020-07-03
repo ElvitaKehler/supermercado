@@ -36,13 +36,13 @@
 
     <form class="my-4">
 
-        <div>
+        <div class="form-group">
             <label>Detalle: </label>
-            <textarea name="detalle" id="detalle"> </textarea>
+            <textarea name="detalle" id="detalle" class="form-control"> </textarea>
         </div>
-        <div>
+        <div class="form-group">
             <label>Puntaje: </label>
-            <select name="puntaje" id="puntaje">
+            <select name="puntaje" id="puntaje" class="form-control">
                 <option value="1">1-malo</option>
                 <option value="2">2-regular</option>
                 <option value="3">3-bueno</option>
