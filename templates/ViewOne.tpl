@@ -17,9 +17,8 @@
 
    
 </table>
-{* {if $User=='registrado'}
-<h1>es registrado pude ingresar comentarios</h1> 
-{/if}*}
+
+
 {if $User=='admin' ||$User=='registrado'}
 
      {* <h1>es admin puede hacer lo que quiera!!!!!</h1> *}

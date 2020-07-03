@@ -22,7 +22,7 @@ let app =new Vue({
 let idprod = document.querySelector('#idprod').value;
 let esadmin = document.querySelector('#user').value;
 let boton = document.querySelector('#btnagregar');
-    boton.addEventListener('click', agregarcomentario(idprod));
+//    boton.addEventListener('click', agregarcomentario(idprod));
 //document.querySelector("#btn_agregar").addEventListener('click', agregarcomentario); -> NO TOMA DEL VUE
 console.log($('#btn_agregar'));
 
@@ -37,6 +37,7 @@ function cargarcomentarios(idprod){
      .then(comentarios=>{
          console.log(comentarios);
        app.comentarios=comentarios;
+       console.log(app.comentar);
  
      });
 }
