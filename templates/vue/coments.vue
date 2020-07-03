@@ -7,7 +7,6 @@
   <div class="card">
         <div class="card-header">
             <h5 class="mb-0">Comentarios </h5>
-
         </div>
 
            <ul id="list-coments" class="list-group list-group-flush">
