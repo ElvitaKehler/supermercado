@@ -102,13 +102,13 @@ class ComentModel extends Model{
     return $coment;
 }
 
-    public function addcoment($detalle,$fecha,$puntaje,$id_prod){
+    public function addcoment($detalle,$puntaje,$id_prod){
         // 1. abro la conexión con MySQL 
        //  $db = $this->createConection();
 
-        $sql="INSERT INTO comentarios(detalle, fecha, puntaje, id_producto_fk) VALUES(?, ?, ?, ?)";
+        $sql="INSERT INTO comentarios(detalle, puntaje, id_producto_fk) VALUES(?,  ?, ?)";
         $sentencia = $this->db->prepare($sql); 
-        $sentencia->execute([$detalle,$fecha,$puntaje,$id_prod]);
+        $sentencia->execute([$detalle,$puntaje,$id_prod]);
         $lastID=$this->db->lastInsertID();
         
         return $lastID;
