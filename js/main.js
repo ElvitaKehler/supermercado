@@ -18,10 +18,13 @@ let app =new Vue({
 
 let idprod = document.querySelector('#idprod').value;
 let esadmin = document.querySelector('#user').value;
-let btn = document.getElementById("btnagregar");
-btn.onclick = function() {
+if (esadmin =="admin" || esadmin =="registrado"){
+    let btn = document.getElementById("btnagregar");
+    btn.onclick = function() {
     agregarcomentario(idprod);
 };
+}
+
 
 
 
