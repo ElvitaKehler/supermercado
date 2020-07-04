@@ -16,8 +16,8 @@
                   
                    
             <div class="custom-file margen-abajo">
-                <input type="file" class="custom-file-input" name="imagenrubro" id="validatedCustomFile" multiple>
-                <label class="custom-file-label" for="validatedCustomFile">Agregar imagen...</label>
+                <input type="file" class="custom-file-input" name="imagenrubro">
+                <label class="custom-file-label" >Agregar imagen...</label>
             </div>
             </div>
             

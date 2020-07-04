@@ -89,11 +89,18 @@ class ItemController {
         $nombre=$_POST['nombreItem'];
         $id=$_POST['iditem'];   //Se encuentra oculto
         $imagenitem = $_FILES['imagenrubro']["name"];
-        $ubimagenrubro = $_FILES['imagenrubro']["tmp_name"];
-        $nombrefinal ="images/imagesRubros/".uniqid("",true)."."
-        . strtolower(pathinfo($imagenitem,PATHINFO_EXTENSION)); 
-        move_uploaded_file($ubimagenrubro,$nombrefinal);
-        $this->model->modifyItem($id,$nombre,$nombrefinal);
+        if(!empty($imagenitem)){           
+            $ubimagenrubro = $_FILES['imagenrubro']["tmp_name"];
+            $nombrefinal ="images/imagesRubros/".uniqid("",true)."."
+            . strtolower(pathinfo($imagenitem,PATHINFO_EXTENSION));            
+            move_uploaded_file($ubimagenrubro,$nombrefinal);
+        }
+        if(!empty($nombrefinal)){
+            $this->model->modifyItem($id,$nombre,$nombrefinal);
+        }
+        else{
+            $this->model->modifyItem($id,$nombre);
+        }       
         header('Location: ' . BASE_URL . "listrubros");
    
     }
