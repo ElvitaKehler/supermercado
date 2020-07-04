@@ -133,10 +133,12 @@ class ProductController {
             $precio = $_POST['precioProducto'];
             $id_rubro = $_POST['rubroProducto'];
             $imagenprod = $_FILES['imagenprod']["name"];
-            if(!empty($imagenprod)){           
+            if(!empty($imagenprod)){
+            //var_dump($imagenprod);
             $ubimagenprod = $_FILES['imagenprod']["tmp_name"];
             $nombrefinal ="images/imagesProd/".uniqid("",true)."."
-            . strtolower(pathinfo($imagenprod,PATHINFO_EXTENSION));            
+            . strtolower(pathinfo($imagenprod,PATHINFO_EXTENSION));
+            //var_dump($nombrefinal);die; 
             move_uploaded_file($ubimagenprod,$nombrefinal);
             }
             if(!empty($nombrefinal)){

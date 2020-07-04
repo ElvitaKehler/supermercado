@@ -47,6 +47,64 @@ class ComentModel extends Model{
 
         return $coments;
     }
+
+    public function getAllOrdenPuntaje($orden){
+        $sort='puntaje';
+        $order='ASC';
+    
+        if(isset($orden['sort'])){           ///api/comentarios?sort=id_producto_fk&order=asc
+            $sort= $orden['sort'];
+            if (isset($orden['order'])){
+                $order=$orden['order']; 
+            }
+    
+        }
+         //para evitar inyección SQL
+        $sort = $this->white_list($sort, ["id_comentario","fecha","detalle","puntaje","id_producto_fk"], "Criterio de orden no valido");  
+        $order = $this->white_list($order, ["ASC","DESC","asc","desc"], "Direccion de ORDER BY no valida");    
+    
+    
+            // 1. abro la conexión con MySQL 
+         //   $db = $this->createConection();
+    
+            // 2. enviamos la consulta (3 pasos)
+            $sql="SELECT * FROM comentarios ORDER BY $sort $order";
+            $sentencia = $this->db->prepare($sql); // prepara la consulta
+            $sentencia->execute(); // ejecuta
+            $coments = $sentencia->fetchAll(PDO::FETCH_OBJ); // obtiene la respuesta
+    
+            return $coments;
+
+    }
+
+    public function getAllOrdenComent($orden){
+        $sort='detalle';
+        $order='ASC';
+    
+        if(isset($orden['sort'])){           ///api/comentarios?sort=id_producto_fk&order=asc
+            $sort= $orden['sort'];
+            if (isset($orden['order'])){
+                $order=$orden['order']; 
+            }
+    
+        }
+         //para evitar inyección SQL
+        $sort = $this->white_list($sort, ["id_comentario","fecha","detalle","puntaje","id_producto_fk"], "Criterio de orden no valido");  
+        $order = $this->white_list($order, ["ASC","DESC","asc","desc"], "Direccion de ORDER BY no valida");    
+    
+    
+            // 1. abro la conexión con MySQL 
+         //   $db = $this->createConection();
+    
+            // 2. enviamos la consulta (3 pasos)
+            $sql="SELECT * FROM comentarios ORDER BY $sort $order";
+            $sentencia = $this->db->prepare($sql); // prepara la consulta
+            $sentencia->execute(); // ejecuta
+            $coments = $sentencia->fetchAll(PDO::FETCH_OBJ); // obtiene la respuesta
+    
+            return $coments;
+
+    }
     
     public function getcomentprod($idcomentprod,$orden=[]){
         $sort='fecha';
