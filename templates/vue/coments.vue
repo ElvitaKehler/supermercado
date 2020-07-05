@@ -13,7 +13,7 @@
 
 
     <table  id="list-coments" class="table table-hover table-dark" style='width:900px'>
-        <tr style='color:orange' v-if="comentarios.length==0"><th scope='col'> No hay comentarios para este producto</th></tr>
+        <tr style='color:orange' v-if="comentarios.length==0"><th scope='col'> No hagit pully comentarios para este producto</th></tr>
         <tr style='color:yellow' v-if="comentarios.length!=0"><th scope='col'>El promedio de las puntuaciones es : {{ promedio }}</th></tr>
          <tr style='color:orange' ><th scope='col'> <a href=""><h3>Fecha</h3></a></th> <th scope='col'> <a href=""><h3>Comentario</h3></a></th> <th scope='col'> <a href=""><h3>Puntuacion</h3></a></th>
         <tr  v-for="comentario in comentarios">
