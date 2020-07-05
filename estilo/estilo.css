@@ -1,8 +1,8 @@
 h1 {
-    color: orange;
+    color: orange !important;
 }
 b {
-    color: orange;
+    color: orange!important; ;
 }
 .titulo{
      color:orange !important;

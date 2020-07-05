@@ -8,11 +8,11 @@
             
             <div class="form-group">
                 <label>Nombre de Usuario</label>
-                    <input name="nombreusuario" type="text" class="form-control">
+                    <input name="nombre_usuario" type="text" class="form-control">
             </div>
             <div class="form-group">
                 <label>Contraseña</label>
-                      <input type="password" name="contraseniaUser" class="form-control">
+                      <input type="password" name="ccontrasenia" class="form-control">
                     
             </div>
              {if $error}

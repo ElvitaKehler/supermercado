@@ -13,6 +13,7 @@ let app =new Vue({
         eliminar: function (id) {
             eliminarcomentario(id);
         },
+       
     },
 });
 
@@ -26,23 +27,44 @@ if (esadmin =="admin" || esadmin =="registrado"){
 };
 }
 cargarcomentarios(idprod);
+
 cargarusuario(esadmin);
 //app.promedio=calcularpromedio(comentarios);
 //alert(app.promedio);
 
 
 
+
 //carga inicial de comentarios
 function cargarcomentarios(idprod){
+    let suma=0;
+    let cont =0;
     fetch('api/productos/'+idprod+'/comentarios')        
      .then(response=>response.json())
      .then(comentarios=>{
          console.log(comentarios);
+<<<<<<< HEAD
          app.comentarios=comentarios;
       
+=======
+       app.comentarios=comentarios;
+       //Calcula el promedio de los puntajes
+       for(let comentario of comentarios){
+        suma += parseInt(comentario.puntaje, 10);
+        cont ++;
+    }
+    app.promedio = parseFloat(suma/cont).toFixed(2);
+       
+       
+>>>>>>> 1127138dcd02af53c3382145e701c01878754194
  
      });
 }
+
+
+
+
+
 
 
 //carga usuario

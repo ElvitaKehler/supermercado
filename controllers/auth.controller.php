@@ -64,8 +64,8 @@ class AuthController{
 
     public function RegistrarUsuario(){       
         $tipo ="registrado";
-        $usuario = $_POST['nombreusuario'];
-        $pass = $_POST['contraseniaUser'];
+        $usuario = $_POST['nombre_usuario'];
+        $pass = $_POST['contrasenia'];
         $hash = password_hash($pass, PASSWORD_DEFAULT);     
     
         //busco si el usuario ya existe
@@ -74,7 +74,8 @@ class AuthController{
        
        if (!($verificado)){
             $this->model->InsertarUsuario($usuario,$hash,$tipo);
-            header("Location: " . BASE_URL . "listar");
+            $this->verifyUser();
+           
         
         }else{
             $msg="Usuario repetido";
