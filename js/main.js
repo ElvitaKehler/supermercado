@@ -49,15 +49,9 @@ function cargarcomentarios(idprod){
      .then(response=>response.json())
      .then(comentarios=>{
          console.log(comentarios);
-<<<<<<< HEAD
-       app.comentarios=comentarios;     
-=======
-<<<<<<< HEAD
-         app.comentarios=comentarios;
-      
-=======
+
        app.comentarios=comentarios;
->>>>>>> 4ba122cbea9e4b60523e499d4fe797e616c6bb76
+
        //Calcula el promedio de los puntajes
        for(let comentario of comentarios){
         suma += parseInt(comentario.puntaje, 10);
@@ -66,8 +60,7 @@ function cargarcomentarios(idprod){
     app.promedio = parseFloat(suma/cont).toFixed(2);
        
        
->>>>>>> 1127138dcd02af53c3382145e701c01878754194
- 
+
      });
 }
 
