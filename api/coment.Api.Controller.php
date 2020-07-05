@@ -42,6 +42,7 @@ class ComentApiController{
       }
       
         $comentprod = $this->model->getcomentprod($idcomentprod,$orden);
+       
         $this->view->response($comentprod, 200);
         
     }

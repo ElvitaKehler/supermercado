@@ -1,6 +1,6 @@
 <?php
 
-require_once('helpers/auth.helper.php');
+
 require_once('views.php');
 
 

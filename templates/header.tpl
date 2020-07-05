@@ -16,10 +16,10 @@
      </head>
 
      <body>
-         <div class="panel panel-primary">
+         <div class="panel panel-primary"><MARQUEE>
              <img src="images/descarga.jpg" class="rounded float-left" height="50" width="50">
              <img src="images/descarga.jpg" class="rounded float-right" height="50" width="50">
-             <h1 class="text-center" style="color:orange"> Supermercado WEB </h1>
+             <h1 class="text-center" style="color:orange"> Supermercado WEB </h1></MARQUEE>
          </div>
 
          <nav class="barranav navbar navbar-expand-lg navbar navbar-dark bg-dark mb-3">

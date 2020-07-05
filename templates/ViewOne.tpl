@@ -17,11 +17,12 @@
 
 
     <tr>
+        {if $User=='admin'}
+        <td scope='col'> <a href="borrarimagen/{$identif->id_producto}" class="btn btn-link"><b style='color:orange'>Borrar Imagen</b> </a>
+        {/if}
         <td>Marca: <b>{strtoupper($identif->marca)}</b> </td>
         <td>Precio: <b>{$identif->precio}</b> </td>
-         {if $User=='admin'}
-        <td scope='col'> <a href="borrarimagen/{$identif->id_producto}" class="btn btn-link"><b style='color:orange'>Borrar Imagen</b> </a>
-         {/if}
+         
     </tr>
     <img src={($identif->imagen)}>
 

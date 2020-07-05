@@ -7,11 +7,17 @@ let app =new Vue({
         footer: "Comentarios renderizados con CSR",
         comentarios:[],
         esadmin:"",
-        promedio:0      
+        promedio:0 ,
+        comentario:[]     
             },
     methods: {
         eliminar: function (id) {
             eliminarcomentario(id);
+        },
+        ordenar: function(id,parametro){
+            console.log(id);
+            console.log(parametro);
+            ordenarcomentario(id,parametro);
         },
        
     },
@@ -40,7 +46,7 @@ function cargarcomentarios(idprod){
      .then(response=>response.json())
      .then(comentarios=>{
          console.log(comentarios);
-       app.comentarios=comentarios;
+       app.comentarios=comentarios;     
        //Calcula el promedio de los puntajes
        for(let comentario of comentarios){
         suma += parseInt(comentario.puntaje, 10);
@@ -51,6 +57,19 @@ function cargarcomentarios(idprod){
        
  
      });
+}
+
+function ordenarcomentario(idprod,parametro){
+    let param= parametro;
+    fetch('api/productos/'+idprod+'/comentarios')        
+     .then(response=>response.json())
+     .then(comentarios=>{
+        for(let comentario of comentarios){
+            console.log(comentario.param);
+        }
+        
+       app.comentarios=comentarios;  
+    });   
 }
 
 
@@ -65,8 +84,8 @@ function cargarusuario(esadmin){
   
 }
 
-//agregar comentarios a un producto
 
+// Elimina un comentario  
 function eliminarcomentario(idcoment){
     fetch('api/comentarios/' + idcoment, {
         method: 'DELETE',
@@ -78,7 +97,7 @@ function eliminarcomentario(idcoment){
     })
     .catch(error => console.log(error));
 }
-
+//agregar comentarios a un producto
 function agregarcomentario(idprod){
    // alert("ingresa a la funcion agregar comentario CON EL IDPROD"+idprod); LLEGA OK Idprod
     let data = {
