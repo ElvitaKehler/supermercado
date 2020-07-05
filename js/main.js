@@ -6,19 +6,19 @@ let app =new Vue({
     data: {
         footer: "Comentarios renderizados con CSR",
         comentarios:[],
-        esadmin:"",
-        promedio:0 ,
-        comentario:[]     
+        esadmin:"" ,
+        promedio:0     
             },
     methods: {
         eliminar: function (id) {
             eliminarcomentario(id);
         },
+        /*
         ordenar: function(id,parametro){
             console.log(id);
             console.log(parametro);
             ordenarcomentario(id,parametro);
-        },
+        },*/
        
     },
 });
@@ -35,6 +35,9 @@ if (esadmin =="admin" || esadmin =="registrado"){
 cargarcomentarios(idprod);
 
 cargarusuario(esadmin);
+//app.promedio=calcularpromedio(comentarios);
+//alert(app.promedio);
+
 
 
 
@@ -46,7 +49,15 @@ function cargarcomentarios(idprod){
      .then(response=>response.json())
      .then(comentarios=>{
          console.log(comentarios);
+<<<<<<< HEAD
        app.comentarios=comentarios;     
+=======
+<<<<<<< HEAD
+         app.comentarios=comentarios;
+      
+=======
+       app.comentarios=comentarios;
+>>>>>>> 4ba122cbea9e4b60523e499d4fe797e616c6bb76
        //Calcula el promedio de los puntajes
        for(let comentario of comentarios){
         suma += parseInt(comentario.puntaje, 10);
@@ -55,6 +66,7 @@ function cargarcomentarios(idprod){
     app.promedio = parseFloat(suma/cont).toFixed(2);
        
        
+>>>>>>> 1127138dcd02af53c3382145e701c01878754194
  
      });
 }
@@ -118,6 +130,12 @@ function agregarcomentario(idprod){
     .catch(error => console.log(error));
  
     
+ }
+
+ function calcularpromedio(comentarios){
+
+    return 9;
+
  }
 
 
