@@ -40,7 +40,7 @@ class AuthController{
              $_SESSION['ID_USER'] = $verificado->id_usuario;
              $_SESSION['USERNAME'] = $verificado->nombre_usuario;
              $_SESSION['TIPO'] =$verificado->tipo;
-            // var_dump($_SESSION);die;
+            
              header("Location: " . BASE_URL . "listar");
 
         }  else {

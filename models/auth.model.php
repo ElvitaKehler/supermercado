@@ -7,11 +7,8 @@ class AuthModel extends Model{
    
 
      public function VerUserRegistrado($usuario) {
+                
         
-        // 1. abro la conexión con MySQL 
-    //    $db = $this->createConection();
-
-        // 2. enviamos la consulta (3 pasos)
         $sentencia = $this->db->prepare("SELECT * FROM usuarios WHERE nombre_usuario=? "); // prepara la consulta
         $sentencia->execute([$usuario]); // ejecuta
         return $sentencia->fetch(PDO::FETCH_OBJ); // obtiene la respuesta
@@ -21,11 +18,6 @@ class AuthModel extends Model{
 
      public function InsertarUsuario($nombre,$mail,$contrasenia,$tipo) {      
         
-                // 1. abro la conexión con MySQL 
-              //  $db = $this->createConection();      
-           
-    
-                // 2. enviamos la consulta
                 $sentencia = $this->db->prepare("INSERT INTO usuarios(nombre_usuario,mail,contrasenia,tipo) VALUES(?,?,?,?)"); // prepara la consulta
                 return $sentencia->execute([$nombre,$mail,$contrasenia,$tipo]); // ejecuta
                 
