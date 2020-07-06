@@ -23,7 +23,8 @@ class AuthView extends Views {
     }
 
     public function showFormEditUser($usuario){
-        $this->smarty->assign("usuario",$usuario);
+      
+        $this->smarty->assign("usuar",$usuario);
         $this->smarty->display('editUser.tpl');   
     }
 

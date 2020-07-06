@@ -96,7 +96,7 @@ class AuthController{
 
     public function editUser($id){
         $usuario=$this->model->getUser($id);        //devuelve los datos del usuario para modificar los cambios
-        //var_dump($usuario);die;       
+             
         $this->view->showFormEditUser($usuario);      
     } 
     

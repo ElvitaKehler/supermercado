@@ -51,7 +51,7 @@
 
         //ACCIONES DE ACCESO USUARIO ADMIN
         
-        case 'permisos':    //Muestra el formulario para insertar producto
+        case 'permisos':    //Muestra el formulario para modificar los permisos de otros usuarios
             $controller = new AuthController();
             $controller->showUsers();  
         break;
