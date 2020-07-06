@@ -1,26 +1,24 @@
 <div class="row">
-        <div class="col-3"></div>
+        
 
-        <div class="col-6">
-
-    <table class="table table-hover table-bordered tabla">
-        <thead class="thead">
-            <tr>
-                <th scope="col">Imagenes del producto</th>
-
-            </tr> 
-          </thead>
-          <tbody class="contenedor-tabla" >
-            {foreach from=$Images item=images}
-              <tr>  
-                  <td scope="col"> <img class="imgchica" src="{$images->direccion}"> </td>
-              </tr>
-            {/foreach}
-          </tbody>
-      </table>
-    </div>
     
-   
-
-{** aca termina el if si es admin mostrar esto **}
+        
+          
+      <table>
+        
+            {foreach from=$imagenes item=imagen}
+              <td>  
+                  <tr> <img class="imgchica" src="{$imagen->path}"> </tr> 
+                  {if $User=='admin'} 
+                      <tr> <a href="borrarimagrubro/{$imagen->id_rubro_fk}/{$imagen->id_imagen}" class="btn btn-link"><b style='color:orange'>Borrar</b> </a>  </tr>
+                           
+                    {/if}
+                   
+              </td>
+              
+            {/foreach}
+          
+      </table>
+    
+ 
 </div>

@@ -16,11 +16,15 @@
      </head>
 
      <body>
-         <div class="panel panel-primary"><MARQUEE>
+        <div class="panel panel-primary"><MARQUEE>
              <img src="images/descarga.jpg" class="rounded float-left" height="50" width="50">
              <img src="images/descarga.jpg" class="rounded float-right" height="50" width="50">
-             <h1 class="text-center" style="color:orange"> Supermercado WEB </h1></MARQUEE>
+             </MARQUEE>
          </div>
+         <div class="panel panel-primary">             
+             <h1 class="text-center" style="color:orange"> Supermercado WEB </h1>
+         </div>
+        
 
          <nav class="barranav navbar navbar-expand-lg navbar navbar-dark bg-dark mb-3">
              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

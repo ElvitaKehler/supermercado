@@ -2,24 +2,24 @@
 require_once 'models/product.model.php';
 require_once 'views/product.view.php';
 require_once 'models/item.model.php';
-require_once 'models/imagenprod.model.php';
 require_once 'helpers/auth.helper.php';
 require_once 'views/error.view.php';
 require_once 'libs/smarty/Smarty.class.php';
+require_once 'models/img.model.php';
 
 class ProductController {
 
     private $model;
     private $view;
     private $modelItem;
-    private $modelImagen;
+    private $modelImg;
     private $viewError;
    
     public function __construct() {
         $this->model = new ProductModel();
         $this->view = new ProductView();
         $this->modelItem = new ItemModel();
-        $this->modelImagen = new ImagenProdModel();
+        $this->modelImg = new ImagenModel();
         $this->viewError = new ErrorView();
     }
 
@@ -32,9 +32,10 @@ class ProductController {
         $this->view->showProduct($productos); // actualizo la vista
     }
 
-    public function showProductsByItem($rubro){
-        $productos=$this->model->getProductsByItem($rubro);
-        $this->view->showProductRubros($productos);  
+    public function showProductsByItem($idrubro){
+        $productos=$this->model->getProductsByItem($idrubro);
+        $imag=$this->modelImg->GetImages($idrubro);
+        $this->view->showProductRubros($productos,$imag);  
     }
     
     public function ViewProduct($id){

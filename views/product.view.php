@@ -18,9 +18,11 @@ class ProductView extends Views {
         
     }
 
-    public function showProductRubros($productos){       
+    public function showProductRubros($productos,$imag){       
         $this->smarty->assign("listProductsByItem", $productos);
+        $this->smarty->assign("imagenes", $imag);
         $this->smarty->display('showProductRubros.tpl');
+        
         
     }
     

@@ -4,6 +4,7 @@ require_once 'models/item.model.php';
 require_once 'views/item.view.php';
 require_once 'helpers/auth.helper.php';
 require_once 'views/error.view.php';
+require_once 'models/img.model.php';
 
 
 class ItemController {
@@ -12,12 +13,15 @@ class ItemController {
     private $view;
     private $viewError;
     private $modelprod;
+    private $modelImg;
 
     public function __construct() {
         $this->model = new ItemModel();
         $this->view = new ItemView();
         $this->modelprod=new ProductModel();
         $this->viewError = new ErrorView();
+        $this->modelImg = new ImagenModel();
+
         
     }
    
@@ -104,4 +108,28 @@ class ItemController {
         header('Location: ' . BASE_URL . "listrubros");
    
     }
+
+    public function addImages($idrubro){
+        $imagenitem = $_FILES['image']["name"];
+        if(!empty($imagenitem)){           
+            $ubimagenrubro = $_FILES['image']["tmp_name"];
+            $nombrefinal ="images/imagesRubros/".uniqid("",true)."."
+            . strtolower(pathinfo($imagenitem,PATHINFO_EXTENSION));            
+            move_uploaded_file($ubimagenrubro,$nombrefinal);
+        }
+       $this->modelImg->agregar($idrubro,$nombrefinal);
+       
+            header('Location: ' . BASE_URL . "productos_por_rubros/$idrubro");
+    }
+
+    public function deleteImagen($idrubro,$id){
+        if (AuthHelper::checkLogged()){
+            $this->modelImg->deleteImage($id);
+            $ruta =$this->modelImg->obtenerRutaImagen($id);
+            unlink($ruta->path);
+            header('Location: ' . BASE_URL . "productos_por_rubros/$idrubro");    
+        }
+       
+    }
 }
+

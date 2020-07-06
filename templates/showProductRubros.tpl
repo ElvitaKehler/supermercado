@@ -1,21 +1,25 @@
 {include 'header.tpl'}
 
+    {include 'images.tpl'} 
     {if  empty($listProductsByItem)}
                 <h1 style='color:orange'>Este rubro no tiene productos</h1> 
                  <div class="text-center "><a class="" href="listrubros"><h3>Volver</h3></a></div>
     {else} 
      
-        <img src="{($listProductsByItem[0]->imagen_rubro)}"> 
+      <!--  <img src="{($listProductsByItem[0]->imagen_rubro)}"> -->
+       
         <table  class="table table-hover table-dark" style='width:900px'>
          <tr ><td><h2 ><b style='color:orange'>Rubro: {strtoupper($listProductsByItem[0]->rubro)}</b></h2> </td></tr> 
         </table> 
+          
             <table  class="table table-hover table-dark" style='width:900px'>
                 <tr style='color:orange'><th scope='col'></th><th scope='col'>Producto</th><th scope='col'>Marca</th><th scope='col'>Precio</th></tr>  
-      
+               
                 {foreach $listProductsByItem item= producto}           
             
                     <tr> 
-                        <td><img src="{($producto->imagen)}"></td>        
+                        <td><img src="{($producto->imagen)}"></td> 
+                           
                         <td><b>{strtoupper($producto->nombre)}</b></td>
                         <td><b>{strtoupper($producto->marca)}</b> </td>
                         <td><b>{$producto->precio}</b> </td>
@@ -30,6 +34,8 @@
             </table>
      
     {/if} 
+   
+      
  {include 'footer.tpl'}              
 
       

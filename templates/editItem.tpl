@@ -17,7 +17,7 @@
                    
             <div class="custom-file margen-abajo">
                 <input type="file" class="custom-file-input" name="imagenrubro">
-                <label class="custom-file-label" >Agregar imagen...</label>
+                <label class="custom-file-label" >Agregar imagen principal para portada del rubro...</label>
             </div>
             </div>
             
@@ -25,6 +25,13 @@
 
             <button type="submit" class="btn btn-dark">Editar</button>
         </form>
-        </div>
+        
+        <form class="my-4" method="post" action="agregarimagrubros/{$item[0]->id_rubro}" enctype="multipart/form-data" id="imagesToUpload">
+          <label for="image">Agregar imágenes adicionales:</label>
+          <input type="file" name="image" id="imageToUpload">
+          <button type="submit" class="btn btn-dark">Agregar</button>
+        </form>
+      </div>      
+    
     
 {include 'footer.tpl'}   

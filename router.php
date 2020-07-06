@@ -3,7 +3,7 @@
     require_once 'controllers/item.controller.php';
     require_once 'controllers/auth.controller.php';
     require_once 'controllers/error.controller.php';
-    require_once 'controllers/images.controller.php';
+    
 
     // definimos la base url de forma dinamica
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -111,14 +111,15 @@
             $controller->deleteImagenProduct($parametros[1]);
         break;
 
-        case 'agregarimagenes':  //agrega imagenes a un producto
-            $controller = new ImagesController();
+        case 'agregarimagrubros':  //agrega imagenes a un rubro
+            $controller = new ItemController();
             $controller->addImages($parametros[1]);
         break;
 
-        case 'borrarimagenes':  //Elimina las imagenes de la tabla imagenes_productos de la BD y del archivo donde esta ubicada
-            $controller = new ImagesController();
-            $controller->deleteImages($parametros[1]);
+        
+        case 'borrarimagrubro':  //Elimina las imagenes de la tabla imagenes_rubros 
+            $controller = new ItemController();
+            $controller->deleteImagen($parametros[1],$parametros[2]); //$parametros[1] = fk $parametros[2]= idimg
         break;
 
         case 'editar_rubro':    //Muestra el formulario para editar un rubro
