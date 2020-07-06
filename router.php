@@ -170,4 +170,12 @@
             $controller = new AuthController();
             $controller-> RegistrarUsuario();
         break;
+        case 'restablecercontra':  //
+            $controller = new AuthController();
+            $controller-> restablecer();
+        break;
+        case 'reenviocontra':  //
+            $controller = new AuthController();
+            $controller-> reenviocontra();
+        break;
     }

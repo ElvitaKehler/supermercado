@@ -15,6 +15,8 @@
                       <input type="password" name="contrasenia" class="form-control">
                     
             </div>
+
+             <a href="restablecercontra">Olvide mi contraseña</a>
              {if $error}
              <div class="alert alert-danger">
                  {$error}

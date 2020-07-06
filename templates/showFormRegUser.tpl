@@ -10,6 +10,10 @@
                 <label>Nombre de Usuario</label>
                     <input name="nombre_usuario" type="text" class="form-control">
             </div>
+             <div class="form-group">
+                <label>Mail:</label>
+                    <input name="mail" type="text" class="form-control">
+            </div>
             <div class="form-group">
                 <label>Contraseña</label>
                       <input type="password" name="ccontrasenia" class="form-control">

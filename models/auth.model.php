@@ -19,15 +19,15 @@ class AuthModel extends Model{
         }
 
 
-     public function InsertarUsuario($nombre,$contrasenia,$tipo) {      
+     public function InsertarUsuario($nombre,$mail,$contrasenia,$tipo) {      
         
                 // 1. abro la conexión con MySQL 
               //  $db = $this->createConection();      
            
     
                 // 2. enviamos la consulta
-                $sentencia = $this->db->prepare("INSERT INTO usuarios(nombre_usuario,contrasenia,tipo) VALUES(?,?,?)"); // prepara la consulta
-                return $sentencia->execute([$nombre,$contrasenia,$tipo]); // ejecuta
+                $sentencia = $this->db->prepare("INSERT INTO usuarios(nombre_usuario,mail,contrasenia,tipo) VALUES(?,?,?,?)"); // prepara la consulta
+                return $sentencia->execute([$nombre,$mail,$contrasenia,$tipo]); // ejecuta
                 
       }
 
@@ -52,5 +52,14 @@ class AuthModel extends Model{
       public function modifyUser($nameUser,$tipo,$id){
         $sentencia = $this->db->prepare("UPDATE usuarios SET  nombre_usuario=? , tipo=?  WHERE id_usuario=?"); // prepara la consulta
         $sentencia->execute([$nameUser,$tipo,$id]);
+      }
+
+      public function buscarmail($mail){
+        $sql = "SELECT usuarios.mail FROM usuarios WHERE mail = ?";
+        $sentencia = $this->db->prepare($sql); // prepara la consulta
+          $sentencia->execute([$mail]); // ejecuta
+          $existe = $sentencia->fetch(PDO::FETCH_OBJ); // obtiene la respuesta
+          return $existe;
+
       }
 }

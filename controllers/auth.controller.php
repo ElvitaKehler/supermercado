@@ -65,6 +65,7 @@ class AuthController{
     public function RegistrarUsuario(){       
         $tipo ="registrado";
         $usuario = $_POST['nombre_usuario'];
+        $mail = $_POST['mail'];
         $pass = $_POST['contrasenia'];
         $hash = password_hash($pass, PASSWORD_DEFAULT);     
     
@@ -73,7 +74,7 @@ class AuthController{
        $verificado=$this->model->VerUserRegistrado($usuario);
        
        if (!($verificado)){
-            $this->model->InsertarUsuario($usuario,$hash,$tipo);
+            $this->model->InsertarUsuario($usuario,$mail,$hash,$tipo);
             $this->verifyUser();
            
         
@@ -109,4 +110,17 @@ class AuthController{
         $this->view->viewUsers($usuarios);
        
     }
+    public function restablecer(){
+        $this->view->showformreestablecer();
+    }
+
+    public function reenviocontra(){
+       $mail=$_POST['mail'];
+       $existe =$this->model->buscarmail($mail);
+       if(!$existe){
+           $msg = "NO existe ese mail registrado";
+           $this->errorview-> showError($msg);
+       } else
+        echo "el usuario esta...";
+        }
 }
