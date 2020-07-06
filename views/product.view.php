@@ -52,5 +52,10 @@ class ProductView extends Views {
         $this->smarty->display('errorProductoRepetido.tpl');
     }
 
+    public function errorAlBorrarProducto($msg){
+        $this->smarty->assign("mensaje", $msg);
+        $this->smarty->display('showError.tpl');
+    }
+
     
 }

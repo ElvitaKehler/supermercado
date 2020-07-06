@@ -1,5 +1,6 @@
 <?php
 require_once 'models/product.model.php';
+require_once 'models/comentarios.model.php';
 require_once 'views/product.view.php';
 require_once 'models/item.model.php';
 require_once 'helpers/auth.helper.php';
@@ -14,6 +15,7 @@ class ProductController {
     private $modelItem;
     private $modelImg;
     private $viewError;
+    private $modelcoment;
    
     public function __construct() {
         $this->model = new ProductModel();
@@ -21,6 +23,7 @@ class ProductController {
         $this->modelItem = new ItemModel();
         $this->modelImg = new ImagenModel();
         $this->viewError = new ErrorView();
+        $this->modelcoment = new ComentModel();
     }
 
     public function inicialPage(){
@@ -94,8 +97,12 @@ class ProductController {
    public function deleteProduct($idproducto){
        if (AuthHelper::checkLogged()){ //Barrera para usuario logueado
             $success = $this->model->borrarProducto($idproducto);
-            if($success)
+            $comentarios=$this->modelcoment->getComentsByProduct($idproducto);           
+            if(empty($comentarios) && $success){
                 header('Location: ' . BASE_URL . "listar");
+            }else{
+                $this->view->errorAlBorrarProducto("No puede borrar el producto porque tiene comentarios, borre los comentarios primero");die;   
+            }
        }
    }
 
