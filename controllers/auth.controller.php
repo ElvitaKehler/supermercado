@@ -116,11 +116,14 @@ class AuthController{
 
     public function reenviocontra(){
        $mail=$_POST['mail'];
-       $existe =$this->model->buscarmail($mail);
+       
+       $existe =$this->model->buscarUsuario($mail);
        if(!$existe){
            $msg = "NO existe ese mail registrado";
            $this->errorview-> showError($msg);
-       } else
+       } else{      
         echo "el usuario esta...";
+        var_dump($existe);die;
         }
+    }
 }

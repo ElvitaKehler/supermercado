@@ -54,8 +54,8 @@ class AuthModel extends Model{
         $sentencia->execute([$nameUser,$tipo,$id]);
       }
 
-      public function buscarmail($mail){
-        $sql = "SELECT usuarios.mail FROM usuarios WHERE mail = ?";
+      public function buscarUsuario($mail){
+        $sql = "SELECT * FROM usuarios WHERE mail = ?";
         $sentencia = $this->db->prepare($sql); // prepara la consulta
           $sentencia->execute([$mail]); // ejecuta
           $existe = $sentencia->fetch(PDO::FETCH_OBJ); // obtiene la respuesta
