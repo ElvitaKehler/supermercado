@@ -102,5 +102,16 @@ class ComentModel extends Model{
         return $lastID;
     }
 
+    public function getComentsByProduct($idproducto){
+        $sql="SELECT * FROM comentarios WHERE comentarios.id_producto_fk=? ";
+        $sentencia = $this->db->prepare($sql); // prepara la consulta          
+
+        $sentencia->execute([$idproducto]); 
+        $coments = $sentencia->fetchAll(PDO::FETCH_OBJ); // obtiene la respuesta
+        
+        return $coments;
+
+    }
+
 }
 
