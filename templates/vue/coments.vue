@@ -15,11 +15,11 @@
     <table  id="list-coments" class="table table-hover table-dark" style='width:900px'>
         <tr style='color:orange' v-if="comentarios.length==0"><th scope='col'> No hay comentarios para este producto</th></tr>
         <tr style='color:yellow' v-if="comentarios.length!=0"><th scope='col'>El promedio de las puntuaciones es : {{ promedio }}</th></tr>
-         <tr style='color:orange' ><th scope='col'> <button v-on:click="ordenar(comentario.fecha)" class="btn btn-dark">Fecha</button></th> <th scope='col'> <button v-on:click="ordenar(comentario.detalle)" class="btn btn-dark">Comentario</button></th> <th scope='col'> <button v-on:click="ordenar(comentario.puntaje)" class="btn btn-dark">Puntuación</button></th>
+         <tr style='color:rgb(253, 252, 250)' ><th scope='col'> Fecha</th> <th scope='col'> Comentario</th> <th scope='col'>Puntuación</th>
         <tr  v-for="comentario in comentarios">
             <td> <b>  {{ comentario.fecha }} </b> </td>
             <td> <b> {{ comentario.detalle }}</b> </td>
-            <td> <b>Puntaje: {{ comentario.puntaje }}</b> </td>
+            <td> <b> {{ comentario.puntaje }}</b> </td>
             <td scope='col'  v-if ="esadmin=='admin'">  <button v-if="esadmin=='admin'" v-on:click="eliminar(comentario.id_comentario)" class="btn btn-dark">Eliminar</button></td>
         </tr>      
     </table>

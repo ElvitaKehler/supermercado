@@ -7,18 +7,13 @@ let app =new Vue({
         footer: "Comentarios renderizados con CSR",
         comentarios:[],
         esadmin:"" ,
-        promedio:0     
+        promedio:0,
+               
             },
     methods: {
         eliminar: function (id) {
             eliminarcomentario(id);
         },
-        /*
-        ordenar: function(id,parametro){
-            console.log(id);
-            console.log(parametro);
-            ordenarcomentario(id,parametro);
-        },*/
        
     },
 });
@@ -32,23 +27,49 @@ if (esadmin =="admin" || esadmin =="registrado"){
     agregarcomentario(idprod);
 };
 }
-cargarcomentarios(idprod);
+
+function ordenar(){
+    let orden= [];
+    let sort = document.querySelector('#sort').value;
+    let order = document.querySelector('#order').value;
+    orden['sort']= sort;
+    orden['order']= order;
+    
+    return orden;    
+        
+    }
+
+let btnorden = document.querySelector('#btnorden');
+btnorden.onclick = function(){
+    cargarcomentarios(idprod, ordenar());
+}
+
+
+cargarcomentarios(idprod, null);
 
 cargarusuario(esadmin);
-//app.promedio=calcularpromedio(comentarios);
-//alert(app.promedio);
-
-
-
 
 //carga inicial de comentarios
-function cargarcomentarios(idprod){
+function cargarcomentarios(idprod,orden){
+    
     let suma=0;
     let cont =0;
-    fetch('api/productos/'+idprod+'/comentarios')        
+    let url;
+    if (orden){
+        let sort = orden['sort'];
+        let order = orden['order'];
+        
+        url= 'api/productos/'+idprod+'/comentarios?sort='+sort+'&'+'order='+order;
+        console.log(url);
+    }else{
+        url= 'api/productos/'+idprod+'/comentarios'; 
+        
+    }
+    
+    fetch(url)        
      .then(response=>response.json())
      .then(comentarios=>{
-         console.log(comentarios);
+       
 
        app.comentarios=comentarios;
 
@@ -63,25 +84,6 @@ function cargarcomentarios(idprod){
 
      });
 }
-
-function ordenarcomentario(idprod,parametro){
-    let param= parametro;
-    fetch('api/productos/'+idprod+'/comentarios')        
-     .then(response=>response.json())
-     .then(comentarios=>{
-        for(let comentario of comentarios){
-            console.log(comentario.param);
-        }
-        
-       app.comentarios=comentarios;  
-    });   
-}
-
-
-
-
-
-
 
 //carga usuario
 function cargarusuario(esadmin){
@@ -104,7 +106,7 @@ function eliminarcomentario(idcoment){
 }
 //agregar comentarios a un producto
 function agregarcomentario(idprod){
-   // alert("ingresa a la funcion agregar comentario CON EL IDPROD"+idprod); LLEGA OK Idprod
+  
     let data = {
         "detalle": document.querySelector("#detalle").value,       
         "puntaje": document.querySelector("#puntaje").value,  //llegan OK los valores del formulario
@@ -125,11 +127,7 @@ function agregarcomentario(idprod){
     
  }
 
- function calcularpromedio(comentarios){
-
-    return 9;
-
- }
+ 
 
 
  

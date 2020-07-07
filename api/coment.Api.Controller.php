@@ -86,33 +86,7 @@ class ComentApiController{
         $this->view->response("La tarea fue agregada correctamente con el id {$idcoment}", 200);
     }
 
-    public function getcomentsOrdenpuntaje(){
-        $orden=[];
 
-        if(isset($_GET['sort'])){           ///api/comentarios?sort=id_producto_fk&order=asc
-            $orden['sort']= $_GET['sort'];
-            if (isset($_GET['order'])){
-                $orden['order']=$_GET['order']; 
-            }
-
-        }
-        $coments = $this->model->getAllOrdenPuntaje($orden);  //traigo todas las tareas
-        $this->view->response($coments,200);
-    }
-
-    public function getcomentsOrdenComent(){
-        $orden=[];
-
-        if(isset($_GET['sort'])){           ///api/comentarios?sort=id_producto_fk&order=asc
-            $orden['sort']= $_GET['sort'];
-            if (isset($_GET['order'])){
-                $orden['order']=$_GET['order']; 
-            }
-
-        }
-        $coments = $this->model->getAllOrdenComent($orden);  //traigo todas las tareas
-        $this->view->response($coments,200);
-    }
 
     
 

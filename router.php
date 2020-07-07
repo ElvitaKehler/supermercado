@@ -156,11 +156,7 @@
             $controller-> endSesion();
         break;
         
-        default: 
-         $controller = new ErrorController();
-         $controller->showError("404 not found");
-        break;
-
+       
     //ACIONES DE REGISTRO
     
         case 'registroUsuario':       // Muestra el formulario de REGISTRO
@@ -180,4 +176,8 @@
             $controller = new AuthController();
             $controller-> reenviocontra();
         break;
+        default: 
+            $controller = new ErrorController();
+            $controller->showError("404 not found");
+       break;
     }

@@ -52,7 +52,7 @@
 
             </select>
         </div>
-        <button class="submit" id="btnagregar" class="btn btn-dark">Guardar</button>
+        <div id="btnagregar" class="btn btn-dark">Guardar</div>
     </form>
 </div>
 
@@ -60,7 +60,24 @@
 <input id="idprod" type="hidden" value={$identif->id_producto}>
 <input id="user" type="hidden" value={$User}>
 
-<div>
+<form>
+<h3>Preferencia de Orden:</h3>
+
+<div class="form-group">
+    <label>Criterio: </label>
+        <select id="sort"  class="form-control">
+            <option value="fecha">Fecha</option>
+            <option value="detalle">Detalle</option>
+            <option value="puntaje">Puntaje</option>
+        </select>
+        <label>Orden: </label>
+        <select id="order"  class="form-control">
+            <option value="ASC">ASCENDENTE</option>
+            <option value="DESC">DESCENDENTE</option>
+        </select>
+</div>
+<div  id="btnorden" class="btn btn-dark">Ordenar</div>
+</form>
 
     {include 'vue/coments.vue'}
 
