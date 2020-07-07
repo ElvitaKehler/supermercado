@@ -45,9 +45,9 @@ btnorden.onclick = function(){
 }
 
 
-cargarcomentarios(idprod, null);
+// cargarcomentarios(idprod, null);
 
-cargarusuario(esadmin);
+// cargarusuario(esadmin);
 
 //carga inicial de comentarios
 function cargarcomentarios(idprod,orden){
@@ -104,12 +104,13 @@ function eliminarcomentario(idcoment){
     })
     .catch(error => console.log(error));
 }
+
 //agregar comentarios a un producto
 function agregarcomentario(idprod){
   
     let data = {
         "detalle": document.querySelector("#detalle").value,       
-        "puntaje": document.querySelector("#puntaje").value,  //llegan OK los valores del formulario
+        "puntaje": document.querySelector("#puntaje").value,  
         "id_producto_fk": idprod
     } 
         
@@ -128,6 +129,11 @@ function agregarcomentario(idprod){
  }
 
  
+
+cargarcomentarios(idprod, null);
+
+cargarusuario(esadmin);
+
 
 
  
