@@ -4,8 +4,6 @@
     <h2>Error</h2>
     <h5>{$mensaje}</h5>
     <img src='images/image supermercado.jpg'height='50' width='50'>
-     <h2 style='color:red'>{$mensaje2}</h2>  
-      <img src='images/images1.jpg'height='300' width='300'>
 </div>
 
  
