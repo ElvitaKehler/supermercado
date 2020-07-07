@@ -1,8 +1,8 @@
 {include 'header.tpl'}
 
  <div class='text-center'>
-    <h2>Error</h2>
-    <h5>{$mensaje}</h5>
+    <h1>Error</h1>
+    <h1>{$mensaje}</h1>
     <img src='images/image supermercado.jpg'height='50' width='50'>
 </div>
 
