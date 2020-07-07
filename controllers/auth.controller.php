@@ -73,7 +73,8 @@ class AuthController{
         
         if (empty($_POST['nombre_usuario']) || empty($_POST['mail']) || empty($_POST['contrasenia'])) {
             $msg="Campos incompletos, intente nuevamente";
-            $this->errorview-> showError($msg);
+            $msg2="¡¡¡ GRACIAS POR TODOOO !!!";
+            $this->errorview-> showError($msg,$msg2);
             die;
         }
        
@@ -89,7 +90,8 @@ class AuthController{
         
         }else{
             $msg="Usuario repetido";
-            $this->errorview-> showError($msg);
+            $msg2="¡¡¡ GRACIAS POR TODOOO !!!";
+            $this->errorview-> showError($msg,$msg2);
         }      
     }
 
@@ -129,7 +131,8 @@ class AuthController{
        $existe =$this->model->buscarUsuario($mail);
        if(!$existe){
            $msg = "NO existe ese mail registrado";
-           $this->errorview-> showError($msg);
+           $msg2="¡¡¡ PROMOCIONENNOS !!!";
+           $this->errorview-> showError($msg,$msg2);
        } else{      
         echo "el usuario esta registrado...";
         var_dump($existe);die;

@@ -11,8 +11,8 @@ class ErrorController{
         
     }
 
-    public function showError($msg){
-        $this->view->showError($msg);
+    public function showError($msg,$msg2=NULL){
+        $this->view->showError($msg,$msg2);
     
        }
 
