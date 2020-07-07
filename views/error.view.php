@@ -10,4 +10,7 @@ class ErrorView extends Views
         $this->smarty->assign("mensaje", $msg);
         $this->smarty->display('showError.tpl');
     }
+    public function viewEgg(){
+        $this->smarty->display('eggs.tpl');
+    }
 }

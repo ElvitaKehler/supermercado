@@ -16,4 +16,9 @@ class ErrorController
     {
         $this->view->showError($msg, $msg2);
     }
+
+    public function showEgg()
+    {
+        $this->view->viewEgg();
+    }
 }
