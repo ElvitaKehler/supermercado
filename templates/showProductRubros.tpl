@@ -1,6 +1,8 @@
 {include 'header.tpl'}
-
+    <div class='row'>
     {include 'images.tpl'} 
+    </div>
+    <div class='row'>
     {if  empty($listProductsByItem)}
                 <h1 style='color:orange'>Este rubro no tiene productos</h1> 
                  <div class="text-center "><a class="" href="listrubros"><h3>Volver</h3></a></div>
@@ -33,7 +35,8 @@
         
             </table>
      
-    {/if} 
+    {/if}
+    </div> 
    
       
  {include 'footer.tpl'}              

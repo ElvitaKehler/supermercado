@@ -69,6 +69,7 @@ class AuthController{
         $usuario = $_POST['nombre_usuario'];
         $mail = $_POST['mail'];
         $pass = $_POST['contrasenia'];
+<<<<<<< HEAD
         $hash = password_hash($pass, PASSWORD_DEFAULT);   
         
         if (empty($_POST['nombre_usuario']) || empty($_POST['mail']) || empty($_POST['contrasenia'])) {
@@ -78,6 +79,13 @@ class AuthController{
         }
        
         
+=======
+        $hash = password_hash($pass, PASSWORD_DEFAULT);     
+    if(empty($tipo) || empty($usuario) || empty($mail) || empty($pass)){
+        $msg="Campos incompletos";
+        $this->errorview-> showError($msg);die;
+    }
+>>>>>>> sergio
         //busco si el usuario ya existe
                            
        $verificado=$this->model->VerUserRegistrado($usuario);
