@@ -29,10 +29,10 @@ class ComentApiController{
 
     }
 
-    public function getcomentone($params = []){
+    public function getcomentone($params = []){         //trae todos los comentarios de un producto en part.
       $idcomentprod = $params[':ID'];
       $orden=[];
-
+      
       if(isset($_GET['sort'])){           ///api/comentarios?sort=id_producto_fk&order=asc
           $orden['sort']= $_GET['sort'];
           if (isset($_GET['order'])){

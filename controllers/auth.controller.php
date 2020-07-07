@@ -63,12 +63,21 @@ class AuthController{
     }
 
     public function RegistrarUsuario(){       
+             
+
         $tipo ="registrado";
         $usuario = $_POST['nombre_usuario'];
         $mail = $_POST['mail'];
         $pass = $_POST['contrasenia'];
-        $hash = password_hash($pass, PASSWORD_DEFAULT);     
-    
+        $hash = password_hash($pass, PASSWORD_DEFAULT);   
+        
+        if (empty($_POST['nombre_usuario']) || empty($_POST['mail']) || empty($_POST['contrasenia'])) {
+            $msg="Campos incompletos, intente nuevamente";
+            $this->errorview-> showError($msg);
+            die;
+        }
+       
+        
         //busco si el usuario ya existe
                            
        $verificado=$this->model->VerUserRegistrado($usuario);
@@ -122,7 +131,7 @@ class AuthController{
            $msg = "NO existe ese mail registrado";
            $this->errorview-> showError($msg);
        } else{      
-        echo "el usuario esta...";
+        echo "el usuario esta registrado...";
         var_dump($existe);die;
         }
     }

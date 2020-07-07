@@ -60,7 +60,7 @@ function cargarcomentarios(idprod,orden){
         let order = orden['order'];
         
         url= 'api/productos/'+idprod+'/comentarios?sort='+sort+'&'+'order='+order;
-        console.log(url);
+        
     }else{
         url= 'api/productos/'+idprod+'/comentarios'; 
         
@@ -119,8 +119,8 @@ function agregarcomentario(idprod){
         body: JSON.stringify(data)
     })
     .then(response => {
-        cargarcomentarios(idprod);
-        alert(" Se agregó comentario con para el producto con el id producto "+idproducto);
+        cargarcomentarios(idprod,null);
+       
     })
     .catch(error => console.log(error));
  
