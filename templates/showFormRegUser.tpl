@@ -16,7 +16,7 @@
             </div>
             <div class="form-group">
                 <label>Contraseña</label>
-                      <input type="password" name="ccontrasenia" class="form-control">
+                      <input type="password" name="contrasenia" class="form-control">
                     
             </div>
              {if $error}

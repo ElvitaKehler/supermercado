@@ -122,7 +122,7 @@ class ItemController {
             header('Location: ' . BASE_URL . "productos_por_rubros/$idrubro");
     }
 
-    public function deleteImagen($idrubro,$id){
+    public function deleteImagen($idrubro,$id){       
         if (AuthHelper::checkLogged()){
             $this->modelImg->deleteImage($id);
             $ruta =$this->modelImg->obtenerRutaImagen($id);
