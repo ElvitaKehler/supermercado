@@ -17,9 +17,9 @@
 
      <body>
         <div class="panel panel-primary"><MARQUEE>
-             <img src="images/descarga.jpg" class="rounded float-left" height="50" width="50">
-             <h1>¿  es-TUDAI o no es-TUDAI  ?   ¡¡esTUDAImos mucho para esto !!
-             <img src="images/descarga.jpg" class="rounded float-right" height="50" width="50">
+            <a href="easteregg"> <img src="images/descarga.jpg" class="rounded float-left" height="50" width="50"> </a>
+             
+            <a href="easteregg"> <img src="images/descarga.jpg" class="rounded float-right" height="50" width="50"> </a>
              </MARQUEE>
          </div>
          <div class="panel panel-primary">             

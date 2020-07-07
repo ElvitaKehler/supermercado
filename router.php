@@ -176,6 +176,10 @@
             $controller = new AuthController();
             $controller-> reenviocontra();
         break;
+        case 'easteregg':
+            $controller = new ErrorController();
+            $controller->showEgg();
+       break;
         default: 
             $controller = new ErrorController();
             $controller->showError("404 not found");
