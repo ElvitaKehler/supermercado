@@ -118,8 +118,10 @@
 
         
         case 'borrarimagrubro':  //Elimina las imagenes de la tabla imagenes_rubros 
+           
             $controller = new ItemController();
             $controller->deleteImagen($parametros[1],$parametros[2]); //$parametros[1] = fk $parametros[2]= idimg
+           
         break;
 
         case 'editar_rubro':    //Muestra el formulario para editar un rubro
