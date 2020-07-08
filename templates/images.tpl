@@ -1,6 +1,8 @@
 
 
   <div class="container">
+  <div class="row">
+   <div class="col-6">
             <div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
 
                 <ol class="carousel-indicators">
@@ -39,4 +41,6 @@
                 </a>
             </div>
            
-  </div>    
+  </div>
+   </div> 
+   </div>   
