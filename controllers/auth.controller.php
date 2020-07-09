@@ -103,8 +103,17 @@ class AuthController
 
     public function deleteUser($user)
     {
+    
+    $usuario=$this->model->getUser($user);
+    
+    if($user!=$_SESSION ["ID_USER"] && ($usuario->tipo!="admin")){
         $this->model->delUser($user);
         $this->showUsers();
+    }else{
+        $msg = "No puedes eliminar un Usuario Administrador o eliminarte";
+        $this->errorview->showError($msg);die;
+    }
+       
     }
 
     public function editUser($id)
@@ -117,8 +126,20 @@ class AuthController
     {
         $idUser = $_POST['iduser'];
         $tipo = $_POST['tipo'];
-        $this->model->modifyUser($tipo, $idUser);
-        $this->showUsers();
+        $usuario=$this->model->getUser($idUser);
+        //var_dump($usuario);die;
+        if($usuario->tipo=="admin"&& $idUser!=$_SESSION ["ID_USER"]){
+            $msg = "No puedes editar un Usuario Administrador ";
+            $this->errorview->showError($msg);die;
+        }
+        if($idUser!=$_SESSION ["ID_USER"]){
+            $this->model->modifyUser($tipo, $idUser);
+            $this->showUsers();
+        }else{
+            $this->model->modifyUser($tipo, $idUser);
+            $this->endSesion();
+        }
+        
     }
     public function restablecer()
     {

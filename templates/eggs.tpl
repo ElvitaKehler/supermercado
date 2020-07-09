@@ -2,7 +2,7 @@
  <div class='text-center'>
     <h1 style='color:orange'>¿es-TUDAI o no es-TUDAI?.... ¡¡esTUDAImos mucho para lograrlo!!</h1>
     
-    <img src='images/tudai.jpeg'>
+    <img src='images/tudai.jpg'>
 </div>
 
          
