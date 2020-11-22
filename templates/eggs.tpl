@@ -1,6 +1,6 @@
 
  <div class='text-center'>
-    <h1 style='color:orange'>¿es-TUDAI o no es-TUDAI?.... ¡¡esTUDAImos mucho para lograrlo!!</h1>
+    <h1 style='color:orange'> ¡¡¡    AGUANTE - TUDAI - RAUCH    !!! </h1>
     
     <img src='images/tudai.jpg'>
 </div>
